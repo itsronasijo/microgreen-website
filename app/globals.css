@@ -1,1 +1,14 @@
 
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(to bottom, #dcfce7, #f0fdf4, #ffffff);
+}
