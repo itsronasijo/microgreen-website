@@ -61,7 +61,8 @@ export default function Home() {
 
     {
       name: "Amaranthus Red",
-      image: "https://images.unsplash.com/photo-1502741338009-cac2772e18bc",
+      image:"/amaranthusred.png",
+       
       prices: {
         "50g": 269,
         "100g": 489,
