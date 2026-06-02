@@ -1,4 +1,4 @@
-```tsx
+```tsx id="j8n9bx"
 export default function Home() {
   return (
     <main className="min-h-screen bg-black text-white flex items-center justify-center">
