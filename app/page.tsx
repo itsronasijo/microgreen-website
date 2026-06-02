@@ -1,7 +1,7 @@
 export default function Home() {
 return ( <main className="min-h-screen bg-black text-white">
 
-
+```
   {/* Navbar */}
   <header className="fixed top-0 left-0 w-full z-50 bg-black/50 backdrop-blur-lg border-b border-green-900">
 
@@ -10,7 +10,7 @@ return ( <main className="min-h-screen bg-black text-white">
       {/* Logo */}
       <div className="flex items-center gap-4">
 
-        <div className="bg-green-500/10 p-2 rounded-2xl border border-green-500/20 shadow-lg shadow-green-500/20">
+        <div className="bg-white p-3 rounded-2xl shadow-lg shadow-green-500/20">
 
           <img
             src="/logo.png"
@@ -47,7 +47,7 @@ return ( <main className="min-h-screen bg-black text-white">
 
       </nav>
 
-      {/* Shop Button */}
+      {/* Button */}
       <button className="bg-green-500 hover:bg-green-600 transition px-5 py-3 rounded-xl text-black font-bold shadow-lg shadow-green-500/30">
         Shop Now
       </button>
@@ -96,65 +96,6 @@ return ( <main className="min-h-screen bg-black text-white">
 
       </div>
 
-      {/* Features */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
-
-        <div className="flex items-center gap-4">
-
-          <div className="text-4xl text-green-400">
-            🌱
-          </div>
-
-          <div>
-            <h3 className="font-bold text-lg">
-              100% Organic
-            </h3>
-
-            <p className="text-gray-400 text-sm">
-              No chemicals
-            </p>
-          </div>
-
-        </div>
-
-        <div className="flex items-center gap-4">
-
-          <div className="text-4xl text-green-400">
-            💪
-          </div>
-
-          <div>
-            <h3 className="font-bold text-lg">
-              Nutrient Rich
-            </h3>
-
-            <p className="text-gray-400 text-sm">
-              Packed with vitamins
-            </p>
-          </div>
-
-        </div>
-
-        <div className="flex items-center gap-4">
-
-          <div className="text-4xl text-green-400">
-            🚚
-          </div>
-
-          <div>
-            <h3 className="font-bold text-lg">
-              Fresh Delivery
-            </h3>
-
-            <p className="text-gray-400 text-sm">
-              Farm to doorstep
-            </p>
-          </div>
-
-        </div>
-
-      </div>
-
     </div>
 
     {/* Right Side */}
@@ -183,7 +124,7 @@ return ( <main className="min-h-screen bg-black text-white">
   </section>
 
 </main>
-
+```
 
 );
 }
