@@ -157,6 +157,61 @@ return (
     </div>
 
   </section>
+    {/* Products Section */}
+
+{[
+  "Sunflower",
+  "Mustard Yellow",
+  "Radish",
+  "Chia",
+  "Fenugreek",
+  "Beetroot",
+].map((item) => (
+  <div
+    key={item}
+    className="bg-white/5 border border-white/10 rounded-3xl overflow-hidden backdrop-blur-lg hover:border-green-500 hover:scale-105 transition duration-500"
+  >
+
+    <img
+      src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd"
+      alt={item}
+      className="w-full h-64 object-cover"
+    />
+
+    <div className="p-6">
+
+      <div className="flex justify-between items-center mb-4">
+
+        <h3 className="text-2xl font-bold text-green-400">
+          {item} Microgreens
+        </h3>
+
+        <span className="bg-green-500 text-black text-sm px-3 py-1 rounded-full font-bold">
+          Organic
+        </span>
+
+      </div>
+
+      <p className="text-gray-400 mb-6">
+        Fresh organic microgreens packed with nutrients and natural flavor.
+      </p>
+
+      <div className="flex justify-between items-center">
+
+        <span className="text-2xl font-bold">
+          ₹199
+        </span>
+
+        <button className="bg-green-500 hover:bg-green-600 text-black px-5 py-2 rounded-xl font-semibold transition">
+          Buy Now
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+))}
 
 </main>
 
