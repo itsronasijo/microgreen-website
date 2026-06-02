@@ -1,8 +1,7 @@
 export default function Home() {
-return (
+return ( <main className="min-h-screen bg-black text-white">
 
-
-
+```
   {/* Navbar */}
   <header className="fixed top-0 left-0 w-full z-50 bg-black/40 backdrop-blur-lg border-b border-green-900">
     <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-5">
@@ -159,6 +158,7 @@ return (
   </section>
 
 </main>
+```
 
 );
 }
