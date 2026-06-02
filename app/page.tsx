@@ -10,7 +10,7 @@ return ( <main className="min-h-screen bg-black text-white">
       {/* Logo */}
       <div className="flex items-center gap-4">
 
-        <div className="bg-white p-3 rounded-2xl shadow-lg shadow-green-500/20">
+        <div className="bg-green-500/10 p-2 rounded-2xl border border-green-500/20 shadow-lg shadow-green-500/20">
 
           <img
             src="/logo1.png"
