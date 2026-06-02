@@ -32,16 +32,15 @@ return (
     </div>
   </header>
 
-  {/* Hero Section */}
+  {/* Hero */}
   <section
     id="home"
     className="min-h-screen grid md:grid-cols-2 gap-10 items-center px-8 md:px-16 pt-32"
   >
 
-    {/* Left Side */}
     <div>
 
-      <p className="text-green-400 tracking-widest mb-4">
+      <p className="text-green-400 mb-4 tracking-widest">
         Fresh • Organic • Nutrient Rich
       </p>
 
@@ -52,13 +51,13 @@ return (
       </h1>
 
       <p className="text-gray-400 text-lg mb-8 max-w-xl">
-        Fresh organic microgreens packed with nutrients,
-        flavor, and sustainable goodness for your everyday meals.
+        Fresh organic microgreens packed with vitamins,
+        minerals, and freshness delivered directly to your table.
       </p>
 
       <div className="flex gap-5">
 
-        <button className="bg-green-500 hover:bg-green-600 transition px-7 py-3 rounded-2xl text-black font-bold glow">
+        <button className="bg-green-500 hover:bg-green-600 transition px-7 py-3 rounded-2xl text-black font-bold">
           Shop Now
         </button>
 
@@ -70,19 +69,12 @@ return (
 
     </div>
 
-    {/* Right Side */}
     <div className="relative">
 
       <img
         src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd"
         alt="Microgreens"
         className="rounded-3xl shadow-2xl hover:scale-105 transition duration-500"
-      />
-
-      <img
-        src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe"
-        alt="Healthy Food"
-        className="absolute -bottom-10 -left-10 w-44 rounded-3xl border-4 border-green-500 hover:scale-105 transition duration-500"
       />
 
       <div className="absolute top-5 right-5 bg-green-500 text-black px-4 py-2 rounded-2xl font-bold animate-bounce">
@@ -106,7 +98,7 @@ return (
 
     <div className="grid md:grid-cols-4 gap-8">
 
-      <div className="bg-white/5 border border-white/10 backdrop-blur-lg p-8 rounded-3xl hover:border-green-500 hover:-translate-y-2 transition duration-500">
+      <div className="bg-white/5 border border-white/10 p-8 rounded-3xl">
         <div className="text-5xl mb-5">🌱</div>
 
         <h3 className="text-2xl font-bold text-green-400 mb-4">
@@ -118,7 +110,7 @@ return (
         </p>
       </div>
 
-      <div className="bg-white/5 border border-white/10 backdrop-blur-lg p-8 rounded-3xl hover:border-green-500 hover:-translate-y-2 transition duration-500">
+      <div className="bg-white/5 border border-white/10 p-8 rounded-3xl">
         <div className="text-5xl mb-5">🌿</div>
 
         <h3 className="text-2xl font-bold text-green-400 mb-4">
@@ -130,7 +122,7 @@ return (
         </p>
       </div>
 
-      <div className="bg-white/5 border border-white/10 backdrop-blur-lg p-8 rounded-3xl hover:border-green-500 hover:-translate-y-2 transition duration-500">
+      <div className="bg-white/5 border border-white/10 p-8 rounded-3xl">
         <div className="text-5xl mb-5">🚚</div>
 
         <h3 className="text-2xl font-bold text-green-400 mb-4">
@@ -142,7 +134,7 @@ return (
         </p>
       </div>
 
-      <div className="bg-white/5 border border-white/10 backdrop-blur-lg p-8 rounded-3xl hover:border-green-500 hover:-translate-y-2 transition duration-500">
+      <div className="bg-white/5 border border-white/10 p-8 rounded-3xl">
         <div className="text-5xl mb-5">♻️</div>
 
         <h3 className="text-2xl font-bold text-green-400 mb-4">
@@ -157,61 +149,114 @@ return (
     </div>
 
   </section>
-    {/* Products Section */}
 
-{[
-  "Sunflower",
-  "Mustard Yellow",
-  "Radish",
-  "Chia",
-  "Fenugreek",
-  "Beetroot",
-].map((item) => (
-  <div
-    key={item}
-    className="bg-white/5 border border-white/10 rounded-3xl overflow-hidden backdrop-blur-lg hover:border-green-500 hover:scale-105 transition duration-500"
+  {/* Products */}
+  <section
+    id="products"
+    className="px-8 md:px-16 py-24"
   >
 
-    <img
-      src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd"
-      alt={item}
-      className="w-full h-64 object-cover"
-    />
+    <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
+      Featured
+      <span className="text-green-400"> Products</span>
+    </h2>
 
-    <div className="p-6">
+    <div className="grid md:grid-cols-3 gap-10">
 
-      <div className="flex justify-between items-center mb-4">
+      {[
+        "Sunflower",
+        "Mustard Yellow",
+        "Radish",
+        "Chia",
+        "Fenugreek",
+        "Beetroot"
+      ].map((item) => (
 
-        <h3 className="text-2xl font-bold text-green-400">
-          {item} Microgreens
-        </h3>
+        <div
+          key={item}
+          className="bg-white/5 border border-white/10 rounded-3xl overflow-hidden hover:border-green-500 transition duration-500"
+        >
 
-        <span className="bg-green-500 text-black text-sm px-3 py-1 rounded-full font-bold">
-          Organic
-        </span>
+          <img
+            src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd"
+            alt={item}
+            className="w-full h-64 object-cover"
+          />
 
-      </div>
+          <div className="p-6">
 
-      <p className="text-gray-400 mb-6">
-        Fresh organic microgreens packed with nutrients and natural flavor.
-      </p>
+            <h3 className="text-2xl font-bold text-green-400 mb-3">
+              {item} Microgreens
+            </h3>
 
-      <div className="flex justify-between items-center">
+            <p className="text-gray-400 mb-5">
+              Fresh organic microgreens packed with nutrients and flavor.
+            </p>
 
-        <span className="text-2xl font-bold">
-          ₹199
-        </span>
+            <div className="flex justify-between items-center">
 
-        <button className="bg-green-500 hover:bg-green-600 text-black px-5 py-2 rounded-xl font-semibold transition">
-          Buy Now
-        </button>
+              <span className="text-xl font-bold">
+                ₹199
+              </span>
 
-      </div>
+              <button className="bg-green-500 hover:bg-green-600 text-black px-5 py-2 rounded-xl">
+                Buy
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      ))}
 
     </div>
 
-  </div>
-))}
+  </section>
+
+  {/* Contact */}
+  <section
+    id="contact"
+    className="px-8 md:px-16 py-24"
+  >
+
+    <div className="max-w-3xl mx-auto bg-white/5 border border-white/10 rounded-3xl p-10">
+
+      <h2 className="text-4xl font-bold text-center mb-10">
+        Contact
+        <span className="text-green-400"> Us</span>
+      </h2>
+
+      <form className="space-y-6">
+
+        <input
+          type="text"
+          placeholder="Your Name"
+          className="w-full bg-black border border-white/10 rounded-xl px-5 py-4"
+        />
+
+        <input
+          type="email"
+          placeholder="Your Email"
+          className="w-full bg-black border border-white/10 rounded-xl px-5 py-4"
+        />
+
+        <textarea
+          placeholder="Your Message"
+          rows={5}
+          className="w-full bg-black border border-white/10 rounded-xl px-5 py-4"
+        />
+
+        <button className="w-full bg-green-500 hover:bg-green-600 text-black py-4 rounded-xl font-bold">
+          Send Message
+        </button>
+
+      </form>
+
+    </div>
+
+  </section>
 
 </main>
 
