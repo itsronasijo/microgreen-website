@@ -20,6 +20,16 @@ export default function Home() {
     },
 
     {
+      name: "Chia Seed",
+      image: "https://images.unsplash.com/photo-1511690743698-d9d85f2fbf38",
+      prices: {
+        "50g": 219,
+        "100g": 399,
+        "250g": 729,
+      },
+    },
+
+    {
       name: "Beetroot",
       image: "https://images.unsplash.com/photo-1576045057995-568f588f82fb",
       prices: {
@@ -150,7 +160,7 @@ export default function Home() {
 
           {/* LOGO */}
           <img
-            src="/logo.png"
+            src="/logo1.png"
             alt="Logo"
             className="h-28 md:h-32 object-contain"
           />
@@ -389,205 +399,109 @@ export default function Home() {
 
       </section>
 
-      {/* CONTACT */}
-      <section
-        id="contact"
-        className="px-8 md:px-16 py-24"
-      >
-
-        <div className="max-w-3xl mx-auto bg-white/5 border border-white/10 rounded-3xl p-10">
-
-          <h2 className="text-4xl font-bold text-center mb-10">
-
-            Contact
-            <span className="text-green-400">
-              {" "}Us
-            </span>
-
-          </h2>
-
-          <form className="space-y-6">
-
-            <input
-              type="text"
-              placeholder="Your Name"
-              className="w-full bg-black border border-white/10 rounded-xl px-5 py-4"
-            />
-
-            <input
-              type="email"
-              placeholder="Your Email"
-              className="w-full bg-black border border-white/10 rounded-xl px-5 py-4"
-            />
-
-            <textarea
-              placeholder="Your Message"
-              rows={5}
-              className="w-full bg-black border border-white/10 rounded-xl px-5 py-4"
-            />
-
-            <button className="w-full bg-green-500 hover:bg-green-600 text-black py-4 rounded-xl font-bold">
-
-              Send Message
-
-            </button>
-
-          </form>
-
-        </div>
-
-      </section>
-
       {/* FOOTER */}
-      <footer className="border-t border-white/10 px-8 md:px-16 py-10 text-center text-gray-500">
+      <footer className="border-t border-white/10 px-8 md:px-16 py-16 bg-black">
 
-        © 2026 Verde Microgreens. All rights reserved.
+        <div className="grid md:grid-cols-4 gap-10">
 
-      </footer>
+          {/* Logo */}
+          <div>
 
-      {/* BACKDROP */}
-      {cartOpen && (
+            <img
+              src="/logo.png"
+              alt="Logo"
+              className="h-24 mb-4"
+            />
 
-        <div
-          onClick={() => setCartOpen(false)}
-          className="fixed inset-0 bg-black/70 z-40"
-        ></div>
-
-      )}
-
-      {/* CART */}
-      <div
-        className={`fixed top-0 right-0 h-full w-full md:w-[450px] bg-black border-l border-green-500 z-50 p-8 overflow-y-auto transition-transform duration-500 ${
-          cartOpen
-            ? "translate-x-0"
-            : "translate-x-full"
-        }`}
-      >
-
-        <div className="flex justify-between items-center mb-10">
-
-          <h2 className="text-4xl font-bold">
-
-            Your
-            <span className="text-green-400">
-              {" "}Cart
-            </span>
-
-          </h2>
-
-          <button
-            onClick={() => setCartOpen(false)}
-            className="text-3xl"
-          >
-            ✕
-          </button>
-
-        </div>
-
-        <div className="space-y-6">
-
-          {cart.map((item, index) => (
-
-            <div
-              key={index}
-              className="bg-white/5 border border-white/10 rounded-2xl p-5"
-            >
-
-              <div className="flex gap-4">
-
-                <img
-                  src={item.image}
-                  alt={item.name}
-                  className="w-24 h-24 object-cover rounded-xl"
-                />
-
-                <div className="flex-1">
-
-                  <h3 className="text-xl font-bold text-green-400">
-                    {item.name}
-                  </h3>
-
-                  <p className="text-gray-400">
-                    {item.pack}
-                  </p>
-
-                  <p className="text-xl font-bold mt-2">
-                    ₹{item.price}
-                  </p>
-
-                  {/* QTY */}
-                  <div className="flex items-center gap-3 mt-4">
-
-                    <button
-                      onClick={() => decreaseQty(index)}
-                      className="bg-red-500 w-8 h-8 rounded-lg"
-                    >
-                      -
-                    </button>
-
-                    <span className="font-bold">
-                      {item.quantity}
-                    </span>
-
-                    <button
-                      onClick={() => increaseQty(index)}
-                      className="bg-green-500 text-black w-8 h-8 rounded-lg"
-                    >
-                      +
-                    </button>
-
-                  </div>
-
-                </div>
-
-                <button
-                  onClick={() => removeItem(index)}
-                  className="bg-red-500 px-3 py-2 rounded-xl h-fit"
-                >
-                  ✕
-                </button>
-
-              </div>
-
-            </div>
-
-          ))}
-
-        </div>
-
-        {/* TOTAL */}
-        <div className="border-t border-white/10 mt-10 pt-6">
-
-          <div className="flex justify-between items-center mb-8">
-
-            <h3 className="text-3xl font-bold">
-              Total
-            </h3>
-
-            <span className="text-3xl font-bold text-green-400">
-              ₹{total}
-            </span>
+            <p className="text-gray-400 leading-relaxed">
+              Premium organic microgreens grown fresh
+              for healthy living and sustainable nutrition.
+            </p>
 
           </div>
 
-          <button className="w-full bg-green-500 hover:bg-green-600 text-black py-4 rounded-2xl font-bold text-xl">
+          {/* Quick Links */}
+          <div>
 
-            Pay with Razorpay
+            <h3 className="text-2xl font-bold text-green-400 mb-5">
+              Quick Links
+            </h3>
 
-          </button>
+            <div className="flex flex-col gap-3 text-gray-400">
+
+              <a href="#home" className="hover:text-green-400 transition">
+                Home
+              </a>
+
+              <a href="#products" className="hover:text-green-400 transition">
+                Products
+              </a>
+
+              <a href="#recipes" className="hover:text-green-400 transition">
+                Recipes
+              </a>
+
+              <a href="#contact" className="hover:text-green-400 transition">
+                Contact
+              </a>
+
+            </div>
+
+          </div>
+
+          {/* Products */}
+          <div>
+
+            <h3 className="text-2xl font-bold text-green-400 mb-5">
+              Popular Greens
+            </h3>
+
+            <div className="flex flex-col gap-3 text-gray-400">
+
+              <p>Sunflower</p>
+              <p>Beetroot</p>
+              <p>Mustard Green</p>
+              <p>Amaranthus Red</p>
+
+            </div>
+
+          </div>
+
+          {/* Contact */}
+          <div>
+
+            <h3 className="text-2xl font-bold text-green-400 mb-5">
+              Contact
+            </h3>
+
+            <div className="space-y-3 text-gray-400">
+
+              <p>hello@verdegreens.com</p>
+
+              <p>+91 9876543210</p>
+
+              <p>@verde.microgreens</p>
+
+              <button className="bg-green-500 hover:bg-green-600 transition px-5 py-3 rounded-xl text-black font-bold mt-4">
+
+                Subscribe
+
+              </button>
+
+            </div>
+
+          </div>
 
         </div>
 
-      </div>
+        {/* Bottom */}
+        <div className="border-t border-white/10 mt-12 pt-6 text-center text-gray-500">
 
-      {/* WHATSAPP */}
-      <a
-        href="https://wa.me/919876543210"
-        target="_blank"
-        className="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 w-16 h-16 rounded-full flex items-center justify-center text-3xl shadow-2xl shadow-green-500/40 z-50"
-      >
-        💬
-      </a>
+          © 2026 Verde Microgreens. All rights reserved.
+
+        </div>
+
+      </footer>
 
     </main>
 
