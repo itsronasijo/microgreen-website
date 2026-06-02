@@ -503,7 +503,169 @@ export default function Home() {
         </div>
 
       </footer>
+{/* BACKDROP */}
+{cartOpen && (
 
+  <div
+    onClick={() => setCartOpen(false)}
+    className="fixed inset-0 bg-black/70 z-40"
+  ></div>
+
+)}
+
+{/* CART SIDEBAR */}
+<div
+  className={`fixed top-0 right-0 h-full w-full md:w-[450px] bg-black border-l border-green-500 z-50 p-8 overflow-y-auto transition-transform duration-500 ${
+    cartOpen
+      ? "translate-x-0"
+      : "translate-x-full"
+  }`}
+>
+
+  {/* TOP */}
+  <div className="flex justify-between items-center mb-10">
+
+    <h2 className="text-4xl font-bold">
+
+      Your
+      <span className="text-green-400">
+        {" "}Cart
+      </span>
+
+    </h2>
+
+    <button
+      onClick={() => setCartOpen(false)}
+      className="text-3xl"
+    >
+      ✕
+    </button>
+
+  </div>
+
+  {/* EMPTY CART */}
+  {cart.length === 0 && (
+
+    <p className="text-gray-400">
+      Your cart is empty.
+    </p>
+
+  )}
+
+  {/* CART ITEMS */}
+  <div className="space-y-6">
+
+    {cart.map((item, index) => (
+
+      <div
+        key={index}
+        className="bg-white/5 border border-white/10 rounded-2xl p-5"
+      >
+
+        <div className="flex gap-4">
+
+          {/* IMAGE */}
+          <img
+            src={item.image}
+            alt={item.name}
+            className="w-24 h-24 object-cover rounded-xl"
+          />
+
+          {/* DETAILS */}
+          <div className="flex-1">
+
+            <h3 className="text-xl font-bold text-green-400">
+              {item.name}
+            </h3>
+
+            <p className="text-gray-400">
+              {item.pack}
+            </p>
+
+            <p className="text-xl font-bold mt-2">
+              ₹{item.price}
+            </p>
+
+            {/* QUANTITY */}
+            <div className="flex items-center gap-3 mt-4">
+
+              <button
+                onClick={() => decreaseQty(index)}
+                className="bg-red-500 w-8 h-8 rounded-lg"
+              >
+                -
+              </button>
+
+              <span className="font-bold">
+                {item.quantity}
+              </span>
+
+              <button
+                onClick={() => increaseQty(index)}
+                className="bg-green-500 text-black w-8 h-8 rounded-lg"
+              >
+                +
+              </button>
+
+            </div>
+
+          </div>
+
+          {/* REMOVE */}
+          <button
+            onClick={() => removeItem(index)}
+            className="bg-red-500 px-3 py-2 rounded-xl h-fit"
+          >
+            ✕
+          </button>
+
+        </div>
+
+      </div>
+
+    ))}
+
+  </div>
+
+  {/* TOTAL */}
+  <div className="border-t border-white/10 mt-10 pt-6">
+
+    <div className="flex justify-between items-center mb-8">
+
+      <h3 className="text-3xl font-bold">
+        Total
+      </h3>
+
+      <span className="text-3xl font-bold text-green-400">
+        ₹{total}
+      </span>
+
+    </div>
+
+    {/* PAYMENT BUTTON */}
+    <button
+      className="w-full bg-green-500 hover:bg-green-600 text-black py-4 rounded-2xl font-bold text-xl"
+      onClick={() =>
+        alert("Razorpay Integration Coming Soon")
+      }
+    >
+
+      Pay with Razorpay
+
+    </button>
+
+  </div>
+
+</div>
+
+{/* WHATSAPP BUTTON */}
+<a
+  href="https://wa.me/919876543210"
+  target="_blank"
+  className="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 w-16 h-16 rounded-full flex items-center justify-center text-3xl shadow-2xl shadow-green-500/40 z-50"
+>
+  💬
+</a>
     </main>
 
   );
