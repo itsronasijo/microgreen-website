@@ -43,10 +43,20 @@ return ( <main className="min-h-screen bg-black text-white">
 
       </nav>
 
-      {/* Button */}
-      <button className="bg-green-500 hover:bg-green-600 transition px-5 py-3 rounded-xl text-black font-bold shadow-lg shadow-green-500/30">
-        Shop Now
-      </button>
+      {/* Right Side */}
+      <div className="flex items-center gap-5">
+
+        {/* Mobile Menu */}
+        <button className="md:hidden text-3xl text-green-400">
+          ☰
+        </button>
+
+        {/* Shop Button */}
+        <button className="bg-green-500 hover:bg-green-600 transition px-5 py-3 rounded-xl text-black font-bold shadow-lg shadow-green-500/30">
+          Shop Now
+        </button>
+
+      </div>
 
     </div>
 
@@ -180,7 +190,7 @@ return ( <main className="min-h-screen bg-black text-white">
 
   </section>
 
-  {/* Products Section */}
+  {/* Products */}
   <section
     id="products"
     className="px-8 md:px-16 py-24"
@@ -253,7 +263,7 @@ return ( <main className="min-h-screen bg-black text-white">
 
   </section>
 
-  {/* Recipes Section */}
+  {/* Recipes */}
   <section
     id="recipes"
     className="px-8 md:px-16 py-24"
@@ -356,6 +366,96 @@ return ( <main className="min-h-screen bg-black text-white">
         </div>
 
       ))}
+
+    </div>
+
+  </section>
+
+  {/* Shopping Cart */}
+  <section className="px-8 md:px-16 py-24">
+
+    <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
+      Shopping
+      <span className="text-green-400"> Cart</span>
+    </h2>
+
+    <div className="max-w-5xl mx-auto bg-white/5 border border-white/10 rounded-3xl p-10">
+
+      <div className="space-y-6">
+
+        {[
+          "Sunflower Microgreens",
+          "Radish Microgreens",
+        ].map((item) => (
+
+          <div
+            key={item}
+            className="flex flex-col md:flex-row justify-between items-center bg-black/40 border border-white/10 rounded-2xl p-5"
+          >
+
+            <div>
+
+              <h3 className="text-2xl font-bold text-green-400 mb-2">
+                {item}
+              </h3>
+
+              <p className="text-gray-400">
+                Fresh organic microgreens
+              </p>
+
+            </div>
+
+            <div className="flex items-center gap-6 mt-5 md:mt-0">
+
+              <span className="text-xl font-bold">
+                ₹199
+              </span>
+
+              <button className="bg-red-500 hover:bg-red-600 px-4 py-2 rounded-xl font-bold">
+                Remove
+              </button>
+
+            </div>
+
+          </div>
+
+        ))}
+
+      </div>
+
+      <div className="flex justify-between items-center mt-10 border-t border-white/10 pt-6">
+
+        <h3 className="text-3xl font-bold">
+          Total
+        </h3>
+
+        <span className="text-3xl font-bold text-green-400">
+          ₹398
+        </span>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  {/* Razorpay */}
+  <section className="px-8 md:px-16 pb-24">
+
+    <div className="max-w-4xl mx-auto bg-white/5 border border-white/10 rounded-3xl p-10 text-center">
+
+      <h2 className="text-4xl font-bold mb-8">
+        Secure
+        <span className="text-green-400"> Checkout</span>
+      </h2>
+
+      <p className="text-gray-400 text-lg mb-10">
+        Pay securely using Razorpay, UPI, Cards, Net Banking, and Wallets.
+      </p>
+
+      <button className="bg-green-500 hover:bg-green-600 transition px-10 py-4 rounded-2xl text-black font-bold text-xl shadow-lg shadow-green-500/30">
+        Pay with Razorpay
+      </button>
 
     </div>
 
@@ -467,6 +567,15 @@ return ( <main className="min-h-screen bg-black text-white">
     </div>
 
   </footer>
+
+  {/* WhatsApp Floating Button */}
+  <a
+    href="https://wa.me/919876543210"
+    target="_blank"
+    className="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 w-16 h-16 rounded-full flex items-center justify-center text-3xl shadow-2xl shadow-green-500/40 z-50 transition duration-500 hover:scale-110"
+  >
+    💬
+  </a>
 
 </main>
 
