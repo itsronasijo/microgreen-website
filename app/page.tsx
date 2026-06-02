@@ -13,7 +13,7 @@ return ( <main className="min-h-screen bg-black text-white">
         <div className="bg-white p-3 rounded-2xl shadow-lg shadow-green-500/20">
 
           <img
-            src="/logotransperant.png"
+            src="/logo1.png"
             alt="Verde Logo"
             className="h-20 md:h-24 w-auto object-contain"
           />
