@@ -515,7 +515,7 @@ export default function Home() {
 
 {/* CART SIDEBAR */}
 <div
-className={`fixed top-0 right-0 h-full w-[85%] md:w-[360px] bg-black border-l border-green-500 z-50 p-6 overflow-y-auto transition-all duration-500 ease-in-out ${    cartOpen
+className={`fixed top-0 right-0 h-full w-[65%] md:w-[360px] bg-black border-l border-green-500 z-50 p-6 overflow-y-auto transition-all duration-500 ease-in-out ${    cartOpen
       ? "translate-x-0"
       : "translate-x-full"
   }`}
