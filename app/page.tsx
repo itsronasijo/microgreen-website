@@ -40,7 +40,6 @@ setCart((prev) => [...prev, { ...product, pack }]);
 
 const removeFromCart = (index: number) => {
 
-
 const updated = [...cart];
 updated.splice(index, 1);
 setCart(updated);
@@ -102,7 +101,7 @@ return (
           className="relative text-3xl"
         >
 
-          
+          🛒
 
           <span className="absolute -top-2 -right-3 bg-green-500 text-black text-sm px-2 rounded-full font-bold">
             {cart.length}
@@ -283,44 +282,6 @@ return (
       <span className="text-green-400"> Recipes</span>
     </h2>
 
-    <div className="grid md:grid-cols-4 gap-8">
-
-      {[
-        "Salad Bowl",
-        "Smoothie",
-        "Healthy Wrap",
-        "Sandwich"
-      ].map((recipe) => (
-
-        <div
-          key={recipe}
-          className="bg-white/5 border border-white/10 rounded-3xl overflow-hidden"
-        >
-
-          <img
-            src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe"
-            alt={recipe}
-            className="w-full h-56 object-cover"
-          />
-
-          <div className="p-6">
-
-            <h3 className="text-2xl font-bold text-green-400 mb-3">
-              {recipe}
-            </h3>
-
-            <p className="text-gray-400">
-              Healthy recipe using fresh organic microgreens.
-            </p>
-
-          </div>
-
-        </div>
-
-      ))}
-
-    </div>
-
   </section>
 
   {/* Contact */}
@@ -373,93 +334,109 @@ return (
 
   </footer>
 
-  {/* Cart Sidebar */}
+  {/* BACKDROP */}
   {cartOpen && (
 
-    <div className="fixed top-0 right-0 w-full md:w-[450px] h-full bg-black border-l border-green-500 z-50 p-8 overflow-y-auto">
+    <div
+      onClick={() => setCartOpen(false)}
+      className="fixed inset-0 bg-black/70 z-40"
+    ></div>
 
-      <div className="flex justify-between items-center mb-10">
+  )}
 
-        <h2 className="text-4xl font-bold">
-          Your
-          <span className="text-green-400"> Cart</span>
-        </h2>
+  {/* Cart Sidebar */}
+  <div
+    className={`fixed top-0 right-0 h-full w-full md:w-[450px] bg-black border-l border-green-500 z-50 p-8 overflow-y-auto transition-transform duration-500 ${
+      cartOpen ? "translate-x-0" : "translate-x-full"
+    }`}
+  >
 
-        <button
-          onClick={() => setCartOpen(false)}
-          className="text-3xl"
-        >
-          
-        </button>
+    <div className="flex justify-between items-center mb-10">
 
-      </div>
+      <h2 className="text-4xl font-bold">
+        Your
+        <span className="text-green-400"> Cart</span>
+      </h2>
 
-      <div className="space-y-6">
-
-        {cart.map((item, index) => (
-
-          <div
-            key={index}
-            className="bg-white/5 border border-white/10 rounded-2xl p-5"
-          >
-
-            <div className="flex justify-between items-start">
-
-              <div>
-
-                <h3 className="text-2xl font-bold text-green-400">
-                  {item.name}
-                </h3>
-
-                <p className="text-gray-400">
-                  Pack: {item.pack}
-                </p>
-
-                <p className="text-xl font-bold mt-2">
-                  ₹{item.price}
-                </p>
-
-              </div>
-
-              <button
-                onClick={() => removeFromCart(index)}
-                className="bg-red-500 px-4 py-2 rounded-xl font-bold"
-              >
-                Remove
-              </button>
-
-            </div>
-
-          </div>
-
-        ))}
-
-      </div>
-
-      <div className="border-t border-white/10 mt-10 pt-6">
-
-        <div className="flex justify-between items-center mb-8">
-
-          <h3 className="text-3xl font-bold">
-            Total
-          </h3>
-
-          <span className="text-3xl font-bold text-green-400">
-            ₹{total}
-          </span>
-
-        </div>
-
-        {/* Razorpay */}
-        <button className="w-full bg-green-500 hover:bg-green-600 text-black py-4 rounded-2xl font-bold text-xl">
-          Pay with Razorpay
-        </button>
-
-      </div>
+      <button
+        onClick={() => setCartOpen(false)}
+        className="text-3xl"
+      >
+        ✕
+      </button>
 
     </div>
 
-  )}
+    <div className="space-y-6">
+
+      {cart.length === 0 && (
+        <p className="text-gray-400">
+          Your cart is empty.
+        </p>
+      )}
+
+      {cart.map((item, index) => (
+
+        <div
+          key={index}
+          className="bg-white/5 border border-white/10 rounded-2xl p-5"
+        >
+
+          <div className="flex justify-between items-start">
+
+            <div>
+
+              <h3 className="text-2xl font-bold text-green-400">
+                {item.name}
+              </h3>
+
+              <p className="text-gray-400">
+                Pack: {item.pack}
+              </p>
+
+              <p className="text-xl font-bold mt-2">
+                ₹{item.price}
+              </p>
+
+            </div>
+
+            <button
+              onClick={() => removeFromCart(index)}
+              className="bg-red-500 px-4 py-2 rounded-xl font-bold"
+            >
+              Remove
+            </button>
+
+          </div>
+
+        </div>
+
+      ))}
+
+    </div>
+
+    <div className="border-t border-white/10 mt-10 pt-6">
+
+      <div className="flex justify-between items-center mb-8">
+
+        <h3 className="text-3xl font-bold">
+          Total
+        </h3>
+
+        <span className="text-3xl font-bold text-green-400">
+          ₹{total}
+        </span>
+
+      </div>
+
+      {/* Razorpay */}
+      <button className="w-full bg-green-500 hover:bg-green-600 text-black py-4 rounded-2xl font-bold text-xl">
+        Pay with Razorpay
+      </button>
+
+    </div>
+
+  </div>
 
   {/* WhatsApp */}
   <a
@@ -467,7 +444,7 @@ return (
     target="_blank"
     className="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 w-16 h-16 rounded-full flex items-center justify-center text-3xl shadow-2xl shadow-green-500/40 z-50"
   >
-    
+    💬
   </a>
 
 </main>
