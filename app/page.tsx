@@ -1,7 +1,6 @@
 export default function Home() {
 return ( <main className="min-h-screen bg-black text-white">
 
-```
   {/* Navbar */}
   <header className="fixed top-0 left-0 w-full z-50 bg-black/40 backdrop-blur-lg border-b border-green-900">
 
@@ -177,7 +176,7 @@ return ( <main className="min-h-screen bg-black text-white">
   </section>
 
 </main>
-```
+
 
 );
 }
