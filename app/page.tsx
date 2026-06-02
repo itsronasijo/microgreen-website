@@ -11,7 +11,7 @@ export default function Home() {
 
     {
       name: "Sunflower",
-      image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd",
+      image:"/sunflower.png",
       prices: {
         "50g": 199,
         "100g": 349,
@@ -21,7 +21,7 @@ export default function Home() {
 
     {
       name: "Chia Seed",
-      image: "https://images.unsplash.com/photo-1511690743698-d9d85f2fbf38",
+     image:"/chia.png",
       prices: {
         "50g": 219,
         "100g": 399,
@@ -31,7 +31,7 @@ export default function Home() {
 
     {
       name: "Beetroot",
-      image: "https://images.unsplash.com/photo-1576045057995-568f588f82fb",
+      image:"/beetroot.png",
       prices: {
         "50g": 229,
         "100g": 399,
@@ -41,7 +41,7 @@ export default function Home() {
 
     {
       name: "Turnip",
-      image: "https://images.unsplash.com/photo-1467453678174-768ec283a940",
+     image:"/turnip.png",
       prices: {
         "50g": 189,
         "100g": 339,
@@ -51,7 +51,7 @@ export default function Home() {
 
     {
       name: "Mustard Green",
-      image: "https://images.unsplash.com/photo-1498837167922-ddd27525d352",
+     image:"/mustardgreen.png",
       prices: {
         "50g": 249,
         "100g": 449,
