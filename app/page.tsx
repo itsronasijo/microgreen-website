@@ -4,7 +4,7 @@ import { useState } from "react";
 
 export default function Home() {
 
-  const [cart, setCart] = useState<any[]>([]);
+  
   const [cartOpen, setCartOpen] = useState(false);
   const [ingredients, setIngredients] =
   useState("");
