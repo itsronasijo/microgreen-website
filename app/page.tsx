@@ -471,7 +471,7 @@ const [loading, setLoading] =
 
     </div>
 
-    {/* OUTPUT */}
+  {/* OUTPUT */}
 {recipe && (
 
   <div className="mt-12 bg-gradient-to-br from-black to-green-950 border border-green-500/20 rounded-3xl overflow-hidden shadow-2xl shadow-green-900/20">
@@ -493,26 +493,29 @@ const [loading, setLoading] =
       </h3>
 
       <div className="space-y-4 text-lg leading-relaxed text-gray-200">
-{recipe
-  .replaceAll("**", "")
-  .split("\n")
-  .filter(
-    (line) => line.trim() !== ""
-  )
-  .map((line, index) => {
-    return (
 
-      <div
-        key={index}
-        className="border-b border-white/5 pb-3"
-      >
+        {recipe
+          .replace(/\*\*/g, "")
+          .split("\n")
+          .filter(
+            (line) => line.trim() !== ""
+          )
+          .map((line, index) => {
 
-        {line}
+            return (
 
-      </div>
+              <div
+                key={index}
+                className="border-b border-white/5 pb-3"
+              >
 
-    );
-  })}
+                {line}
+
+              </div>
+
+            );
+
+          })}
 
       </div>
 
@@ -522,8 +525,7 @@ const [loading, setLoading] =
 
 )}
 
-</section>
-      {/* FOOTER */}
+</section>      {/* FOOTER */}
       <footer className="border-t border-white/10 px-8 md:px-16 py-16 bg-black">
 
         <div className="grid md:grid-cols-4 gap-10">
