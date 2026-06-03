@@ -776,7 +776,7 @@ className={`fixed top-0 right-0 h-full w-[65%] md:w-[360px] bg-black border-l bo
   💬
 </a>
 
-      {/* FLOATING AI RECIPE BUTTON */}
+    {/* FLOATING AI RECIPE BUTTON */}
 <a
   href="#recipes"
   className="fixed bottom-24 right-6 z-50 group"
@@ -788,7 +788,7 @@ className={`fixed top-0 right-0 h-full w-[65%] md:w-[360px] bg-black border-l bo
     <div className="absolute inset-0 bg-green-500 blur-2xl opacity-40 rounded-full"></div>
 
     {/* Button */}
-    <div className="relative bg-red/80 backdrop-blur-xl border border-green-500 px-6 py-4 rounded-full flex items-center gap-3 shadow-2xl shadow-green-500/30 hover:scale-105 transition duration-300">
+    <div className="relative  bg-red-500/90 backdrop-blur-xl border border-green-500 px-6 py-4 rounded-full flex items-center gap-3 shadow-2xl shadow-green-500/30 hover:scale-105 transition duration-300">
 
       {/* Spark Icon */}
       <span className="text-2xl animate-bounce">
@@ -798,7 +798,7 @@ className={`fixed top-0 right-0 h-full w-[65%] md:w-[360px] bg-black border-l bo
       {/* Text */}
       <span className="text-green-400 font-bold hidden md:block">
 
-        Cook With AI
+        Cook With What You Have
 
       </span>
 
@@ -806,8 +806,7 @@ className={`fixed top-0 right-0 h-full w-[65%] md:w-[360px] bg-black border-l bo
 
   </div>
 
-</a>
-    </main>
+</a>    </main>
 
   );
 }
