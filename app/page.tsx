@@ -122,7 +122,10 @@ const [loading, setLoading] =
     }
 
   };
-  //aaaaaaaaaaaaaaaaai receipie
+
+
+
+  
   const generateRecipe = async () => {
 
   try {
@@ -160,7 +163,7 @@ const [loading, setLoading] =
 
   }
 
-};/////end of receipe
+};
 
   const increaseQty = (index: number) => {
 
@@ -445,7 +448,10 @@ const [loading, setLoading] =
           ))}
 
         </div>
-        //////////////////////////////////////////////////////////////////
+
+
+
+        
           {/* RECIPES */}
       <section
         id="recipes"
