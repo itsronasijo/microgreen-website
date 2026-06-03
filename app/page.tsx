@@ -472,17 +472,52 @@ const [loading, setLoading] =
     </div>
 
     {/* OUTPUT */}
-    {recipe && (
+{recipe && (
 
-      <div className="mt-12 bg-black/40 border border-white/10 rounded-3xl p-8 whitespace-pre-wrap leading-relaxed text-gray-200">
+  <div className="mt-12 bg-gradient-to-br from-black to-green-950 border border-green-500/20 rounded-3xl overflow-hidden shadow-2xl shadow-green-900/20">
 
-        {recipe}
+    {/* IMAGE */}
+    <img
+      src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe"
+      alt="Generated Recipe"
+      className="w-full h-80 object-cover"
+    />
+
+    {/* CONTENT */}
+    <div className="p-10">
+
+      <h3 className="text-4xl font-bold text-green-400 mb-8">
+
+        AI Generated Recipe
+
+      </h3>
+
+      <div className="space-y-4 text-lg leading-relaxed text-gray-200">
+
+        {recipe
+          .replaceAll("**", "")
+          .split("\n")
+          .filter((line) => line.trim() !== "")
+          .map((line, index) => (
+
+            <div
+              key={index}
+              className="border-b border-white/5 pb-3"
+            >
+
+              {line}
+
+            </div>
+
+          ))}
 
       </div>
 
-    )}
+    </div>
 
   </div>
+
+)}
 
 </section>
       {/* FOOTER */}
