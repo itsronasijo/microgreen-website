@@ -14,7 +14,7 @@ const [recipe, setRecipe] =
 
 const [loading, setLoading] =
   useState(false);
-  const [cartOpen, setCartOpen] = useState(false);
+  
 
   const products = [
 
