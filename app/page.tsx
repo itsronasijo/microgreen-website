@@ -377,73 +377,52 @@ const [loading, setLoading] =
 
       </section>
 
-     {/* RECIPES */}
+{/* RECIPES */}
 <section
   id="recipes"
   className="px-8 md:px-16 py-24"
 >
 
-  <h2 className="text-5xl font-bold text-center mb-16">
+  {/* TITLE */}
+  <h2 className="text-5xl font-bold text-center mb-6">
 
-    Healthy
+    AI Powered
     <span className="text-green-400">
       {" "}Recipes
     </span>
 
   </h2>
 
-  {/* RECIPE CARDS */}
-  <div className="grid md:grid-cols-4 gap-8">
+  <p className="text-center text-gray-400 max-w-3xl mx-auto mb-20 text-lg">
+
+    Discover healthy recipes using fresh microgreens
+    or generate your own recipe instantly using AI.
+
+  </p>
+
+  {/* RECIPE IMAGES */}
+  <div className="grid md:grid-cols-4 gap-8 mb-24">
 
     {[
-      {
-        name: "Salad Bowl",
-        image:
-          "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe",
-      },
+      "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe",
 
-      {
-        name: "Smoothie",
-        image:
-          "https://images.unsplash.com/photo-1502741338009-cac2772e18bc",
-      },
+      "https://images.unsplash.com/photo-1502741338009-cac2772e18bc",
 
-      {
-        name: "Healthy Wrap",
-        image:
-          "https://images.unsplash.com/photo-1529042410759-befb1204b468",
-      },
+      "https://images.unsplash.com/photo-1529042410759-befb1204b468",
 
-      {
-        name: "Sandwich",
-        image:
-          "https://images.unsplash.com/photo-1528735602780-2552fd46c7af",
-      },
-
-    ].map((recipe) => (
+      "https://images.unsplash.com/photo-1528735602780-2552fd46c7af",
+    ].map((image, index) => (
 
       <div
-        key={recipe.name}
-        className="bg-white/5 border border-white/10 rounded-3xl overflow-hidden hover:border-green-500 transition"
+        key={index}
+        className="overflow-hidden rounded-3xl border border-white/10 hover:border-green-500 transition group"
       >
 
         <img
-          src={recipe.image}
-          alt={recipe.name}
-          className="w-full h-56 object-cover"
+          src={image}
+          alt="Recipe"
+          className="w-full h-72 object-cover group-hover:scale-110 transition duration-700"
         />
-
-        <div className="p-6">
-
-          <h3 className="text-2xl font-bold text-green-400 mb-3">
-            {recipe.name}
-          </h3>
-
-          <p className="text-gray-400">
-            Healthy recipe using fresh organic microgreens.
-          </p>
-
-        </div>
 
       </div>
 
@@ -452,6 +431,10 @@ const [loading, setLoading] =
   </div>
 
   {/* AI RECIPE GENERATOR */}
+  <div className="max-w-5xl mx-auto bg-white/5 border border-white/10 rounded-3xl p-10">
+
+    <h3 className="text-4xl font-bold mb-6 text-center">
+
   <div className="max-w-5xl mx-auto bg-white/5 border border-white/10 rounded-3xl p-10 mt-24">
 
     <h3 className="text-4xl font-bold mb-6 text-center">
