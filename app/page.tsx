@@ -493,23 +493,26 @@ const [loading, setLoading] =
       </h3>
 
       <div className="space-y-4 text-lg leading-relaxed text-gray-200">
+{recipe
+  .replaceAll("**", "")
+  .split("\n")
+  .filter(
+    (line) => line.trim() !== ""
+  )
+  .map((line, index) => {
+    return (
 
-        {recipe
-          .replaceAll("**", "")
-          .split("\n")
-          .filter((line) => line.trim() !== "")
-          .map((line, index) => (
+      <div
+        key={index}
+        className="border-b border-white/5 pb-3"
+      >
 
-            <div
-              key={index}
-              className="border-b border-white/5 pb-3"
-            >
+        {line}
 
-              {line}
+      </div>
 
-            </div>
-
-          ))}
+    );
+  })}
 
       </div>
 
