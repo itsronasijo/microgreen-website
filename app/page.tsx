@@ -377,157 +377,138 @@ const [loading, setLoading] =
 
       </section>
 
-      {/* RECIPES */}
-      <section
-        id="recipes"
-        className="px-8 md:px-16 py-24"
+     {/* RECIPES */}
+<section
+  id="recipes"
+  className="px-8 md:px-16 py-24"
+>
+
+  <h2 className="text-5xl font-bold text-center mb-16">
+
+    Healthy
+    <span className="text-green-400">
+      {" "}Recipes
+    </span>
+
+  </h2>
+
+  {/* RECIPE CARDS */}
+  <div className="grid md:grid-cols-4 gap-8">
+
+    {[
+      {
+        name: "Salad Bowl",
+        image:
+          "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe",
+      },
+
+      {
+        name: "Smoothie",
+        image:
+          "https://images.unsplash.com/photo-1502741338009-cac2772e18bc",
+      },
+
+      {
+        name: "Healthy Wrap",
+        image:
+          "https://images.unsplash.com/photo-1529042410759-befb1204b468",
+      },
+
+      {
+        name: "Sandwich",
+        image:
+          "https://images.unsplash.com/photo-1528735602780-2552fd46c7af",
+      },
+
+    ].map((recipe) => (
+
+      <div
+        key={recipe.name}
+        className="bg-white/5 border border-white/10 rounded-3xl overflow-hidden hover:border-green-500 transition"
       >
 
-        <h2 className="text-5xl font-bold text-center mb-16">
+        <img
+          src={recipe.image}
+          alt={recipe.name}
+          className="w-full h-56 object-cover"
+        />
 
-          Healthy
-          <span className="text-green-400">
-            {" "}Recipes
-          </span>
+        <div className="p-6">
 
-        </h2>
+          <h3 className="text-2xl font-bold text-green-400 mb-3">
+            {recipe.name}
+          </h3>
 
-        <div className="grid md:grid-cols-4 gap-8">
-
-          {[
-            {
-              name: "Salad Bowl",
-              image:
-                "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe",
-            },
-
-            {
-              name: "Smoothie",
-              image:
-                "https://images.unsplash.com/photo-1502741338009-cac2772e18bc",
-            },
-
-            {
-              name: "Healthy Wrap",
-              image:
-                "https://images.unsplash.com/photo-1529042410759-befb1204b468",
-            },
-
-            {
-              name: "Sandwich",
-              image:
-                "https://images.unsplash.com/photo-1528735602780-2552fd46c7af",
-            },
-          ].map((recipe) => (
-
-            <div
-              key={recipe.name}
-              className="bg-white/5 border border-white/10 rounded-3xl overflow-hidden hover:border-green-500 transition"
-            >
-
-              <img
-                src={recipe.image}
-                alt={recipe.name}
-                className="w-full h-56 object-cover"
-              />
-
-              <div className="p-6">
-
-                <h3 className="text-2xl font-bold text-green-400 mb-3">
-                  {recipe.name}
-                </h3>
-
-                <p className="text-gray-400">
-                  Healthy recipe using fresh organic microgreens.
-                </p>
-
-              </div>
-
-            </div>
-
-          ))}
+          <p className="text-gray-400">
+            Healthy recipe using fresh organic microgreens.
+          </p>
 
         </div>
 
+      </div>
 
+    ))}
 
-        
-          {/* RECIPES */}
-      <section
-        id="recipes"
-        className="px-8 md:px-16 py-24"
+  </div>
+
+  {/* AI RECIPE GENERATOR */}
+  <div className="max-w-5xl mx-auto bg-white/5 border border-white/10 rounded-3xl p-10 mt-24">
+
+    <h3 className="text-4xl font-bold mb-6 text-center">
+
+      AI Recipe
+      <span className="text-green-400">
+        {" "}Generator
+      </span>
+
+    </h3>
+
+    <p className="text-gray-400 text-center mb-8">
+
+      Enter ingredients you already have and generate a healthy recipe instantly.
+
+    </p>
+
+    {/* INPUT */}
+    <textarea
+      value={ingredients}
+      onChange={(e) =>
+        setIngredients(e.target.value)
+      }
+      placeholder="Example: bread, cheese, tomato, egg"
+      className="w-full bg-black border border-green-500 rounded-2xl px-6 py-5 min-h-[150px] mb-6"
+    />
+
+    {/* BUTTON */}
+    <div className="text-center">
+
+      <button
+        onClick={generateRecipe}
+        className="bg-green-500 hover:bg-green-600 transition text-black px-8 py-4 rounded-2xl font-bold"
       >
 
-        <h2 className="text-5xl font-bold text-center mb-16">
+        {loading
+          ? "Generating..."
+          : "Generate Recipe"}
 
-          Healthy
-          <span className="text-green-400">
-            {" "}Recipes
-          </span>
+      </button>
 
-        </h2>
+    </div>
 
-        <div className="grid md:grid-cols-4 gap-8">
+    {/* OUTPUT */}
+    {recipe && (
 
-          {[
-            {
-              name: "Salad Bowl",
-              image:
-                "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe",
-            },
+      <div className="mt-10 bg-black/40 border border-white/10 rounded-3xl p-8 whitespace-pre-wrap leading-relaxed">
 
-            {
-              name: "Smoothie",
-              image:
-                "https://images.unsplash.com/photo-1502741338009-cac2772e18bc",
-            },
+        {recipe}
 
-            {
-              name: "Healthy Wrap",
-              image:
-                "https://images.unsplash.com/photo-1529042410759-befb1204b468",
-            },
+      </div>
 
-            {
-              name: "Sandwich",
-              image:
-                "https://images.unsplash.com/photo-1528735602780-2552fd46c7af",
-            },
-          ].map((recipe) => (
+    )}
 
-            <div
-              key={recipe.name}
-              className="bg-white/5 border border-white/10 rounded-3xl overflow-hidden hover:border-green-500 transition"
-            >
+  </div>
 
-              <img
-                src={recipe.image}
-                alt={recipe.name}
-                className="w-full h-56 object-cover"
-              />
-
-              <div className="p-6">
-
-                <h3 className="text-2xl font-bold text-green-400 mb-3">
-                  {recipe.name}
-                </h3>
-
-                <p className="text-gray-400">
-                  Healthy recipe using fresh organic microgreens.
-                </p>
-
-              </div>
-
-            </div>
-
-          ))}
-
-        </div>
-
-      </section>
-
-
-     
+</section>     
 
       {/* FOOTER */}
       <footer className="border-t border-white/10 px-8 md:px-16 py-16 bg-black">
