@@ -29,17 +29,10 @@ export async function POST(req: Request) {
           {
             role: "user",
 
-            content: `
-Create a healthy recipe using:
-${ingredients}
-
-Return:
-1. Recipe Name
-2. Ingredients
-3. Steps
-4. Nutrition Tips
-5. Best Microgreen Pairing
-`,
+            content:
+              "Create a healthy recipe using these ingredients: " +
+              ingredients +
+              ". Return Recipe Name, Ingredients, Steps, Nutrition Tips, and Best Microgreen Pairing.",
           },
 
         ],
@@ -47,14 +40,21 @@ Return:
       });
 
     return Response.json({
+
       recipe:
         completion.choices[0].message.content,
+
     });
 
   } catch (error) {
 
+    console.log(error);
+
     return Response.json({
-      error: "Failed to generate recipe",
+
+      error:
+        "Failed to generate recipe",
+
     });
 
   }
