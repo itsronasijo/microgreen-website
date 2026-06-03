@@ -435,20 +435,13 @@ const [loading, setLoading] =
 
     <h3 className="text-4xl font-bold mb-6 text-center">
 
-  <div className="max-w-5xl mx-auto bg-white/5 border border-white/10 rounded-3xl p-10 mt-24">
-
-    <h3 className="text-4xl font-bold mb-6 text-center">
-
-      AI Recipe
-      <span className="text-green-400">
-        {" "}Generator
-      </span>
+      ✨ AI Recipe Generator
 
     </h3>
 
-    <p className="text-gray-400 text-center mb-8">
+    <p className="text-gray-400 text-center mb-8 text-lg">
 
-      Enter ingredients you already have and generate a healthy recipe instantly.
+      Enter ingredients you already have and let AI create a healthy recipe for you.
 
     </p>
 
@@ -458,8 +451,8 @@ const [loading, setLoading] =
       onChange={(e) =>
         setIngredients(e.target.value)
       }
-      placeholder="Example: bread, cheese, tomato, egg"
-      className="w-full bg-black border border-green-500 rounded-2xl px-6 py-5 min-h-[150px] mb-6"
+      placeholder="Example: bread, tomato, cheese, egg"
+      className="w-full bg-black border border-green-500 rounded-2xl px-6 py-5 min-h-[160px] mb-8"
     />
 
     {/* BUTTON */}
@@ -467,12 +460,12 @@ const [loading, setLoading] =
 
       <button
         onClick={generateRecipe}
-        className="bg-green-500 hover:bg-green-600 transition text-black px-8 py-4 rounded-2xl font-bold"
+        className="bg-green-700 hover:bg-green-800 transition text-black px-10 py-5 rounded-full font-bold shadow-2xl shadow-green-700/40 hover:scale-105 duration-300"
       >
 
         {loading
           ? "Generating..."
-          : "Generate Recipe"}
+          : "Generate Healthy Recipe"}
 
       </button>
 
@@ -481,7 +474,7 @@ const [loading, setLoading] =
     {/* OUTPUT */}
     {recipe && (
 
-      <div className="mt-10 bg-black/40 border border-white/10 rounded-3xl p-8 whitespace-pre-wrap leading-relaxed">
+      <div className="mt-12 bg-black/40 border border-white/10 rounded-3xl p-8 whitespace-pre-wrap leading-relaxed text-gray-200">
 
         {recipe}
 
@@ -491,8 +484,7 @@ const [loading, setLoading] =
 
   </div>
 
-</section>     
-
+</section>
       {/* FOOTER */}
       <footer className="border-t border-white/10 px-8 md:px-16 py-16 bg-black">
 
