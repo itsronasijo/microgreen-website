@@ -524,6 +524,7 @@ const [loading, setLoading] =
   </div>
 
 )}
+</div>
 
 </section>      {/* FOOTER */}
       <footer className="border-t border-white/10 px-8 md:px-16 py-16 bg-black">
