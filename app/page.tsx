@@ -6,6 +6,15 @@ export default function Home() {
 
   const [cart, setCart] = useState<any[]>([]);
   const [cartOpen, setCartOpen] = useState(false);
+  const [ingredients, setIngredients] =
+  useState("");
+
+const [recipe, setRecipe] =
+  useState("");
+
+const [loading, setLoading] =
+  useState(false);
+  const [cartOpen, setCartOpen] = useState(false);
 
   const products = [
 
@@ -113,6 +122,45 @@ export default function Home() {
     }
 
   };
+  //aaaaaaaaaaaaaaaaai receipie
+  const generateRecipe = async () => {
+
+  try {
+
+    setLoading(true);
+
+    const response = await fetch(
+      "/api/recipe",
+      {
+
+        method: "POST",
+
+        headers: {
+          "Content-Type": "application/json",
+        },
+
+        body: JSON.stringify({
+          ingredients,
+        }),
+
+      }
+    );
+
+    const data = await response.json();
+
+    setRecipe(data.recipe);
+
+  } catch (error) {
+
+    console.log(error);
+
+  } finally {
+
+    setLoading(false);
+
+  }
+
+};/////end of receipe
 
   const increaseQty = (index: number) => {
 
@@ -397,6 +445,81 @@ export default function Home() {
           ))}
 
         </div>
+        //////////////////////////////////////////////////////////////////
+          {/* RECIPES */}
+      <section
+        id="recipes"
+        className="px-8 md:px-16 py-24"
+      >
+
+        <h2 className="text-5xl font-bold text-center mb-16">
+
+          Healthy
+          <span className="text-green-400">
+            {" "}Recipes
+          </span>
+
+        </h2>
+
+        <div className="grid md:grid-cols-4 gap-8">
+
+          {[
+            {
+              name: "Salad Bowl",
+              image:
+                "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe",
+            },
+
+            {
+              name: "Smoothie",
+              image:
+                "https://images.unsplash.com/photo-1502741338009-cac2772e18bc",
+            },
+
+            {
+              name: "Healthy Wrap",
+              image:
+                "https://images.unsplash.com/photo-1529042410759-befb1204b468",
+            },
+
+            {
+              name: "Sandwich",
+              image:
+                "https://images.unsplash.com/photo-1528735602780-2552fd46c7af",
+            },
+          ].map((recipe) => (
+
+            <div
+              key={recipe.name}
+              className="bg-white/5 border border-white/10 rounded-3xl overflow-hidden hover:border-green-500 transition"
+            >
+
+              <img
+                src={recipe.image}
+                alt={recipe.name}
+                className="w-full h-56 object-cover"
+              />
+
+              <div className="p-6">
+
+                <h3 className="text-2xl font-bold text-green-400 mb-3">
+                  {recipe.name}
+                </h3>
+
+                <p className="text-gray-400">
+                  Healthy recipe using fresh organic microgreens.
+                </p>
+
+              </div>
+
+            </div>
+
+          ))}
+
+        </div>
+
+      </section>
+
 
       </section>
 
