@@ -788,7 +788,7 @@ className={`fixed top-0 right-0 h-full w-[65%] md:w-[360px] bg-black border-l bo
     <div className="absolute inset-0 bg-green-500 blur-2xl opacity-40 rounded-full"></div>
 
     {/* Button */}
-    <div className="relative bg-black/80 backdrop-blur-xl border border-green-500 px-6 py-4 rounded-full flex items-center gap-3 shadow-2xl shadow-green-500/30 hover:scale-105 transition duration-300">
+    <div className="relative bg-red/80 backdrop-blur-xl border border-green-500 px-6 py-4 rounded-full flex items-center gap-3 shadow-2xl shadow-green-500/30 hover:scale-105 transition duration-300">
 
       {/* Spark Icon */}
       <span className="text-2xl animate-bounce">
