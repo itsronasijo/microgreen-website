@@ -377,55 +377,33 @@ const generateRecipe = async () => {
       {/* RECIPES */}
 <section
   id="recipes"
-  className="px-8 md:px-16 py-24"
+  className="relative px-8 md:px-16 py-24 overflow-hidden"
 >
+  {/* BACKGROUND IMAGE */}
 
-  {/* TITLE */}
-  <h2 className="text-5xl font-bold text-center mb-6">
+<div className="absolute inset-0">
 
-    AI Powered
-    <span className="text-green-400">
-      {" "}Recipes
-    </span>
+  <img
+    src="https://images.unsplash.com/photo-1490645935967-10de6ba17061"
+    alt=""
+    className="w-full h-full object-cover opacity-20"
+  />
 
-  </h2>
+  <div className="absolute inset-0 bg-black/80"></div>
 
-  <p className="text-center text-gray-400 max-w-3xl mx-auto mb-20 text-lg">
+</div>
+  <div className="relative z-10">
 
-    Discover healthy recipes using fresh microgreens
-    or generate your own recipe instantly using AI.
+  ALL AI KITCHEN STUDIO CONTENT HERE
 
-  </p>
+</div>
 
-  {/*RECIPE IMAGES */}
-  <div className="grid md:grid-cols-4 gap-8 mb-24">
+ 
+  
 
-    {[
-      "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe",
 
-      "https://images.unsplash.com/photo-1502741338009-cac2772e18bc",
 
-      "https://images.unsplash.com/photo-1529042410759-befb1204b468",
-
-      "https://images.unsplash.com/photo-1528735602780-2552fd46c7af",
-    ].map((image, index) => (
-
-      <div
-        key={index}
-        className="overflow-hidden rounded-3xl border border-white/10 hover:border-green-500 transition group"
-      >
-
-        <img
-          src={image}
-          alt="Recipe"
-          className="w-full h-72 object-cover group-hover:scale-110 transition duration-700"
-        />
-
-      </div>
-
-    ))}
-
-  </div>
+   
 
  {/* AI KITCHEN STUDIO */}
 
