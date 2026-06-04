@@ -126,30 +126,43 @@ const [loading, setLoading] =
 
 
   
-  const generateRecipe = async () => {
+const generateRecipe = async () => {
 
   try {
+
+    // Clear old recipe immediately
+    setRecipe("");
 
     setLoading(true);
 
     const response = await fetch(
       "/api/recipe",
       {
-
         method: "POST",
-
         headers: {
           "Content-Type": "application/json",
         },
-
         body: JSON.stringify({
           ingredients,
         }),
-
       }
     );
 
     const data = await response.json();
+
+    setRecipe(data.recipe);
+
+  } catch (error) {
+
+    console.log(error);
+
+  } finally {
+
+    setLoading(false);
+
+  }
+
+};    const data = await response.json();
 
     setRecipe(data.recipe);
 
