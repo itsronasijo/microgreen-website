@@ -161,36 +161,7 @@ const generateRecipe = async () => {
 
 };    
   
-  const data = await response.json();
-
-    setRecipe(data.recipe);
-
-  } catch (error) {
-
-    console.log(error);
-
-  } finally {
-
-    setLoading(false);
-
-  }
-
-};    const data = await response.json();
-
-    setRecipe(data.recipe);
-
-  } catch (error) {
-
-    console.log(error);
-
-  } finally {
-
-    setLoading(false);
-
-  }
-
-};
-
+ 
   const increaseQty = (index: number) => {
 
     const updated = [...cart];
