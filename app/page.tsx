@@ -374,7 +374,7 @@ const generateRecipe = async () => {
 
       </section>
 
-{/* RECIPES */}
+      {/* RECIPES */}
 <section
   id="recipes"
   className="px-8 md:px-16 py-24"
@@ -699,6 +699,7 @@ Tell us what ingredients you have and we'll create a healthy recipe.
 
 
 </div>
+  </div> {/* MAX-W-7XL */}
   </section>
  {/* FOOTER */}
       <footer className="border-t border-white/10 px-8 md:px-16 py-16 bg-black">
