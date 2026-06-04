@@ -11,12 +11,9 @@ export default function Home() {
 
 const [recipe, setRecipe] =
   useState("");
-
 const [loading, setLoading] =
   useState(false);
-  
-
-  const products = [
+ const products = [
 
     {
       name: "Sunflower",
@@ -130,7 +127,7 @@ const generateRecipe = async () => {
 
   try {
 
-    // Clear old recipe immediately
+    // Clear previous recipe
     setRecipe("");
 
     setLoading(true);
@@ -149,6 +146,22 @@ const generateRecipe = async () => {
     );
 
     const data = await response.json();
+
+    setRecipe(data.recipe);
+
+  } catch (error) {
+
+    console.log(error);
+
+  } finally {
+
+    setLoading(false);
+
+  }
+
+};    
+  
+  const data = await response.json();
 
     setRecipe(data.recipe);
 
@@ -288,7 +301,7 @@ const generateRecipe = async () => {
 
       </header>
 
-      {/* HERO */}
+      {/*********************** HERO************************************* */}
       <section
         id="home"
         className="min-h-screen grid md:grid-cols-2 gap-10 items-center px-8 md:px-16 pt-48"
@@ -339,7 +352,7 @@ const generateRecipe = async () => {
 
         </div>
 
-        {/* RIGHT */}
+        {/************************************* RIGHT************************************************ */}
         <div className="relative">
 
           <img
@@ -359,7 +372,7 @@ const generateRecipe = async () => {
 
       </section>
 
-      {/* PRODUCTS */}
+      {/** *****************************PRODUCTS************************************** */}
       <section
         id="products"
         className="px-8 md:px-16 py-24"
