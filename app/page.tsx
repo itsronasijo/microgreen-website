@@ -542,7 +542,7 @@ Tell us what ingredients you have and we'll create a healthy recipe.
 
 {!recipe ? (
 
-```
+
 <div className="h-full flex flex-col items-center justify-center text-center">
 
   <div className="text-7xl mb-6">
@@ -562,11 +562,11 @@ Tell us what ingredients you have and we'll create a healthy recipe.
   </p>
 
 </div>
-```
+
 
 ) : (
 
-```
+
 <div className="space-y-6">
 
   {/* RECIPE NAME */}
@@ -691,7 +691,7 @@ Tell us what ingredients you have and we'll create a healthy recipe.
   </div>
 
 </div>
-```
+
 
 )}
 
@@ -709,7 +709,7 @@ Tell us what ingredients you have and we'll create a healthy recipe.
           <div>
 
             <img
-              src="/logo.png"
+              src="/logo1.png"
               alt="Logo"
               className="h-24 mb-4"
             />
