@@ -272,7 +272,7 @@ const generateRecipe = async () => {
 
       </header>
 
-      {/*********************** HERO************************************* */}
+      {/* HERO*/}
       <section
         id="home"
         className="min-h-screen grid md:grid-cols-2 gap-10 items-center px-8 md:px-16 pt-48"
@@ -323,7 +323,7 @@ const generateRecipe = async () => {
 
         </div>
 
-        {/************************************* RIGHT************************************************ */}
+        {/* RIGH */}
         <div className="relative">
 
           <img
@@ -343,7 +343,7 @@ const generateRecipe = async () => {
 
       </section>
 
-      {/** *****************************PRODUCTS************************************** */}
+      {/* PRODUCTS */}
       <section
         id="products"
         className="px-8 md:px-16 py-24"
@@ -397,7 +397,7 @@ const generateRecipe = async () => {
 
   </p>
 
-  {/* RECIPE IMAGES */}
+  {/*RECIPE IMAGES */}
   <div className="grid md:grid-cols-4 gap-8 mb-24">
 
     {[
