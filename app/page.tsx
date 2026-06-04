@@ -386,10 +386,10 @@ const generateRecipe = async () => {
     <img
       src="https://images.unsplash.com/photo-1490645935967-10de6ba17061"
       alt=""
-      className="w-full h-full object-cover opacity-20"
+      className="w-full h-full object-cover opacity-60"
     />
 
-    <div className="absolute inset-0 bg-black/60"></div>
+    <div className="absolute inset-0 bg-black/20"></div>
 
   </div>
 
