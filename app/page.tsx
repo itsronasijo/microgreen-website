@@ -537,83 +537,166 @@ Tell us what ingredients you have and we'll create a healthy recipe.
 </div>
 
 {/* RIGHT PANEL */}
-<div className="bg-white/5 border border-white/10 rounded-3xl overflow-hidden">
 
-  {!recipe ? (
+<div className="bg-white/5 border border-white/10 rounded-3xl overflow-hidden p-6">
 
-    <div className="h-full flex flex-col items-center justify-center p-10 text-center">
+{!recipe ? (
 
-      <div className="text-7xl mb-6">
-        🍽️
-      </div>
+```
+<div className="h-full flex flex-col items-center justify-center text-center">
 
-      <h4 className="text-3xl font-bold mb-4">
+  <div className="text-7xl mb-6">
+    🍽️
+  </div>
 
-        Your Recipe Will Appear Here
+  <h4 className="text-3xl font-bold mb-4">
+
+    Your Recipe Will Appear Here
+
+  </h4>
+
+  <p className="text-gray-400">
+
+    Enter ingredients and click Generate Recipe.
+
+  </p>
+
+</div>
+```
+
+) : (
+
+```
+<div className="space-y-6">
+
+  {/* RECIPE NAME */}
+  <div className="bg-green-900/20 border border-green-500 rounded-2xl p-6">
+
+    <p className="text-sm uppercase tracking-widest text-green-400 mb-2">
+
+      Recipe Name
+
+    </p>
+
+    <h3 className="text-4xl font-extrabold text-yellow-300">
+
+      AI Generated Recipe
+
+    </h3>
+
+  </div>
+
+  {/* INGREDIENTS + STEPS/IMAGE */}
+  <div className="grid md:grid-cols-2 gap-6">
+
+    {/* INGREDIENTS */}
+    <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
+
+      <h4 className="text-green-400 text-xl font-bold mb-4">
+
+        🥬 Ingredients
 
       </h4>
 
-      <p className="text-gray-400">
+      <div className="space-y-2 text-gray-300">
 
-        Enter ingredients and click
-        Generate Recipe.
+        {recipe
+          .replace(/\*\*/g, "")
+          .split("\n")
+          .slice(0, 6)
+          .map((line, index) => (
+
+            <div key={index}>
+              {line}
+            </div>
+
+          ))}
+
+      </div>
+
+    </div>
+
+    {/* STEPS + IMAGE */}
+    <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
+
+      <h4 className="text-green-400 text-xl font-bold mb-4">
+
+        👨‍🍳 Cooking Steps
+
+      </h4>
+
+      <div className="space-y-2 text-gray-300 mb-6">
+
+        {recipe
+          .replace(/\*\*/g, "")
+          .split("\n")
+          .slice(6, 12)
+          .map((line, index) => (
+
+            <div key={index}>
+              {line}
+            </div>
+
+          ))}
+
+      </div>
+
+      {/* RECIPE IMAGE */}
+      <img
+        src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe"
+        alt="Recipe"
+        className="w-full h-56 object-cover rounded-2xl"
+      />
+
+    </div>
+
+  </div>
+
+  {/* NUTRITION + MICROGREEN */}
+  <div className="grid md:grid-cols-2 gap-6">
+
+    <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
+
+      <h4 className="text-green-400 text-xl font-bold mb-4">
+
+        💪 Nutrition
+
+      </h4>
+
+      <p className="text-gray-300">
+
+        Rich in vitamins, minerals, antioxidants,
+        and dietary fiber.
 
       </p>
 
     </div>
 
-  ) : (
+    <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
 
-    <>
+      <h4 className="text-green-400 text-xl font-bold mb-4">
 
-      <img
-        src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe"
-        alt="Recipe"
-        className="w-full h-80 object-cover"
-      />
+        🌱 Recommended Microgreen
 
-      <div className="p-8">
+      </h4>
 
-        <h4 className="text-3xl font-bold text-green-400 mb-6">
+      <span className="bg-green-500 text-black px-4 py-2 rounded-full font-bold">
 
-          AI Generated Recipe
+        Sunflower
 
-        </h4>
+      </span>
 
-        <div className="space-y-4 text-gray-200 leading-relaxed">
+    </div>
 
-          {recipe
-            .replace(/\*\*/g, "")
-            .split("\n")
-            .filter(
-              (line) =>
-                line.trim() !== ""
-            )
-            .map((line, index) => (
+  </div>
 
-              <div
-                key={index}
-                className="border-b border-white/5 pb-3"
-              >
+</div>
+```
 
-                {line}
-
-              </div>
-
-            ))}
-
-        </div>
-
-      </div>
-
-    </>
-
-  )}
+)}
 
 </div>
 
-
-  </div>
 
 </div>
   </section>
