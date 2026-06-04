@@ -430,79 +430,169 @@ const [loading, setLoading] =
 
   </div>
 
-  {/* AI RECIPE GENERATOR */}
-  <div className="max-w-5xl mx-auto bg-white/5 border border-white/10 rounded-3xl p-10">
+ {/* AI KITCHEN STUDIO */}
 
-    <h3 className="text-4xl font-bold mb-6 text-center">
+<div className="max-w-7xl mx-auto mt-24">
 
-      ✨ AI Recipe Generator
+  <h3 className="text-5xl font-bold text-center mb-4">
 
-    </h3>
 
-    <p className="text-gray-400 text-center mb-8 text-lg">
+✨ AI Kitchen Studio
 
-      Enter ingredients you already have and let AI create a healthy recipe for you.
+  </h3>
 
-    </p>
+  <p className="text-center text-gray-400 mb-16">
 
-    {/* INPUT */}
-    <textarea
-      value={ingredients}
-      onChange={(e) =>
-        setIngredients(e.target.value)
+Tell us what ingredients you have and we'll create a healthy recipe.
+
+  </p>
+
+  <div className="grid lg:grid-cols-2 gap-10">
+
+{/* LEFT PANEL */}
+<div className="bg-white/5 border border-white/10 rounded-3xl p-8">
+
+  <h4 className="text-2xl font-bold text-green-400 mb-6">
+
+    Your Ingredients
+
+  </h4>
+
+  <textarea
+    value={ingredients}
+    onChange={(e) =>
+      setIngredients(e.target.value)
+    }
+    placeholder="Example: bread, egg, tomato, cheese"
+    className="w-full bg-black border border-green-500 rounded-2xl px-6 py-5 min-h-[220px] mb-8"
+  />
+
+  <div className="flex flex-wrap gap-3 mb-8">
+
+    <button
+      onClick={() =>
+        setIngredients(
+          ingredients + ", egg"
+        )
       }
-      placeholder="Example: bread, tomato, cheese, egg"
-      className="w-full bg-black border border-green-500 rounded-2xl px-6 py-5 min-h-[160px] mb-8"
-    />
+      className="bg-green-800 px-4 py-2 rounded-full"
+    >
+      🥚 Egg
+    </button>
 
-    {/* BUTTON */}
-    <div className="text-center">
+    <button
+      onClick={() =>
+        setIngredients(
+          ingredients + ", tomato"
+        )
+      }
+      className="bg-green-800 px-4 py-2 rounded-full"
+    >
+      🍅 Tomato
+    </button>
 
-      <button
-        onClick={generateRecipe}
-        className="bg-green-700 hover:bg-green-800 transition text-black px-10 py-5 rounded-full font-bold shadow-2xl shadow-green-700/40 hover:scale-105 duration-300"
-      >
+    <button
+      onClick={() =>
+        setIngredients(
+          ingredients + ", cheese"
+        )
+      }
+      className="bg-green-800 px-4 py-2 rounded-full"
+    >
+      🧀 Cheese
+    </button>
 
-        {loading
-          ? "Generating..."
-          : "Generate Healthy Recipe"}
+    <button
+      onClick={() =>
+        setIngredients(
+          ingredients + ", bread"
+        )
+      }
+      className="bg-green-800 px-4 py-2 rounded-full"
+    >
+      🍞 Bread
+    </button>
 
-      </button>
+    <button
+      onClick={() =>
+        setIngredients(
+          ingredients + ", microgreens"
+        )
+      }
+      className="bg-green-800 px-4 py-2 rounded-full"
+    >
+      🥬 Microgreens
+    </button>
+
+  </div>
+
+  <button
+    onClick={generateRecipe}
+    className="w-full bg-green-700 hover:bg-green-800 transition text-black py-5 rounded-2xl font-bold text-lg"
+  >
+
+    {loading
+      ? "Generating..."
+      : "✨ Generate Healthy Recipe"}
+
+  </button>
+
+</div>
+
+{/* RIGHT PANEL */}
+<div className="bg-white/5 border border-white/10 rounded-3xl overflow-hidden">
+
+  {!recipe ? (
+
+    <div className="h-full flex flex-col items-center justify-center p-10 text-center">
+
+      <div className="text-7xl mb-6">
+        🍽️
+      </div>
+
+      <h4 className="text-3xl font-bold mb-4">
+
+        Your Recipe Will Appear Here
+
+      </h4>
+
+      <p className="text-gray-400">
+
+        Enter ingredients and click
+        Generate Recipe.
+
+      </p>
 
     </div>
 
-  {/* OUTPUT */}
-{recipe && (
+  ) : (
 
-  <div className="mt-12 bg-gradient-to-br from-black to-green-950 border border-green-500/20 rounded-3xl overflow-hidden shadow-2xl shadow-green-900/20">
+    <>
 
-    {/* IMAGE */}
-    <img
-      src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe"
-      alt="Generated Recipe"
-      className="w-full h-80 object-cover"
-    />
+      <img
+        src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe"
+        alt="Recipe"
+        className="w-full h-80 object-cover"
+      />
 
-    {/* CONTENT */}
-    <div className="p-10">
+      <div className="p-8">
 
-      <h3 className="text-4xl font-bold text-green-400 mb-8">
+        <h4 className="text-3xl font-bold text-green-400 mb-6">
 
-        AI Generated Recipe
+          AI Generated Recipe
 
-      </h3>
+        </h4>
 
-      <div className="space-y-4 text-lg leading-relaxed text-gray-200">
+        <div className="space-y-4 text-gray-200 leading-relaxed">
 
-        {recipe
-          .replace(/\*\*/g, "")
-          .split("\n")
-          .filter(
-            (line) => line.trim() !== ""
-          )
-          .map((line, index) => {
-
-            return (
+          {recipe
+            .replace(/\*\*/g, "")
+            .split("\n")
+            .filter(
+              (line) =>
+                line.trim() !== ""
+            )
+            .map((line, index) => (
 
               <div
                 key={index}
@@ -513,20 +603,23 @@ const [loading, setLoading] =
 
               </div>
 
-            );
+            ))}
 
-          })}
+        </div>
 
       </div>
 
-    </div>
+    </>
+
+  )}
+
+</div>
+
 
   </div>
 
-)}
 </div>
-
-</section>      {/* FOOTER */}
+ {/* FOOTER */}
       <footer className="border-t border-white/10 px-8 md:px-16 py-16 bg-black">
 
         <div className="grid md:grid-cols-4 gap-10">
