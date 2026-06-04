@@ -205,13 +205,13 @@ const generateRecipe = async () => {
       {/* NAVBAR */}
       <header className="fixed top-0 left-0 w-full z-50 bg-black/50 backdrop-blur-lg border-b border-green-900">
 
-        <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-5">
+        <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-2">
 
           {/* LOGO */}
           <img
             src="/logo1.png"
             alt="Logo"
-            className="h-28 md:h-32 object-contain"
+            className="h-16 md:h-32 object-contain"
           />
 
           {/* NAVIGATION */}
@@ -275,7 +275,7 @@ const generateRecipe = async () => {
       {/* HERO*/}
       <section
         id="home"
-        className="min-h-screen grid md:grid-cols-2 gap-10 items-center px-8 md:px-16 pt-48"
+        className="min-h-screen grid md:grid-cols-2 gap-10 items-center px-8 md:px-16 pt-32"
       >
 
         {/* LEFT */}
