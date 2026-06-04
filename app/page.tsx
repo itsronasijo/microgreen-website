@@ -374,312 +374,220 @@ const generateRecipe = async () => {
 
       </section>
 
-      {/* RECIPES */}
+   {/* RECIPES */}
 <section
   id="recipes"
   className="relative px-8 md:px-16 py-24 overflow-hidden"
 >
+
   {/* BACKGROUND IMAGE */}
+  <div className="absolute inset-0 pointer-events-none">
 
-<div className="absolute inset-0">
+    <img
+      src="https://images.unsplash.com/photo-1490645935967-10de6ba17061"
+      alt=""
+      className="w-full h-full object-cover opacity-20"
+    />
 
-  <img
-    src="https://images.unsplash.com/photo-1490645935967-10de6ba17061"
-    alt=""
-    className="w-full h-full object-cover opacity-20"
-  />
+    <div className="absolute inset-0 bg-black/60"></div>
 
-  <div className="absolute inset-0 bg-black/80"></div>
+  </div>
 
-</div>
+  {/* CONTENT */}
   <div className="relative z-10">
 
-  ALL AI KITCHEN STUDIO CONTENT HERE
+    <h2 className="text-6xl font-bold text-center mb-6">
 
-</div>
+      ✨ AI Kitchen Studio
 
- 
-  
+    </h2>
 
+    <p className="text-center text-gray-300 text-xl max-w-3xl mx-auto mb-16">
 
-
-   
-
- {/* AI KITCHEN STUDIO */}
-
-<div className="max-w-7xl mx-auto mt-24">
-
-  <h3 className="text-5xl font-bold text-center mb-4">
-
-
-✨ AI Kitchen Studio
-
-  </h3>
-
-  <p className="text-center text-gray-400 mb-16">
-
-Tell us what ingredients you have and we'll create a healthy recipe.
-
-  </p>
-
-  <div className="grid lg:grid-cols-2 gap-10">
-
-{/* LEFT PANEL */}
-<div className="bg-white/5 border border-white/10 rounded-3xl p-8">
-
-  <h4 className="text-2xl font-bold text-green-400 mb-6">
-
-    Your Ingredients
-
-  </h4>
-
-  <textarea
-    value={ingredients}
-    onChange={(e) =>
-      setIngredients(e.target.value)
-    }
-    placeholder="Example: bread, egg, tomato, cheese"
-    className="w-full bg-black border border-green-500 rounded-2xl px-6 py-5 min-h-[220px] mb-8"
-  />
-
-  <div className="flex flex-wrap gap-3 mb-8">
-
-    <button
-      onClick={() =>
-        setIngredients(
-          ingredients + ", egg"
-        )
-      }
-      className="bg-green-800 px-4 py-2 rounded-full"
-    >
-      🥚 Egg
-    </button>
-
-    <button
-      onClick={() =>
-        setIngredients(
-          ingredients + ", tomato"
-        )
-      }
-      className="bg-green-800 px-4 py-2 rounded-full"
-    >
-      🍅 Tomato
-    </button>
-
-    <button
-      onClick={() =>
-        setIngredients(
-          ingredients + ", cheese"
-        )
-      }
-      className="bg-green-800 px-4 py-2 rounded-full"
-    >
-      🧀 Cheese
-    </button>
-
-    <button
-      onClick={() =>
-        setIngredients(
-          ingredients + ", bread"
-        )
-      }
-      className="bg-green-800 px-4 py-2 rounded-full"
-    >
-      🍞 Bread
-    </button>
-
-    <button
-      onClick={() =>
-        setIngredients(
-          ingredients + ", microgreens"
-        )
-      }
-      className="bg-green-800 px-4 py-2 rounded-full"
-    >
-      🥬 Microgreens
-    </button>
-
-  </div>
-
-  <button
-    onClick={generateRecipe}
-    className="w-full bg-green-700 hover:bg-green-800 transition text-black py-5 rounded-2xl font-bold text-lg"
-  >
-
-    {loading
-      ? "Generating..."
-      : "✨ Generate Healthy Recipe"}
-
-  </button>
-
-</div>
-
-{/* RIGHT PANEL */}
-
-<div className="bg-white/5 border border-white/10 rounded-3xl overflow-hidden p-6">
-
-{!recipe ? (
-
-
-<div className="h-full flex flex-col items-center justify-center text-center">
-
-  <div className="text-7xl mb-6">
-    🍽️
-  </div>
-
-  <h4 className="text-3xl font-bold mb-4">
-
-    Your Recipe Will Appear Here
-
-  </h4>
-
-  <p className="text-gray-400">
-
-    Enter ingredients and click Generate Recipe.
-
-  </p>
-
-</div>
-
-
-) : (
-
-
-<div className="space-y-6">
-
-  {/* RECIPE NAME */}
-  <div className="bg-green-900/20 border border-green-500 rounded-2xl p-6">
-
-    <p className="text-sm uppercase tracking-widest text-green-400 mb-2">
-
-      Recipe Name
+      Tell us what ingredients you have and our AI chef will create
+      a healthy recipe instantly.
 
     </p>
 
-    <h3 className="text-4xl font-extrabold text-yellow-300">
+    <div className="grid lg:grid-cols-2 gap-10">
 
-      AI Generated Recipe
+      {/* LEFT PANEL */}
+      <div className="bg-black/40 backdrop-blur-md border border-green-500/20 rounded-3xl p-8">
 
-    </h3>
+        <h4 className="text-2xl font-bold text-green-400 mb-6">
 
-  </div>
+          Your Ingredients
 
-  {/* INGREDIENTS + STEPS/IMAGE */}
-  <div className="grid md:grid-cols-2 gap-6">
+        </h4>
 
-    {/* INGREDIENTS */}
-    <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
+        <textarea
+          value={ingredients}
+          onChange={(e) =>
+            setIngredients(e.target.value)
+          }
+          placeholder="Example: bread, egg, tomato, cheese"
+          className="w-full bg-black/80 text-white border-2 border-green-500 rounded-2xl px-6 py-5 min-h-[220px] mb-8 focus:outline-none focus:border-green-400"
+        />
 
-      <h4 className="text-green-400 text-xl font-bold mb-4">
+        <div className="flex flex-wrap gap-3 mb-8">
 
-        🥬 Ingredients
+          <button
+            onClick={() => setIngredients(ingredients + ", egg")}
+            className="bg-green-800 px-4 py-2 rounded-full"
+          >
+            🥚 Egg
+          </button>
 
-      </h4>
+          <button
+            onClick={() => setIngredients(ingredients + ", tomato")}
+            className="bg-green-800 px-4 py-2 rounded-full"
+          >
+            🍅 Tomato
+          </button>
 
-      <div className="space-y-2 text-gray-300">
+          <button
+            onClick={() => setIngredients(ingredients + ", cheese")}
+            className="bg-green-800 px-4 py-2 rounded-full"
+          >
+            🧀 Cheese
+          </button>
 
-        {recipe
-          .replace(/\*\*/g, "")
-          .split("\n")
-          .slice(0, 6)
-          .map((line, index) => (
+          <button
+            onClick={() => setIngredients(ingredients + ", bread")}
+            className="bg-green-800 px-4 py-2 rounded-full"
+          >
+            🍞 Bread
+          </button>
 
-            <div key={index}>
-              {line}
+          <button
+            onClick={() => setIngredients(ingredients + ", microgreens")}
+            className="bg-green-800 px-4 py-2 rounded-full"
+          >
+            🥬 Microgreens
+          </button>
+
+        </div>
+
+        <button
+          onClick={generateRecipe}
+          className="w-full bg-green-600 hover:bg-green-700 transition text-black py-5 rounded-2xl font-bold text-lg"
+        >
+
+          {loading
+            ? "Generating..."
+            : "✨ Generate Healthy Recipe"}
+
+        </button>
+
+      </div>
+
+      {/* RIGHT PANEL */}
+      <div className="bg-black/40 backdrop-blur-md border border-green-500/20 rounded-3xl p-8">
+
+        {loading ? (
+
+          <div className="h-full flex flex-col items-center justify-center text-center">
+
+            <div className="text-7xl animate-pulse mb-6">
+              ✨
             </div>
 
-          ))}
+            <h4 className="text-3xl font-bold text-green-400 mb-4">
+
+              Creating Your Recipe...
+
+            </h4>
+
+            <p className="text-gray-400">
+
+              AI is preparing something delicious.
+
+            </p>
+
+          </div>
+
+        ) : !recipe ? (
+
+          <div className="h-full flex flex-col items-center justify-center text-center">
+
+            <div className="text-7xl mb-6">
+              👨‍🍳
+            </div>
+
+            <h4 className="text-3xl font-bold mb-4">
+
+              Your AI Chef Is Ready
+
+            </h4>
+
+            <p className="text-gray-400">
+
+              Enter ingredients and click Generate Recipe.
+
+            </p>
+
+          </div>
+
+        ) : (
+
+          <div className="space-y-6">
+
+            <div className="bg-green-900/20 border border-green-500 rounded-2xl p-6">
+
+              <p className="text-sm uppercase tracking-widest text-green-400 mb-2">
+
+                AI Generated Recipe
+
+              </p>
+
+              <h3 className="text-4xl font-extrabold text-yellow-300">
+
+                Recipe Result
+
+              </h3>
+
+            </div>
+
+            <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
+
+              <div className="space-y-3 text-gray-200 leading-relaxed">
+
+                {recipe
+                  .replace(/\*\*/g, "")
+                  .split("\n")
+                  .filter(
+                    (line) => line.trim() !== ""
+                  )
+                  .map((line, index) => (
+
+                    <div
+                      key={index}
+                      className="border-b border-white/5 pb-3"
+                    >
+
+                      {line}
+
+                    </div>
+
+                  ))}
+
+              </div>
+
+            </div>
+
+          </div>
+
+        )}
 
       </div>
 
     </div>
 
-    {/* STEPS + IMAGE */}
-    <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
-
-      <h4 className="text-green-400 text-xl font-bold mb-4">
-
-        👨‍🍳 Cooking Steps
-
-      </h4>
-
-      <div className="space-y-2 text-gray-300 mb-6">
-
-        {recipe
-          .replace(/\*\*/g, "")
-          .split("\n")
-          .slice(6, 12)
-          .map((line, index) => (
-
-            <div key={index}>
-              {line}
-            </div>
-
-          ))}
-
-      </div>
-
-      {/* RECIPE IMAGE */}
-      <img
-        src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe"
-        alt="Recipe"
-        className="w-full h-56 object-cover rounded-2xl"
-      />
-
-    </div>
-
   </div>
 
-  {/* NUTRITION + MICROGREEN */}
-  <div className="grid md:grid-cols-2 gap-6">
-
-    <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
-
-      <h4 className="text-green-400 text-xl font-bold mb-4">
-
-        💪 Nutrition
-
-      </h4>
-
-      <p className="text-gray-300">
-
-        Rich in vitamins, minerals, antioxidants,
-        and dietary fiber.
-
-      </p>
-
-    </div>
-
-    <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
-
-      <h4 className="text-green-400 text-xl font-bold mb-4">
-
-        🌱 Recommended Microgreen
-
-      </h4>
-
-      <span className="bg-green-500 text-black px-4 py-2 rounded-full font-bold">
-
-        Sunflower
-
-      </span>
-
-    </div>
-
-  </div>
-
-</div>
-
-
-)}
-
-</div>
-
-
-</div>
-  </div> {/* MAX-W-7XL */}
-  </section>
- {/* FOOTER */}
+</section>
+      
+      {/* FOOTER */}
       <footer className="border-t border-white/10 px-8 md:px-16 py-16 bg-black">
 
         <div className="grid md:grid-cols-4 gap-10">
