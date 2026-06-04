@@ -996,7 +996,9 @@ className={`fixed top-0 right-0 h-full w-[65%] md:w-[360px] bg-black border-l bo
 
   </div>
 
-</a> </main>
+</a>
+
+</main>
 
   );
 }
