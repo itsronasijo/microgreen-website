@@ -203,8 +203,7 @@ const generateRecipe = async () => {
   <main className="min-h-screen bg-black text-white">
 
     {/* TOP SOCIAL BAR */}
-    <div className="fixed top-0 left-0 w-full z-50 bg-green-800 text-white">
-
+    <div className="bg-green-800 text-white py-2">
       <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-2 text-sm">
 
         <div className="flex gap-5">
@@ -240,7 +239,7 @@ const generateRecipe = async () => {
           <img
             src="/logo1.png"
             alt="Logo"
-            className="h-16 md:h-32 object-contain"
+            className="h-14 md:h-20 object-contain"
           />
 
           {/* NAVIGATION */}
