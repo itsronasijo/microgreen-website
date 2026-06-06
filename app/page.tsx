@@ -198,6 +198,20 @@ const generateRecipe = async () => {
       sum + item.price * item.quantity,
     0
   );
+  const recipeName =
+  recipe.match(/Recipe Name:\s*([\s\S]*?)\nIngredients:/)?.[1]?.trim() || "";
+
+const ingredientsSection =
+  recipe.match(/Ingredients:\s*([\s\S]*?)\nSteps:/)?.[1]?.trim() || "";
+
+const stepsSection =
+  recipe.match(/Steps:\s*([\s\S]*?)\nNutrition:/)?.[1]?.trim() || "";
+
+const nutritionSection =
+  recipe.match(/Nutrition:\s*([\s\S]*?)\nRecommended Microgreen:/)?.[1]?.trim() || "";
+
+const microgreenSection =
+  recipe.match(/Recommended Microgreen:\s*([\s\S]*)/)?.[1]?.trim() || "";
 
  return (
 
