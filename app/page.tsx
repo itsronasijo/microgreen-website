@@ -223,7 +223,7 @@ const generateRecipe = async () => {
 </div>     
     {/* NAVBAR */}
      <header className="fixed top-10 left-0 w-full z-40 bg-black/50 backdrop-blur-lg border-b border-green-900">
-        <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+        <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-2">
 
           {/* LOGO */}
           <img
