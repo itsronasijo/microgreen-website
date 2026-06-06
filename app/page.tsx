@@ -443,27 +443,32 @@ const generateRecipe = async () => {
         <h2 className="text-5xl font-bold text-center mb-16">
         <div className="flex flex-wrap justify-center gap-4 mb-12">
 
-  <button className="bg-green-500 text-black px-6 py-2 rounded-full font-bold">
-    All
-  </button>
+  <button className="bg-green-500 text-black px-5 py-2 rounded-full text-lg font-bold">
+  All
+</button>
 
-  <button className="bg-white/5 hover:bg-white/10 px-6 py-2 rounded-full">
-    Sunflower
-  </button>
+<button className="bg-white/5 hover:bg-white/10 px-5 py-2 rounded-full text-lg">
+  Sunflower
+</button>
 
-  <button className="bg-white/5 hover:bg-white/10 px-6 py-2 rounded-full">
-    Chia
-  </button>
+<button className="bg-white/5 hover:bg-white/10 px-5 py-2 rounded-full text-lg">
+  Chia
+</button>
+          <button className="bg-white/5 hover:bg-white/10 px-5 py-2 rounded-full text-lg">
+Amaranthus
+</button>
 
-  <button className="bg-white/5 hover:bg-white/10 px-6 py-2 rounded-full">
-    Beetroot
-  </button>
+<button className="bg-white/5 hover:bg-white/10 px-5 py-2 rounded-full text-lg">
+  Beetroot
+</button>
+          <button className="bg-white/5 hover:bg-white/10 px-5 py-2 rounded-full text-lg">
+ Turnip
+</button>
 
-  <button className="bg-white/5 hover:bg-white/10 px-6 py-2 rounded-full">
-    Mustard
-  </button>
-
-</div>
+<button className="bg-white/5 hover:bg-white/10 px-5 py-2 rounded-full text-lg">
+  Mustard Green
+</button>
+        </div>
           Featured
           <span className="text-green-400">
             {" "}Products
