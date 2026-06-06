@@ -56,10 +56,7 @@ const [loading, setLoading] =
     },
 
     {
-      {/* BEST SELLER BADGE */}
-  <span className="absolute top-3 left-3 bg-green-500 text-black px-3 py-1 rounded-full text-xs font-bold z-10">
-    BEST SELLER
-  </span>
+     
       name: "Mustard Green",
      image:"/mustardgreen.png",
       prices: {
