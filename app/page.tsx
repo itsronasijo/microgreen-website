@@ -226,7 +226,8 @@ const generateRecipe = async () => {
         <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-2">
 
           {/* LOGO */}
-         <img
+       <div className="w-40">
+  <img
     src="/logo1.png"
     alt="Logo"
     className="h-16 w-auto object-contain"
