@@ -369,6 +369,70 @@ const generateRecipe = async () => {
         </div>
 
       </section>
+    {/* TRUST STRIP */}
+<section className="px-8 md:px-16 py-10">
+
+  <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+
+    <div className="bg-white/5 border border-green-500/20 rounded-2xl p-6 text-center hover:border-green-500 transition">
+
+      <div className="text-4xl mb-3">💪</div>
+
+      <h3 className="font-bold text-lg mb-2">
+        High Protein
+      </h3>
+
+      <p className="text-gray-400 text-sm">
+        Perfect for fitness and healthy diets.
+      </p>
+
+    </div>
+
+    <div className="bg-white/5 border border-green-500/20 rounded-2xl p-6 text-center hover:border-green-500 transition">
+
+      <div className="text-4xl mb-3">🌱</div>
+
+      <h3 className="font-bold text-lg mb-2">
+        100% Organic
+      </h3>
+
+      <p className="text-gray-400 text-sm">
+        Grown naturally without chemicals.
+      </p>
+
+    </div>
+
+    <div className="bg-white/5 border border-green-500/20 rounded-2xl p-6 text-center hover:border-green-500 transition">
+
+      <div className="text-4xl mb-3">❤️</div>
+
+      <h3 className="font-bold text-lg mb-2">
+        Nutrient Rich
+      </h3>
+
+      <p className="text-gray-400 text-sm">
+        Packed with vitamins and minerals.
+      </p>
+
+    </div>
+
+    <div className="bg-white/5 border border-green-500/20 rounded-2xl p-6 text-center hover:border-green-500 transition">
+
+      <div className="text-4xl mb-3">🚚</div>
+
+      <h3 className="font-bold text-lg mb-2">
+        Fresh Delivery
+      </h3>
+
+      <p className="text-gray-400 text-sm">
+        Harvested fresh and delivered fast.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
 
       {/* PRODUCTS */}
       <section
