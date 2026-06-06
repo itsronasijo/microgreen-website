@@ -198,9 +198,41 @@ const generateRecipe = async () => {
     0
   );
 
-  return (
+ return (
 
-    <main className="min-h-screen bg-black text-white">
+  <main className="min-h-screen bg-black text-white">
+
+    {/* TOP SOCIAL BAR */}
+    <div className="fixed top-0 left-0 w-full z-50 bg-green-800 text-white">
+
+      <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-2 text-sm">
+
+        <div className="flex gap-5">
+
+          <a href="#">📷 Instagram</a>
+
+          <a href="#">📘 Facebook</a>
+
+          <a href="#">📞 WhatsApp</a>
+
+        </div>
+
+        <div className="flex gap-5">
+
+          <span>🚚 Fresh Delivery</span>
+
+          <span>📱 App Coming Soon</span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    {/* NAVBAR */}
+    <header
+      className="fixed top-10 left-0 w-full z-40 bg-black/50 backdrop-blur-lg border-b border-green-900"
+    >
 
       {/* NAVBAR */}
       <header className="fixed top-0 left-0 w-full z-50 bg-black/50 backdrop-blur-lg border-b border-green-900">
