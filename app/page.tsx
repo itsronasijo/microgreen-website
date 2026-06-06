@@ -56,6 +56,10 @@ const [loading, setLoading] =
     },
 
     {
+      {/* BEST SELLER BADGE */}
+  <span className="absolute top-3 left-3 bg-green-500 text-black px-3 py-1 rounded-full text-xs font-bold z-10">
+    BEST SELLER
+  </span>
       name: "Mustard Green",
      image:"/mustardgreen.png",
       prices: {
@@ -476,7 +480,7 @@ Amaranthus
 
         </h2>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
 
           {products.map((product) => (
 
@@ -1026,7 +1030,7 @@ function ProductCard({
       <img
         src={product.image}
         alt={product.name}
-        className="w-full h-64 object-cover"
+        className="w-full h-52 object-cover rounded-2xl transition-all duration-500 group-hover:scale-105"
       />
 
       <div className="p-6">
