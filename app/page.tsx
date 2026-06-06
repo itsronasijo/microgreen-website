@@ -220,7 +220,8 @@ const generateRecipe = async () => {
 
   </div>
 
-</div>      {/* NAVBAR */}
+</div>     
+    {/* NAVBAR */}
      <header className="fixed top-10 left-0 w-full z-40 bg-black/50 backdrop-blur-lg border-b border-green-900">
         <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-2">
 
@@ -231,29 +232,25 @@ const generateRecipe = async () => {
            className="h-20 md:h-24 object-contain"
           />
 
-          {/* NAVIGATION */}
-          <nav className="hidden md:flex gap-8 text-gray-300">
+         {/* SEARCH */}
+<div className="hidden md:block">
 
-            <a href="#home" className="hover:text-green-400 transition">
-              Home
-            </a>
+  <input
+    type="text"
+    placeholder="🔍 Search Products"
+    className="w-96 bg-white/10 border border-green-800 rounded-xl px-4 py-3 text-white outline-none"
+  />
 
-            <a href="#products" className="hover:text-green-400 transition">
-              Products
-            </a>
-
-            <a href="#recipes" className="hover:text-green-400 transition">
-              Recipes
-            </a>
-
-            <a href="#contact" className="hover:text-green-400 transition">
-              Contact
-            </a>
-
-          </nav>
-
+</div>
           {/* RIGHT */}
           <div className="flex items-center gap-5">
+            <button className="text-2xl">
+  👤
+</button>
+
+<button className="text-2xl">
+  ❤️
+</button>
 
             {/* CART */}
             <button
@@ -288,6 +285,37 @@ const generateRecipe = async () => {
         </div>
 
       </header>
+    <div className="fixed top-[136px] left-0 w-full z-30 bg-black border-b border-green-900">
+
+  <div className="max-w-7xl mx-auto flex justify-center gap-10 py-3 text-gray-300">
+
+    <a href="#home" className="hover:text-green-400">
+      Home
+    </a>
+
+    <a href="#products" className="hover:text-green-400">
+      Shop
+    </a>
+
+    <a href="#recipes" className="hover:text-green-400">
+      AI Kitchen
+    </a>
+
+    <a href="#benefits" className="hover:text-green-400">
+      Benefits
+    </a>
+
+    <a href="#recipes" className="hover:text-green-400">
+      Recipes
+    </a>
+
+    <a href="#contact" className="hover:text-green-400">
+      Contact
+    </a>
+
+  </div>
+
+</div>
 
       {/* HERO*/}
       <section
