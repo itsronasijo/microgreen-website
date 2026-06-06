@@ -202,127 +202,106 @@ const generateRecipe = async () => {
 
   <main className="min-h-screen bg-black text-white">
 
-    {/* TOP SOCIAL BAR */}
-<div className="fixed top-0 left-0 w-full z-50 bg-green-800 text-white">
+ {/* COMPLETE HEADER */}
+<div className="fixed top-0 left-0 w-full z-50">
 
-  <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-2 text-sm">
+  {/* SOCIAL BAR */}
+  <div className="bg-green-800 text-white">
 
-    <div className="flex gap-5">
-      <a href="#">📷 Instagram</a>
-      <a href="#">📘 Facebook</a>
-      <a href="#">📞 WhatsApp</a>
-    </div>
+    <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-2 text-sm">
 
-    <div className="flex gap-5">
-      <span>🚚 Fresh Delivery</span>
-      <span>📱 App Coming Soon</span>
+      <div className="flex gap-5">
+        <a href="#">📷 Instagram</a>
+        <a href="#">📘 Facebook</a>
+        <a href="#">📞 WhatsApp</a>
+      </div>
+
+      <div className="flex gap-5">
+        <span>🚚 Fresh Delivery</span>
+        <span>📱 App Coming Soon</span>
+      </div>
+
     </div>
 
   </div>
 
-</div>     -
-    {/* NAVBAR */}
-    <header className="fixed top-10 left-0 w-full z-40 bg-black border-b border-green-900">
-        <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-2">
+  {/* MAIN HEADER */}
+  <div className="bg-black border-b border-green-900">
 
-          {/* LOGO */}
-       <div className="w-40">
-  <img
-    src="/logo1.png"
-    alt="Logo"
-    className="h-16 w-auto object-contain"
-  />
-</div>
+    <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-3">
 
-         {/* SEARCH */}
-<div className="hidden md:block">
+      {/* LOGO */}
+      <div className="w-40">
+        <img
+          src="/logo1.png"
+          alt="Logo"
+          className="h-16 object-contain"
+        />
+      </div>
 
-  <input
-    type="text"
-    placeholder="🔍 Search Products"
-    className="w-96 bg-white/10 border border-green-800 rounded-xl px-4 py-3 text-white outline-none"
-  />
+      {/* SEARCH */}
+      <input
+        type="text"
+        placeholder="🔍 Search Products"
+        className="w-96 bg-white/10 border border-green-800 rounded-xl px-4 py-3 text-white"
+      />
 
-</div>
-          {/* RIGHT */}
-          <div className="flex items-center gap-5">
-            <button className="text-2xl">
-  👤
-</button>
+      {/* RIGHT */}
+      <div className="flex items-center gap-5">
 
-<button className="text-2xl">
-  ❤️
-</button>
+        <button className="text-2xl">👤</button>
 
-            {/* CART */}
-            <button
-              onClick={() => setCartOpen(true)}
-              className="relative text-3xl"
-            >
+        <button className="text-2xl">❤️</button>
 
-              🛒
+        <button
+          onClick={() => setCartOpen(true)}
+          className="relative text-3xl"
+        >
+          🛒
 
-              <span className="absolute -top-2 -right-3 bg-green-500 text-black text-sm px-2 rounded-full font-bold">
+          <span className="absolute -top-2 -right-3 bg-green-500 text-black text-sm px-2 rounded-full font-bold">
+            {cart.reduce(
+              (sum, item) => sum + item.quantity,
+              0
+            )}
+          </span>
 
-                {cart.reduce(
-                  (sum, item) =>
-                    sum + item.quantity,
-                  0
-                )}
+        </button>
 
-              </span>
+        <a
+          href="#products"
+          className="bg-green-500 hover:bg-green-600 px-6 py-3 rounded-xl text-black font-bold"
+        >
+          Shop Now
+        </a>
 
-            </button>
+      </div>
 
-            {/* SHOP BUTTON */}
-            <a
-              href="#products"
-              className="bg-green-500 hover:bg-green-600 transition px-6 py-3 rounded-xl text-black font-bold"
-            >
-              Shop Now
-            </a>
-
-          </div>
-
-        </div>
-
-      </header>
-    <div className="fixed top-[136px] left-0 w-full z-30 bg-black border-b border-green-900">
-
-  <div className="max-w-7xl mx-auto flex justify-center gap-10 py-3 text-gray-300">
-
-    <a href="#home" className="hover:text-green-400">
-      Home
-    </a>
-
-    <a href="#products" className="hover:text-green-400">
-      Shop
-    </a>
-
-    <a href="#recipes" className="hover:text-green-400">
-      AI Kitchen
-    </a>
-
-    <a href="#benefits" className="hover:text-green-400">
-      Benefits
-    </a>
-
-    <a href="#recipes" className="hover:text-green-400">
-      Recipes
-    </a>
-
-    <a href="#contact" className="hover:text-green-400">
-      Contact
-    </a>
+    </div>
 
   </div>
 
-</div>
+  {/* NAVIGATION */}
+  <div className="bg-black border-b border-green-900">
 
-      {/* HERO*/}
+    <div className="max-w-7xl mx-auto flex justify-center gap-10 py-3">
+
+      <a href="#home">Home</a>
+      <a href="#products">Shop</a>
+      <a href="#recipes">AI Kitchen</a>
+      <a href="#benefits">Benefits</a>
+      <a href="#recipes">Recipes</a>
+      <a href="#contact">Contact</a>
+
+    </div>
+
+  </div>
+
+</div>     
+    {/* HERO*/}
       <section
         id="home"
-        className="min-h-screen grid md:grid-cols-2 gap-10 items-center px-8 md:px-16 pt-40"
+        className="min-h-screen grid md:grid-cols-2 gap-10 items-center px-8 md:px-16 pt-56"
       >
 
         {/* LEFT */}
