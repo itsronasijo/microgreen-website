@@ -229,7 +229,7 @@ const generateRecipe = async () => {
           <img
             src="/logo1.png"
             alt="Logo"
-           className="h-20 md:h-24 object-contain"
+           className="h-16 md:h-16 object-contain"
           />
 
          {/* SEARCH */}
