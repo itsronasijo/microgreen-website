@@ -673,42 +673,69 @@ Amaranthus
 
               </p>
 
-              <h3 className="text-4xl font-extrabold text-yellow-300">
-
-                Recipe Result
-
-              </h3>
+             <h3 className="text-4xl font-extrabold text-yellow-300">
+  {recipeName}
+</h3>
 
             </div>
 
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
+            {/* INGREDIENTS + STEPS */}
+<div className="grid md:grid-cols-2 gap-6">
 
-              <div className="space-y-3 text-gray-200 leading-relaxed">
+  <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
 
-                {recipe
-                  .replace(/\*\*/g, "")
-                  .split("\n")
-                  .filter(
-                    (line) => line.trim() !== ""
-                  )
-                  .map((line, index) => (
+    <h4 className="text-green-400 text-xl font-bold mb-4">
+      🥬 Ingredients
+    </h4>
 
-                    <div
-                      key={index}
-                      className="border-b border-white/5 pb-3"
-                    >
+    <div className="text-gray-300 whitespace-pre-line">
+      {ingredientsSection}
+    </div>
 
-                      {line}
+  </div>
 
-                    </div>
+  <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
 
-                  ))}
+    <h4 className="text-green-400 text-xl font-bold mb-4">
+      👨‍🍳 Cooking Steps
+    </h4>
 
-              </div>
+    <div className="text-gray-300 whitespace-pre-line">
+      {stepsSection}
+    </div>
 
-            </div>
+  </div>
 
-          </div>
+</div>
+
+{/* NUTRITION + MICROGREEN */}
+<div className="grid md:grid-cols-2 gap-6">
+
+  <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
+
+    <h4 className="text-green-400 text-xl font-bold mb-4">
+      💪 Nutrition
+    </h4>
+
+    <div className="text-gray-300 whitespace-pre-line">
+      {nutritionSection}
+    </div>
+
+  </div>
+
+  <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
+
+    <h4 className="text-green-400 text-xl font-bold mb-4">
+      🌱 Recommended Microgreen
+    </h4>
+
+    <span className="bg-green-500 text-black px-4 py-2 rounded-full font-bold">
+      {microgreenSection}
+    </span>
+
+  </div>
+
+</div>          </div>
 
         )}
 
