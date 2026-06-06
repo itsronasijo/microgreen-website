@@ -339,11 +339,12 @@ const generateRecipe = async () => {
               Shop Now
             </a>
 
-            <button className="border border-green-500 hover:bg-green-500 hover:text-black transition px-8 py-4 rounded-2xl">
-
-              Learn More
-
-            </button>
+           <a
+  href="#recipes"
+  className="border border-green-500 hover:bg-green-500 hover:text-black transition px-8 py-4 rounded-2xl"
+>
+  AI Kitchen
+</a>
 
           </div>
 
