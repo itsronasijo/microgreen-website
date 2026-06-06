@@ -27,14 +27,40 @@ export async function POST(req: Request) {
           },
 
           {
-            role: "user",
+  role: "user",
 
-            content:
-              "Create a healthy recipe using these ingredients: " +
-              ingredients +
-              ". Return Recipe Name, Ingredients, Steps, Nutrition Tips, and Best Microgreen Pairing.",
-          },
+  content: `
+Create a healthy recipe using these ingredients:
 
+${ingredients}
+
+Return the response EXACTLY in this format:
+
+Recipe Name:
+[Recipe Name]
+
+Ingredients:
+- ingredient 1
+- ingredient 2
+- ingredient 3
+
+Steps:
+1. Step one
+2. Step two
+3. Step three
+
+Nutrition:
+Calories: xxx
+Protein: xxg
+Fiber: xxg
+Vitamins: xxx
+
+Recommended Microgreen:
+[Best matching microgreen]
+
+Do not add any extra text before or after this format.
+`,
+},
         ],
 
       });
