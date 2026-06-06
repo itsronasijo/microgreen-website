@@ -1037,6 +1037,7 @@ function ProductCard({
       alt={product.name}
       className="w-full h-52 object-cover transition-all duration-500 group-hover:scale-105"
     />
+     </div>
 
       <div className="p-6">
 
