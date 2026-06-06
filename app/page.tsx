@@ -229,10 +229,7 @@ const generateRecipe = async () => {
 
     </div>
 
-    {/* NAVBAR */}
-    <header
-      className="fixed top-10 left-0 w-full z-40 bg-black/50 backdrop-blur-lg border-b border-green-900"
-    >
+   
 
       {/* NAVBAR */}
       <header className="fixed top-0 left-0 w-full z-50 bg-black/50 backdrop-blur-lg border-b border-green-900">
