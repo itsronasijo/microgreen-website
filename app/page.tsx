@@ -245,11 +245,17 @@ const microgreenSection =
 
     {/* LOGO */}
     <div className="w-36">
-      <img
+      {/* <img
         src="/logo1.png"
         alt="Logo"
         className="h-20 w-auto object-contain"
-      />
+      />*/}
+
+       <img
+              src="/logo1.png"
+              alt="Logo"
+              className="h-24 mb-4"
+            />
     </div>
 
     {/* SEARCH */}
