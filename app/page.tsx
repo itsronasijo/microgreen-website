@@ -240,115 +240,97 @@ const microgreenSection =
 
   </div>
 
-  {/* MAIN HEADER */}
-  <div className="bg-black border-b border-green-900">
+ <header className="fixed top-10 left-0 w-full z-40 bg-black border-b border-green-900">
 
-    <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-3">
+  <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
 
-      {/* LOGO */}
-      <div className="w-56">
-        <img
-          src="/logo1.png"
-          alt="Logo"
-          className="h-24 object-contain"
-        />
-      </div>
+    {/* LOGO */}
+    <div className="w-44">
+      <img
+        src="/logo1.png"
+        alt="Logo"
+        className="h-20 w-auto object-contain"
+      />
+    </div>
 
-      {/* SEARCH */}
+    {/* SEARCH */}
+    <div className="hidden lg:block">
       <input
         type="text"
         placeholder="🔍 Search Products"
-        className="w-96 bg-white/10 border border-green-800 rounded-xl px-4 py-3 text-white"
+        className="w-80 bg-white/10 border border-green-800 rounded-xl px-4 py-3 text-white outline-none"
       />
+    </div>
 
-      {/* RIGHT */}
-      <div className="flex items-center gap-5">
+    {/* NAVIGATION */}
+    <nav className="hidden lg:flex items-center gap-6 text-gray-300">
 
-        <button className="text-2xl">👤</button>
+      <a href="#home" className="hover:text-green-400 transition">
+        Home
+      </a>
 
-        <button className="text-2xl">❤️</button>
+      <a href="#benefits" className="hover:text-green-400 transition">
+        Benefits
+      </a>
 
-        <button
-          onClick={() => setCartOpen(true)}
-          className="relative text-3xl"
-        >
-          🛒
+      <a href="#recipes" className="hover:text-green-400 transition">
+        AI Kitchen
+      </a>
 
-          <span className="absolute -top-2 -right-3 bg-green-500 text-black text-sm px-2 rounded-full font-bold">
-            {cart.reduce(
-              (sum, item) => sum + item.quantity,
-              0
-            )}
-          </span>
+      <a href="#grow-guide" className="hover:text-green-400 transition">
+        Grow Guide
+      </a>
 
-        </button>
+      <a href="#about" className="hover:text-green-400 transition">
+        About Us
+      </a>
 
-        <a
-          href="#products"
-          className="bg-green-500 hover:bg-green-600 px-6 py-3 rounded-xl text-black font-bold"
-        >
-          Shop Now
-        </a>
+      <a href="#contact" className="hover:text-green-400 transition">
+        Contact
+      </a>
 
-      </div>
+    </nav>
+
+    {/* RIGHT SIDE */}
+    <div className="flex items-center gap-5">
+
+      <button className="text-2xl">
+        👤
+      </button>
+
+      <button className="text-2xl">
+        ❤️
+      </button>
+
+      <button
+        onClick={() => setCartOpen(true)}
+        className="relative text-3xl"
+      >
+        🛒
+
+        <span className="absolute -top-2 -right-3 bg-green-500 text-black text-sm px-2 rounded-full font-bold">
+          {cart.reduce((sum, item) => sum + item.quantity, 0)}
+        </span>
+
+      </button>
+
+      <a
+        href="#products"
+        className="bg-green-500 hover:bg-green-600 transition px-6 py-3 rounded-xl text-black font-bold"
+      >
+        Shop Now
+      </a>
 
     </div>
 
   </div>
 
+</header>
   
-  {/* NAVIGATION */}
-<nav className="hidden lg:flex items-center gap-8 text-gray-300 font-medium">
-
-  <a
-    href="#home"
-    className="hover:text-green-400 transition"
-  >
-    Home
-  </a>
-
-  <a
-    href="#benefits"
-    className="hover:text-green-400 transition"
-  >
-    Benefits
-  </a>
-
-  <a
-    href="#recipes"
-    className="hover:text-green-400 transition"
-  >
-    AI Kitchen
-  </a>
-
-  <a
-    href="#grow-guide"
-    className="hover:text-green-400 transition"
-  >
-    Grow Guide
-  </a>
-
-  <a
-    href="#about"
-    className="hover:text-green-400 transition"
-  >
-    About Us
-  </a>
-
-  <a
-    href="#contact"
-    className="hover:text-green-400 transition"
-  >
-    Contact
-  </a>
-
-</nav>
-</div>     
-    {/* HERO*/}
+{/* HERO*/}
       <section
         id="home"
-        className="min-h-screen grid md:grid-cols-2 gap-10 items-center px-8 md:px-16 pt-56"
-      >
+        className="min-h-screen grid md:grid-cols-2 gap-10 items-center px-8 md:px-16 pt-32"  >
 
         {/* LEFT */}
         <div>
