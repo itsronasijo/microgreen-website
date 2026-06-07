@@ -296,22 +296,53 @@ const microgreenSection =
 
   </div>
 
+  
   {/* NAVIGATION */}
-  <div className="bg-black border-b border-green-900">
+<nav className="hidden lg:flex items-center gap-8 text-gray-300 font-medium">
 
-    <div className="max-w-7xl mx-auto flex justify-center gap-10 py-3">
+  <a
+    href="#home"
+    className="hover:text-green-400 transition"
+  >
+    Home
+  </a>
 
-      <a href="#home">Home</a>
-      <a href="#products">Shop</a>
-      <a href="#recipes">AI Kitchen</a>
-      <a href="#benefits">Benefits</a>
-      <a href="#recipes">Recipes</a>
-      <a href="#contact">Contact</a>
+  <a
+    href="#benefits"
+    className="hover:text-green-400 transition"
+  >
+    Benefits
+  </a>
 
-    </div>
+  <a
+    href="#recipes"
+    className="hover:text-green-400 transition"
+  >
+    AI Kitchen
+  </a>
 
-  </div>
+  <a
+    href="#grow-guide"
+    className="hover:text-green-400 transition"
+  >
+    Grow Guide
+  </a>
 
+  <a
+    href="#about"
+    className="hover:text-green-400 transition"
+  >
+    About Us
+  </a>
+
+  <a
+    href="#contact"
+    className="hover:text-green-400 transition"
+  >
+    Contact
+  </a>
+
+</nav>
 </div>     
     {/* HERO*/}
       <section
