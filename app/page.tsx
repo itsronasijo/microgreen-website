@@ -244,7 +244,7 @@ const microgreenSection =
   <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
 
     {/* LOGO */}
-    <div className="w-44">
+    <div className="w-36">
       <img
         src="/logo1.png"
         alt="Logo"
@@ -253,17 +253,16 @@ const microgreenSection =
     </div>
 
     {/* SEARCH */}
-    <div className="hidden lg:block">
-      <input
-        type="text"
-        placeholder="🔍 Search Products"
-        className="w-80 bg-white/10 border border-green-800 rounded-xl px-4 py-3 text-white outline-none"
-      />
-    </div>
+  <div className="hidden lg:block mr-4">
+  <input
+    type="text"
+    placeholder="🔍 Search Products"
+    className="w-64 bg-white/10 border border-green-800 rounded-xl px-4 py-3 text-white outline-none"
+  />
+</div>
 
     {/* NAVIGATION */}
-    <nav className="hidden lg:flex items-center gap-6 text-gray-300">
-
+    <nav className="hidden lg:flex items-center gap-4 text-gray-300">
       <a href="#home" className="hover:text-green-400 transition">
         Home
       </a>
