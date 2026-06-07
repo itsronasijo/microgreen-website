@@ -324,7 +324,7 @@ const microgreenSection =
     </div>
 
   </div>
-</div>   {/* <-- CLOSE COMPLETE HEADER HERE */}
+</div>  
 
 </header>
   
