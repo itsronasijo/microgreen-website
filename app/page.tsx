@@ -246,11 +246,11 @@ const microgreenSection =
     <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-3">
 
       {/* LOGO */}
-      <div className="w-40">
+      <div className="w-50">
         <img
           src="/logo1.png"
           alt="Logo"
-          className="h-16 object-contain"
+          className="h-20 object-contain"
         />
       </div>
 
