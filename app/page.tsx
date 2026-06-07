@@ -240,8 +240,7 @@ const microgreenSection =
 
   </div>
 
- <header className="fixed top-10 left-0 w-full z-40 bg-black border-b border-green-900">
-
+ <header className="bg-black border-b border-green-900">
   <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
 
     {/* LOGO */}
@@ -324,10 +323,8 @@ const microgreenSection =
     </div>
 
   </div>
-</div>  
-
 </header>
-  
+</div> {/* <-- CLOSE COMPLETE HEADER HERE */}   
 {/* HERO*/}
       <section
         id="home"
