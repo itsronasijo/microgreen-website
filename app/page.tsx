@@ -838,7 +838,7 @@ Amaranthus
 
               <p>hello@verdegreens.com</p>
 
-              <p>+91 9876543210</p>
+              <p>+91 **********</p>
 
               <p>@verde.microgreens</p>
 
