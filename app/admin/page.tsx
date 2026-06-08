@@ -216,7 +216,10 @@ const addProduct = async () => {
 
       </div>
 
-      <div className="bg-white/5 border border-white/10 rounded-2xl p-6 mb-8">
+    <div
+  id="product-form"
+  className="bg-white/5 border border-white/10 rounded-2xl p-6 mb-8"
+>
 
   <h2 className="text-2xl font-bold text-green-400 mb-6">
     Add Product
@@ -367,6 +370,12 @@ const addProduct = async () => {
       setPrice250(product.price250.toString());
       setStock(product.stock.toString());
       setFeatured(product.featured);
+
+      document
+  .getElementById("product-form")
+  ?.scrollIntoView({
+    behavior: "smooth",
+  });
     }}
     className="bg-blue-500 px-3 py-1 rounded-lg"
   >
