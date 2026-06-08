@@ -9,7 +9,7 @@ export default function AdminPage() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [products, setProducts] = useState<any[]>([]);
 
-  const [name, setName] = useState("");
+const [name, setName] = useState("");
 const [image, setImage] = useState("");
 const [description, setDescription] = useState("");
 const [price50, setPrice50] = useState("");
@@ -17,7 +17,7 @@ const [price100, setPrice100] = useState("");
 const [price250, setPrice250] = useState("");
 const [stock, setStock] = useState("");
 const [featured, setFeatured] = useState(false);
-
+const [editingId, setEditingId] = useState<number | null>(null);
   const handleLogin = () => {
     if (
       username === process.env.NEXT_PUBLIC_ADMIN_USERNAME &&
@@ -91,6 +91,43 @@ const addProduct = async () => {
     alert("Failed to add product");
     return;
   }
+
+  setName("");
+  setImage("");
+  setDescription("");
+  setPrice50("");
+  setPrice100("");
+  setPrice250("");
+  setStock("");
+  setFeatured(false);
+
+  loadProducts();
+};
+
+  const updateProduct = async () => {
+  if (!editingId) return;
+
+  const { error } = await supabase
+    .from("products")
+    .update({
+      name,
+      image,
+      description,
+      price50: Number(price50),
+      price100: Number(price100),
+      price250: Number(price250),
+      stock: Number(stock),
+      featured,
+    })
+    .eq("id", editingId);
+
+  if (error) {
+    console.log(error);
+    alert("Failed to update product");
+    return;
+  }
+
+  setEditingId(null);
 
   setName("");
   setImage("");
@@ -253,11 +290,17 @@ const addProduct = async () => {
   </div>
 
   <button
-    onClick={addProduct}
-    className="mt-6 bg-green-500 hover:bg-green-600 text-black px-6 py-3 rounded-xl font-bold"
-  >
-    Add Product
-  </button>
+  onClick={
+    editingId
+      ? updateProduct
+      : addProduct
+  }
+  className="mt-6 bg-green-500 hover:bg-green-600 text-black px-6 py-3 rounded-xl font-bold"
+>
+  {editingId
+    ? "Update Product"
+    : "Add Product"}
+</button>
 
 </div>
 
@@ -311,13 +354,32 @@ const addProduct = async () => {
   {product.featured ? "⭐" : "-"}
 </td>
 
-<td className="p-3">
+<td className="p-3 flex gap-2">
+
+  <button
+    onClick={() => {
+      setEditingId(product.id);
+      setName(product.name);
+      setImage(product.image);
+      setDescription(product.description || "");
+      setPrice50(product.price50.toString());
+      setPrice100(product.price100.toString());
+      setPrice250(product.price250.toString());
+      setStock(product.stock.toString());
+      setFeatured(product.featured);
+    }}
+    className="bg-blue-500 px-3 py-1 rounded-lg"
+  >
+    Edit
+  </button>
+
   <button
     onClick={() => deleteProduct(product.id)}
     className="bg-red-500 px-3 py-1 rounded-lg"
   >
     Delete
   </button>
+
 </td>
 
               </tr>
