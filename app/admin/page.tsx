@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState } from "react";
@@ -19,12 +18,20 @@ export default function AdminPage() {
     }
   };
 
+  const handleKeyDown = (
+    e: React.KeyboardEvent<HTMLInputElement>
+  ) => {
+    if (e.key === "Enter") {
+      handleLogin();
+    }
+  };
+
   if (!loggedIn) {
     return (
       <main className="min-h-screen bg-black text-white flex items-center justify-center">
         <div className="bg-white/5 border border-green-500/20 rounded-3xl p-8 w-full max-w-md">
 
-          <h1 className="text-3xl font-bold text-green-400 mb-6 text-center">
+          <h1 className="text-4xl font-bold text-green-400 mb-8 text-center">
             Admin Login
           </h1>
 
@@ -32,21 +39,27 @@ export default function AdminPage() {
             type="text"
             placeholder="Username"
             value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            className="w-full bg-black border border-green-500 rounded-xl px-4 py-3 mb-4"
+            onChange={(e) =>
+              setUsername(e.target.value)
+            }
+            onKeyDown={handleKeyDown}
+            className="w-full bg-black border border-green-500 rounded-xl px-4 py-3 mb-4 outline-none"
           />
 
           <input
             type="password"
             placeholder="Password"
             value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className="w-full bg-black border border-green-500 rounded-xl px-4 py-3 mb-6"
+            onChange={(e) =>
+              setPassword(e.target.value)
+            }
+            onKeyDown={handleKeyDown}
+            className="w-full bg-black border border-green-500 rounded-xl px-4 py-3 mb-6 outline-none"
           />
 
           <button
             onClick={handleLogin}
-            className="w-full bg-green-500 hover:bg-green-600 text-black font-bold py-3 rounded-xl"
+            className="w-full bg-green-500 hover:bg-green-600 text-black font-bold py-3 rounded-xl transition"
           >
             Login
           </button>
@@ -58,6 +71,7 @@ export default function AdminPage() {
 
   return (
     <main className="min-h-screen bg-black text-white p-10">
+
       <h1 className="text-4xl font-bold text-green-400">
         Verde Admin Dashboard
       </h1>
@@ -65,6 +79,7 @@ export default function AdminPage() {
       <p className="mt-4 text-gray-400">
         Login successful 🎉
       </p>
+
     </main>
   );
 }
