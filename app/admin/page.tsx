@@ -170,6 +170,12 @@ const addProduct = async () => {
         >
           Refresh
         </button>
+        <button
+  onClick={() => setLoggedIn(false)}
+  className="bg-red-500 px-4 py-2 rounded-xl"
+>
+  Logout
+</button>
 
       </div>
 
