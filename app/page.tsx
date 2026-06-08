@@ -1033,9 +1033,9 @@ function ProductCard({
   <div className="relative">
 
    {product.featured && (
-      <span className="absolute top-3 left-3 bg-green-500 text-black px-3 py-1 rounded-full text-xs font-bold z-10">
-        BEST SELLER
-      </span>
+      <span className="absolute top-3 left-3 bg-yellow-500 text-black px-3 py-1 rounded-full text-xs font-bold">
+    ⭐ Featured
+  </span>
     )}
 
     <img
