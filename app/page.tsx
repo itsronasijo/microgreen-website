@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { supabase } from "../lib/supabase";
 
 export default function Home() {
 
@@ -13,72 +14,24 @@ const [recipe, setRecipe] =
   useState("");
 const [loading, setLoading] =
   useState(false);
- const products = [
+  const [products, setProducts] = useState<any[]>([]);
 
-    {
-      name: "Sunflower",
-      image:"/sunflower.png",
-      prices: {
-        "50g": 199,
-        "100g": 349,
-        "250g": 699,
-      },
-    },
+useEffect(() => {
+  async function loadProducts() {
+    const { data, error } = await supabase
+      .from("products")
+      .select("*");
 
-    {
-      name: "Chia Seed",
-     image:"/chia.png",
-      prices: {
-        "50g": 219,
-        "100g": 399,
-        "250g": 729,
-      },
-    },
+    if (error) {
+      console.log(error);
+      return;
+    }
 
-    {
-      name: "Beetroot",
-      image:"/beetroot.png",
-      prices: {
-        "50g": 229,
-        "100g": 399,
-        "250g": 749,
-      },
-    },
+    setProducts(data || []);
+  }
 
-    {
-      name: "Turnip",
-     image:"/turnip.png",
-      prices: {
-        "50g": 189,
-        "100g": 339,
-        "250g": 649,
-      },
-    },
-
-    {
-     
-      name: "Mustard Green",
-     image:"/mustardgreen.png",
-      prices: {
-        "50g": 249,
-        "100g": 449,
-        "250g": 799,
-      },
-    },
-
-    {
-      name: "Amaranthus Red",
-      image:"/amaranthusred.png",
-       
-      prices: {
-        "50g": 269,
-        "100g": 489,
-        "250g": 849,
-      },
-    },
-
-  ];
-
+  loadProducts();
+}, []);
   const addToCart = (
     product: any,
     pack: string
@@ -1068,7 +1021,7 @@ function ProductCard({
   addToCart,
 }: any) {
 
-  const packs = Object.keys(product.prices);
+ const packs = ["50g", "100g", "250g"];
 
   const [selectedPack, setSelectedPack] =
     useState(packs[0]);
@@ -1079,7 +1032,7 @@ function ProductCard({
 
   <div className="relative">
 
-    {product.name === "Sunflower" && (
+   {product.featured && (
       <span className="absolute top-3 left-3 bg-green-500 text-black px-3 py-1 rounded-full text-xs font-bold z-10">
         BEST SELLER
       </span>
@@ -1113,6 +1066,20 @@ function ProductCard({
           Fresh organic microgreens rich in nutrients and antioxidants.
 
         </p>
+        {/* STOCK STATUS */}
+<div className="mb-4">
+
+  {product.stock > 0 ? (
+    <span className="text-green-400 text-sm">
+      ● {product.stock} in stock
+    </span>
+  ) : (
+    <span className="text-red-400 text-sm">
+      ● Out of Stock
+    </span>
+  )}
+
+</div>
 
         {/* DROPDOWN */}
         <select
@@ -1127,7 +1094,13 @@ function ProductCard({
 
             <option key={pack} value={pack}>
 
-              {pack} - ₹{product.prices[pack]}
+              {pack} - ₹{
+  pack === "50g"
+    ? product.price50
+    : pack === "100g"
+    ? product.price100
+    : product.price250
+}
 
             </option>
 
@@ -1139,20 +1112,33 @@ function ProductCard({
 
           <span className="text-2xl font-bold text-green-400">
 
-            ₹{product.prices[selectedPack]}
+           ₹{
+  selectedPack === "50g"
+    ? product.price50
+    : selectedPack === "100g"
+    ? product.price100
+    : product.price250
+}
 
           </span>
 
-          <button
-            onClick={() =>
-              addToCart(product, selectedPack)
-            }
-            className="bg-green-500 hover:bg-green-600 text-black px-5 py-3 rounded-xl font-bold"
-          >
-
-            Add to Cart
-
-          </button>
+         {product.stock > 0 ? (
+  <button
+    onClick={() =>
+      addToCart(product, selectedPack)
+    }
+    className="bg-green-500 hover:bg-green-600 text-black px-5 py-3 rounded-xl font-bold"
+  >
+    Add to Cart
+  </button>
+) : (
+  <button
+    disabled
+    className="bg-gray-700 text-gray-400 px-5 py-3 rounded-xl font-bold cursor-not-allowed"
+  >
+    Out of Stock
+  </button>
+)}
 
         </div>
 
