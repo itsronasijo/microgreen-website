@@ -9,6 +9,15 @@ export default function AdminPage() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [products, setProducts] = useState<any[]>([]);
 
+  const [name, setName] = useState("");
+const [image, setImage] = useState("");
+const [description, setDescription] = useState("");
+const [price50, setPrice50] = useState("");
+const [price100, setPrice100] = useState("");
+const [price250, setPrice250] = useState("");
+const [stock, setStock] = useState("");
+const [featured, setFeatured] = useState(false);
+
   const handleLogin = () => {
     if (
       username === process.env.NEXT_PUBLIC_ADMIN_USERNAME &&
@@ -60,7 +69,41 @@ export default function AdminPage() {
 
   loadProducts();
 };
+const addProduct = async () => {
 
+  const { error } = await supabase
+    .from("products")
+    .insert([
+      {
+        name,
+        image,
+        description,
+        price50: Number(price50),
+        price100: Number(price100),
+        price250: Number(price250),
+        stock: Number(stock),
+        featured,
+      },
+    ]);
+
+  if (error) {
+    console.log(error);
+    alert("Failed to add product");
+    return;
+  }
+
+  setName("");
+  setImage("");
+  setDescription("");
+  setPrice50("");
+  setPrice100("");
+  setPrice250("");
+  setStock("");
+  setFeatured(false);
+
+  loadProducts();
+};
+  
   useEffect(() => {
     if (loggedIn) {
       loadProducts();
@@ -129,6 +172,88 @@ export default function AdminPage() {
         </button>
 
       </div>
+
+      <div className="bg-white/5 border border-white/10 rounded-2xl p-6 mb-8">
+
+  <h2 className="text-2xl font-bold text-green-400 mb-6">
+    Add Product
+  </h2>
+
+  <div className="grid md:grid-cols-2 gap-4">
+
+    <input
+      placeholder="Product Name"
+      value={name}
+      onChange={(e) => setName(e.target.value)}
+      className="bg-black border border-green-500 rounded-xl px-4 py-3"
+    />
+
+    <input
+      placeholder="Image Path (/sunflower.png)"
+      value={image}
+      onChange={(e) => setImage(e.target.value)}
+      className="bg-black border border-green-500 rounded-xl px-4 py-3"
+    />
+
+    <input
+      placeholder="50g Price"
+      value={price50}
+      onChange={(e) => setPrice50(e.target.value)}
+      className="bg-black border border-green-500 rounded-xl px-4 py-3"
+    />
+
+    <input
+      placeholder="100g Price"
+      value={price100}
+      onChange={(e) => setPrice100(e.target.value)}
+      className="bg-black border border-green-500 rounded-xl px-4 py-3"
+    />
+
+    <input
+      placeholder="250g Price"
+      value={price250}
+      onChange={(e) => setPrice250(e.target.value)}
+      className="bg-black border border-green-500 rounded-xl px-4 py-3"
+    />
+
+    <input
+      placeholder="Stock"
+      value={stock}
+      onChange={(e) => setStock(e.target.value)}
+      className="bg-black border border-green-500 rounded-xl px-4 py-3"
+    />
+
+  </div>
+
+  <textarea
+    placeholder="Description"
+    value={description}
+    onChange={(e) => setDescription(e.target.value)}
+    className="w-full bg-black border border-green-500 rounded-xl px-4 py-3 mt-4"
+  />
+
+  <div className="flex items-center gap-3 mt-4">
+
+    <input
+      type="checkbox"
+      checked={featured}
+      onChange={(e) =>
+        setFeatured(e.target.checked)
+      }
+    />
+
+    <span>Featured Product</span>
+
+  </div>
+
+  <button
+    onClick={addProduct}
+    className="mt-6 bg-green-500 hover:bg-green-600 text-black px-6 py-3 rounded-xl font-bold"
+  >
+    Add Product
+  </button>
+
+</div>
 
       <div className="overflow-x-auto">
 
