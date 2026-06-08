@@ -41,6 +41,25 @@ export default function AdminPage() {
 
     setProducts(data || []);
   };
+  const deleteProduct = async (id: number) => {
+  const confirmed = confirm(
+    "Delete this product?"
+  );
+
+  if (!confirmed) return;
+
+  const { error } = await supabase
+    .from("products")
+    .delete()
+    .eq("id", id);
+
+  if (error) {
+    console.log(error);
+    return;
+  }
+
+  loadProducts();
+};
 
   useEffect(() => {
     if (loggedIn) {
@@ -116,7 +135,7 @@ export default function AdminPage() {
         <table className="w-full border border-white/10">
 
           <thead className="bg-white/5">
-
+<th className="p-3 text-left">Actions</th>
             <tr>
               <th className="p-3 text-left">Name</th>
               <th className="p-3 text-left">Stock</th>
@@ -158,8 +177,17 @@ export default function AdminPage() {
                 </td>
 
                 <td className="p-3">
-                  {product.featured ? "⭐" : "-"}
-                </td>
+  {product.featured ? "⭐" : "-"}
+</td>
+
+<td className="p-3">
+  <button
+    onClick={() => deleteProduct(product.id)}
+    className="bg-red-500 px-3 py-1 rounded-lg"
+  >
+    Delete
+  </button>
+</td>
 
               </tr>
 
