@@ -15,7 +15,9 @@ const [description, setDescription] = useState("");
 const [price50, setPrice50] = useState("");
 const [price100, setPrice100] = useState("");
 const [price250, setPrice250] = useState("");
-const [stock, setStock] = useState("");
+const [stock50, setStock50] = useState("");
+const [stock100, setStock100] = useState("");
+const [stock250, setStock250] = useState("");
 const [featured, setFeatured] = useState(false);
 const [editingId, setEditingId] = useState<number | null>(null);
   const handleLogin = () => {
@@ -81,7 +83,9 @@ const addProduct = async () => {
         price50: Number(price50),
         price100: Number(price100),
         price250: Number(price250),
-        stock: Number(stock),
+        stock50: Number(stock50),
+        stock100: Number(stock100),
+        stock250: Number(stock250),
         featured,
       },
     ]);
@@ -116,7 +120,9 @@ const addProduct = async () => {
       price50: Number(price50),
       price100: Number(price100),
       price250: Number(price250),
-      stock: Number(stock),
+      stock50: Number(stock50),
+      stock100: Number(stock100),
+      stock250: Number(stock250),
       featured,
     })
     .eq("id", editingId);
@@ -262,13 +268,26 @@ const addProduct = async () => {
       className="bg-black border border-green-500 rounded-xl px-4 py-3"
     />
 
-    <input
-      placeholder="Stock"
-      value={stock}
-      onChange={(e) => setStock(e.target.value)}
-      className="bg-black border border-green-500 rounded-xl px-4 py-3"
-    />
+   <input
+  placeholder="50g Stock"
+  value={stock50}
+  onChange={(e) => setStock50(e.target.value)}
+  className="bg-black border border-green-500 rounded-xl px-4 py-3"
+/>
 
+<input
+  placeholder="100g Stock"
+  value={stock100}
+  onChange={(e) => setStock100(e.target.value)}
+  className="bg-black border border-green-500 rounded-xl px-4 py-3"
+/>
+
+<input
+  placeholder="250g Stock"
+  value={stock250}
+  onChange={(e) => setStock250(e.target.value)}
+  className="bg-black border border-green-500 rounded-xl px-4 py-3"
+/>
   </div>
 
   <textarea
@@ -368,7 +387,9 @@ const addProduct = async () => {
       setPrice50(product.price50.toString());
       setPrice100(product.price100.toString());
       setPrice250(product.price250.toString());
-      setStock(product.stock.toString());
+     setStock50(product.stock50?.toString() || "");
+      setStock100(product.stock100?.toString() || "");
+      setStock250(product.stock250?.toString() || "");
       setFeatured(product.featured);
 
       document
