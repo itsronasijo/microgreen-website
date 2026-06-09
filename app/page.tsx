@@ -1029,19 +1029,18 @@ function ProductCard({
   return (
 
 <div className="group bg-white/5 border border-white/10 rounded-3xl overflow-hidden flex flex-col hover:border-green-500 hover:-translate-y-2 transition-all duration-500">
-<div className="relative h-56 flex items-center justify-center bg-black overflow-hidden">
-
+<div className="relative h-64 flex items-center justify-center p-4">
   {product.featured && (
     <span className="absolute top-3 left-3 bg-yellow-500 text-black px-3 py-1 rounded-full text-xs font-bold z-10">
       ⭐ Featured
     </span>
   )}
 
-  <img
-    src={product.image}
-    alt={product.name}
-   className="w-full h-full object-contain transition-all duration-500 group-hover:scale-105"
-  />
+ <img
+  src={product.image}
+  alt={product.name}
+  className="max-w-full max-h-full object-contain transition-all duration-500 group-hover:scale-105"
+/>
 
 </div>
 
@@ -1066,6 +1065,7 @@ function ProductCard({
           Fresh organic microgreens rich in nutrients and antioxidants.
 
         </p>
+       <div className="mt-auto">
         {/* STOCK STATUS */}
 <div className="mb-4">
 
@@ -1143,7 +1143,7 @@ function ProductCard({
         </div>
 
       </div>
-
+</div>
     </div>
 
   );
