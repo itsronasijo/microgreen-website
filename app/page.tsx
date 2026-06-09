@@ -1028,8 +1028,7 @@ function ProductCard({
 
   return (
 
-    <div className="group bg-white/5 border border-white/10 rounded-3xl overflow-hidden hover:border-green-500 hover:-translate-y-2 transition-all duration-500">
-
+    <div className="group bg-white/5 border border-white/10 rounded-3xl overflow-hidden flex flex-col hover:border-green-500 hover:-translate-y-2 transition-all duration-500">
 <div className="relative h-56 overflow-hidden">
 
   {product.featured && (
@@ -1046,11 +1045,11 @@ function ProductCard({
 
 </div>
 
-      <div className="p-6">
+     <div className="p-6 flex flex-col flex-grow">
 
         <div className="flex justify-between items-center mb-4">
 
-          <h3 className="text-2xl font-bold text-green-400">
+       <h3 className="text-2xl font-bold text-green-400 h-16 flex items-center">
             {product.name}
           </h3>
 
@@ -1062,7 +1061,7 @@ function ProductCard({
 
         </div>
 
-        <p className="text-gray-400 mb-5">
+        <p className="text-gray-400 mb-5 h-20">
 
           Fresh organic microgreens rich in nutrients and antioxidants.
 
