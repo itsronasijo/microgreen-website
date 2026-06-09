@@ -102,7 +102,10 @@ const addProduct = async () => {
   setPrice50("");
   setPrice100("");
   setPrice250("");
-  setStock("");
+ setStock50("");
+setStock100("");
+setStock250("");
+
   setFeatured(false);
 
   loadProducts();
