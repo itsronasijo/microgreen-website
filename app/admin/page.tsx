@@ -221,9 +221,9 @@ const addProduct = async () => {
   className="bg-white/5 border border-white/10 rounded-2xl p-6 mb-8"
 >
 
-  <h2 className="text-2xl font-bold text-green-400 mb-6">
-    Add Product
-  </h2>
+ <h2 className="text-2xl font-bold text-green-400 mb-6">
+  {editingId ? "Edit Product" : "Add Product"}
+</h2>
 
   <div className="grid md:grid-cols-2 gap-4">
 
@@ -312,7 +312,7 @@ const addProduct = async () => {
         <table className="w-full border border-white/10">
 
           <thead className="bg-white/5">
-<th className="p-3 text-left">Actions</th>
+
             <tr>
               <th className="p-3 text-left">Name</th>
               <th className="p-3 text-left">Stock</th>
