@@ -1025,7 +1025,12 @@ function ProductCard({
 
   const [selectedPack, setSelectedPack] =
     useState(packs[0]);
-
+const currentStock =
+  selectedPack === "50g"
+    ? product.stock50
+    : selectedPack === "100g"
+    ? product.stock100
+    : product.stock250;
   return (
 
 <div className="group bg-white/5 border border-white/10 rounded-3xl overflow-hidden flex flex-col hover:border-green-500 hover:-translate-y-2 transition-all duration-500">
@@ -1069,15 +1074,15 @@ function ProductCard({
         {/* STOCK STATUS */}
 <div className="mb-4">
 
-  {product.stock > 0 ? (
-    <span className="text-green-400 text-sm">
-      ● {product.stock} in stock
-    </span>
-  ) : (
-    <span className="text-red-400 text-sm">
-      ● Out of Stock
-    </span>
-  )}
+  {currentStock > 0 ? (
+  <span className="text-green-400 text-sm">
+    ● {currentStock} in stock
+  </span>
+) : (
+  <span className="text-red-400 text-sm">
+    ● Out of Stock
+  </span>
+)}
 
 </div>
 
@@ -1122,7 +1127,7 @@ function ProductCard({
 
           </span>
 
-         {product.stock > 0 ? (
+         {currentStock > 0 ? (
   <button
     onClick={() =>
       addToCart(product, selectedPack)
