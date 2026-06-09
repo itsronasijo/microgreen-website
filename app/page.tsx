@@ -1030,20 +1030,21 @@ function ProductCard({
 
     <div className="group bg-white/5 border border-white/10 rounded-3xl overflow-hidden hover:border-green-500 hover:-translate-y-2 transition-all duration-500">
 
-  <div className="relative">
+<div className="relative h-56 overflow-hidden">
 
-   {product.featured && (
-      <span className="absolute top-3 left-3 bg-yellow-500 text-black px-3 py-1 rounded-full text-xs font-bold">
-    ⭐ Featured
-  </span>
-    )}
+  {product.featured && (
+    <span className="absolute top-3 left-3 bg-yellow-500 text-black px-3 py-1 rounded-full text-xs font-bold z-10">
+      ⭐ Featured
+    </span>
+  )}
 
-    <img
-      src={product.image}
-      alt={product.name}
-      className="w-full h-52 object-cover transition-all duration-500 group-hover:scale-105"
-    />
-     </div>
+  <img
+    src={product.image}
+    alt={product.name}
+    className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
+  />
+
+</div>
 
       <div className="p-6">
 
