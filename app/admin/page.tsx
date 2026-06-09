@@ -144,7 +144,9 @@ setStock250("");
   setPrice50("");
   setPrice100("");
   setPrice250("");
-  setStock("");
+  setStock50("");
+setStock100("");
+setStock250("");
   setFeatured(false);
 
   loadProducts();
@@ -360,8 +362,8 @@ setStock250("");
                 </td>
 
                 <td className="p-3">
-                  {product.stock}
-                </td>
+  {product.stock50} / {product.stock100} / {product.stock250}
+</td>
 
                 <td className="p-3">
                   ₹{product.price50}
