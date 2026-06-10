@@ -445,34 +445,17 @@ const microgreenSection =
       >
 
         <h2 className="text-5xl font-bold text-center mb-16">
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
+        <div className="text-center mb-12">
 
-  <button className="bg-green-500 text-black px-5 py-2 rounded-full text-lg font-bold">
-  All
-</button>
+  <p className="text-gray-400 text-lg">
+    Available Varieties:
+  </p>
 
-<button className="bg-white/5 hover:bg-white/10 px-5 py-2 rounded-full text-lg">
-  Sunflower
-</button>
+  <p className="text-green-400 text-xl mt-3 font-semibold">
+    🌻 Sunflower • 🌱 Chia • ❤️ Beetroot • 🥬 Turnip • 💛 Mustard Green • 🍃 Amaranthus Red
+  </p>
 
-<button className="bg-white/5 hover:bg-white/10 px-5 py-2 rounded-full text-lg">
-  Chia
-</button>
-          <button className="bg-white/5 hover:bg-white/10 px-5 py-2 rounded-full text-lg">
-Amaranthus
-</button>
-
-<button className="bg-white/5 hover:bg-white/10 px-5 py-2 rounded-full text-lg">
-  Beetroot
-</button>
-          <button className="bg-white/5 hover:bg-white/10 px-5 py-2 rounded-full text-lg">
- Turnip
-</button>
-
-<button className="bg-white/5 hover:bg-white/10 px-5 py-2 rounded-full text-lg">
-  Mustard Green
-</button>
-        </div>
+</div>  
           Featured
           <span className="text-green-400">
             {" "}Products
