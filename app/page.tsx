@@ -18,21 +18,22 @@ export default function Home() {
  const [user, setUser] = useState<any>(null);
 
 useEffect(() => {
-  const checkUser = async () => {
-    const { data: { session } } = await supabase.auth.getSession();
+  const getUser = async () => {
+    const {
+      data: { session },
+    } = await supabase.auth.getSession();
 
     console.log("SESSION:", session);
 
-    if (session) {
-      setUser(session.user);
-    }
+    setUser(session?.user ?? null);
   };
 
-  checkUser();
+  getUser();
 
   const {
     data: { subscription },
   } = supabase.auth.onAuthStateChange((_event, session) => {
+    console.log("AUTH CHANGE:", session);
     setUser(session?.user ?? null);
   });
 
