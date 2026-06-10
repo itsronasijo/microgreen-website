@@ -206,9 +206,7 @@ const microgreenSection =
  return (
 
   <main className="min-h-screen bg-black text-white">
-<div className="text-white text-center p-2">
-      {user ? `Logged in as: ${user.email}` : "Not logged in"}
-    </div>
+
 
  {/* COMPLETE HEADER */}
 <div className="fixed top-0 left-0 w-full z-50">
@@ -267,6 +265,9 @@ const microgreenSection =
 </div>
 
     {/* NAVIGATION */}
+    <div className="bg-red-500 text-white p-2 text-center">
+  {user ? `Logged in as: ${user.email}` : "Not logged in"}
+</div>
     <nav className="hidden lg:flex items-center gap-4 text-gray-300">
       <a href="#home" className="hover:text-green-400 transition">
         Home
