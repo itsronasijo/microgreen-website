@@ -9,14 +9,14 @@ export default function Home() {
   const [cartOpen, setCartOpen] = useState(false);
   const [ingredients, setIngredients] =
   useState("");
-
-const [recipe, setRecipe] =
+  const [search, setSearch] = useState("");
+  const [recipe, setRecipe] =
   useState("");
-const [loading, setLoading] =
+  const [loading, setLoading] =
   useState(false);
   const [products, setProducts] = useState<any[]>([]);
 
-useEffect(() => {
+  useEffect(() => {
   async function loadProducts() {
     const { data, error } = await supabase
       .from("products")
@@ -170,7 +170,16 @@ const nutritionSection =
 
 const microgreenSection =
   recipe.match(/Recommended Microgreen:\s*([\s\S]*)/)?.[1]?.trim() || "";
+  
 
+
+  const filteredProducts = products.filter(
+  (product) =>
+    product.name
+      .toLowerCase()
+      .includes(search.toLowerCase())
+);
+  
  return (
 
   <main className="min-h-screen bg-black text-white">
@@ -214,11 +223,13 @@ const microgreenSection =
 
     {/* SEARCH */}
   <div className="hidden lg:block mr-4">
-  <input
-    type="text"
-    placeholder="🔍 Search Products"
-    className="w-64 bg-white/10 border border-green-800 rounded-xl px-4 py-3 text-white outline-none"
-  />
+ <input
+  type="text"
+  placeholder="🔍 Search Products"
+  value={search}
+  onChange={(e) => setSearch(e.target.value)}
+  className="w-64 bg-white/10 border border-green-800 rounded-xl px-4 py-3 text-white outline-none"
+/>
 </div>
 
     {/* NAVIGATION */}
@@ -463,7 +474,7 @@ Amaranthus
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
 
-          {products.map((product) => (
+         {filteredProducts.map((product) => (
 
             <ProductCard
               key={product.name}
