@@ -321,21 +321,28 @@ const microgreenSection =
       />
     ) : (
       <div className="w-full h-full flex items-center justify-center bg-green-600 text-white font-bold text-sm">
-        {user?.user_metadata?.name
-          ? user.user_metadata.name
-              .split(" ")
-              .map((word) => word[0])
-              .join("")
-              .slice(0, 2)
-              .toUpperCase()
-          : "👤"}
+        {(() => {
+          const name =
+            user.user_metadata?.full_name ||
+            user.user_metadata?.name ||
+            "";
+
+          const parts = name.trim().split(" ");
+
+          if (parts.length >= 2) {
+            return (
+              parts[0][0] + parts[parts.length - 1][0]
+            ).toUpperCase();
+          }
+
+          return parts[0]?.[0]?.toUpperCase() || "U";
+        })()}
       </div>
     )
   ) : (
     <span className="text-2xl">👤</span>
   )}
-</button>
-  
+</button>  
   
 </div> 
       
