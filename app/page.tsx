@@ -29,7 +29,6 @@ useEffect(() => {
   };
 
   checkUser();
-}, []);
 
   const {
     data: { subscription },
@@ -37,10 +36,11 @@ useEffect(() => {
     setUser(session?.user ?? null);
   });
 
-  return () => subscription.unsubscribe();
-};
+  return () => {
+    subscription.unsubscribe();
+  };
 }, []);
-
+  
   useEffect(() => {
   async function loadProducts() {
     const { data, error } = await supabase
