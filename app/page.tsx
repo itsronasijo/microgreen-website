@@ -15,12 +15,20 @@ export default function Home() {
   const [loading, setLoading] =
   useState(false);
   const [products, setProducts] = useState<any[]>([]);
-  const [user, setUser] = useState<any>(null);
+ const [user, setUser] = useState<any>(null);
 
 useEffect(() => {
   supabase.auth.getUser().then(({ data }) => {
     setUser(data.user);
   });
+
+  const {
+    data: { subscription },
+  } = supabase.auth.onAuthStateChange((_event, session) => {
+    setUser(session?.user ?? null);
+  });
+
+  return () => subscription.unsubscribe();
 }, []);
 
   useEffect(() => {
