@@ -343,7 +343,11 @@ const microgreenSection =
     <span className="text-2xl">👤</span>
   )}
 </button>  
-  
+ <span className="text-xs text-white">
+  {user?.user_metadata?.full_name ||
+   user?.user_metadata?.name ||
+   "No Name"}
+</span> 
 </div> 
       
       <button className="text-2xl">
