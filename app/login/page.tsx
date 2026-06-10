@@ -5,8 +5,12 @@ import { supabase } from "../../lib/supabase";
 export default function LoginPage() {
   const signInWithGoogle = async () => {
     await supabase.auth.signInWithOAuth({
-      provider: "google",
-    });
+  provider: "google",
+  options: {
+    redirectTo:
+      "https://microgreen-website-gjayehn7x-itsronasijos-projects.vercel.app",
+  },
+});
   };
 
   return (
