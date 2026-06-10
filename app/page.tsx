@@ -66,7 +66,12 @@ useEffect(() => {
           image: product.image,
           pack,
           quantity: 1,
-          price: product.prices[pack],
+          price:
+  pack === "50g"
+    ? product.price50
+    : pack === "100g"
+    ? product.price100
+    : product.price250,
         },
       ]);
 
