@@ -276,9 +276,7 @@ const microgreenSection =
 </div>
 
     {/* NAVIGATION */}
-    <div className="bg-red-500 text-white p-2 text-center">
-  User Loaded: {user ? "YES" : "NO"}
-</div>
+    
     <nav className="hidden lg:flex items-center gap-4 text-gray-300">
       <a href="#home" className="hover:text-green-400 transition">
         Home
@@ -309,30 +307,31 @@ const microgreenSection =
     {/* RIGHT SIDE */}
     <div className="flex items-center gap-5">
 
-<button
-  onClick={() => {
-    if (!user) {
-      handleGoogleLogin();
-    }
-  }}
-  className="hover:scale-110 transition"
->
-  {!user ? (
-    <span className="w-10 h-10 flex items-center justify-center rounded-full border-2 border-green-500 text-xl">
-      👤
+<div className="flex items-center gap-2">
+  <button
+    onClick={handleGoogleLogin}
+    className="w-10 h-10 rounded-full overflow-hidden border-2 border-green-500 hover:scale-110 transition"
+  >
+    {user?.user_metadata?.avatar_url ? (
+      <img
+        src={user.user_metadata.avatar_url}
+        alt="Profile"
+        className="w-full h-full object-cover"
+      />
+    ) : (
+      <div className="w-full h-full flex items-center justify-center bg-green-600 text-white font-bold">
+        {user?.user_metadata?.name?.charAt(0) || "U"}
+      </div>
+    )}
+  </button>
+
+  {user && (
+    <span className="text-white text-sm font-medium">
+      {user.user_metadata?.name}
     </span>
-  ) : user.user_metadata?.avatar_url ? (
-    <img
-      src={user.user_metadata.avatar_url}
-      alt="Profile"
-      className="w-10 h-10 rounded-full border-2 border-green-500"
-    />
-  ) : (
-    <div className="w-10 h-10 rounded-full bg-green-500 text-black font-bold flex items-center justify-center">
-      {user.user_metadata?.full_name?.charAt(0) || "U"}
-    </div>
   )}
-</button>     
+</div>     
+      
       <button className="text-2xl">
         ❤️
       </button>
