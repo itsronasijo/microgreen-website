@@ -18,9 +18,18 @@ export default function Home() {
  const [user, setUser] = useState<any>(null);
 
 useEffect(() => {
-  supabase.auth.getUser().then(({ data }) => {
-    setUser(data.user);
-  });
+  const checkUser = async () => {
+    const { data: { session } } = await supabase.auth.getSession();
+
+    console.log("SESSION:", session);
+
+    if (session) {
+      setUser(session.user);
+    }
+  };
+
+  checkUser();
+}, []);
 
   const {
     data: { subscription },
@@ -266,7 +275,7 @@ const microgreenSection =
 
     {/* NAVIGATION */}
     <div className="bg-red-500 text-white p-2 text-center">
-  {user ? `Logged in as: ${user.email}` : "Not logged in"}
+  User Loaded: {user ? "YES" : "NO"}
 </div>
     <nav className="hidden lg:flex items-center gap-4 text-gray-300">
       <a href="#home" className="hover:text-green-400 transition">
