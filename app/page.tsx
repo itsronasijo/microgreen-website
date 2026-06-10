@@ -223,11 +223,19 @@ const microgreenSection =
 
     {/* SEARCH */}
   <div className="hidden lg:block mr-4">
- <input
+<input
   type="text"
   placeholder="🔍 Search Products"
   value={search}
-  onChange={(e) => setSearch(e.target.value)}
+  onChange={(e) => {
+    setSearch(e.target.value);
+
+    document
+      .getElementById("products")
+      ?.scrollIntoView({
+        behavior: "smooth",
+      });
+  }}
   className="w-64 bg-white/10 border border-green-800 rounded-xl px-4 py-3 text-white outline-none"
 />
 </div>
@@ -471,21 +479,41 @@ Amaranthus
           </span>
 
         </h2>
+        {search.trim() !== "" && (
+  <p className="text-center text-gray-400 mb-6">
+    {filteredProducts.length} product(s) found
+  </p>
+)}
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-          
+       {search.trim() !== "" && filteredProducts.length === 0 ? (
 
-         {filteredProducts.map((product) => (
+  <div className="text-center py-20">
+    <h3 className="text-2xl text-red-400">
+      No products found
+    </h3>
 
-            <ProductCard
-              key={product.name}
-              product={product}
-              addToCart={addToCart}
-            />
+    <p className="text-gray-400 mt-2">
+      Try another search term
+    </p>
+  </div>
 
-          ))}
+) : (
 
-        </div>
+  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+
+    {filteredProducts.map((product) => (
+
+      <ProductCard
+        key={product.name}
+        product={product}
+        addToCart={addToCart}
+      />
+
+    ))}
+
+  </div>
+
+)}
 
       </section>
 
