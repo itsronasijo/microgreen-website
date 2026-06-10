@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import { supabase } from "../lib/supabase";
-
 export default function Home() {
 
   const [cart, setCart] = useState<any[]>([]);
@@ -119,7 +118,15 @@ const generateRecipe = async () => {
   }
 
 };    
-  
+  const handleGoogleLogin = async () => {
+  await supabase.auth.signInWithOAuth({
+    provider: "google",
+    options: {
+      redirectTo:
+        "https://microgreen-website-gjayehn7x-itsronasijos-projects.vercel.app",
+    },
+  });
+};
  
   const increaseQty = (index: number) => {
 
@@ -271,9 +278,12 @@ const microgreenSection =
     {/* RIGHT SIDE */}
     <div className="flex items-center gap-5">
 
-      <button className="text-2xl">
-        👤
-      </button>
+      <button
+  onClick={handleGoogleLogin}
+  className="text-2xl hover:scale-110 transition"
+>
+  👤
+</button>
 
       <button className="text-2xl">
         ❤️
