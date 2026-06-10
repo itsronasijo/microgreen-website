@@ -288,9 +288,19 @@ const microgreenSection =
 
      <button
   onClick={handleGoogleLogin}
-  className="text-lg hover:scale-110 transition"
+  className="hover:scale-110 transition"
 >
-  {user?.user_metadata?.full_name || "👤"}
+  {user?.user_metadata?.avatar_url ? (
+    <img
+      src={user.user_metadata.avatar_url}
+      alt="Profile"
+      className="w-10 h-10 rounded-full border-2 border-green-500"
+    />
+  ) : (
+    <span className="w-10 h-10 flex items-center justify-center rounded-full border-2 border-green-500">
+      👤
+    </span>
+  )}
 </button>
 
       <button className="text-2xl">
