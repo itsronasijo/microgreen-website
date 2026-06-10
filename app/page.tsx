@@ -202,12 +202,13 @@ const microgreenSection =
       .toLowerCase()
       .includes(search.toLowerCase())
 );
-  <div className="text-white text-center">
-  {user ? `Logged in as: ${user.email}` : "Not logged in"}
-</div>
+  
  return (
 
   <main className="min-h-screen bg-black text-white">
+<div className="text-white text-center p-2">
+      {user ? `Logged in as: ${user.email}` : "Not logged in"}
+    </div>
 
  {/* COMPLETE HEADER */}
 <div className="fixed top-0 left-0 w-full z-50">
@@ -297,11 +298,15 @@ const microgreenSection =
     <div className="flex items-center gap-5">
 
 <button
-  onClick={handleGoogleLogin}
+  onClick={() => {
+    if (!user) {
+      handleGoogleLogin();
+    }
+  }}
   className="hover:scale-110 transition"
 >
   {!user ? (
-    <span className="w-10 h-10 flex items-center justify-center rounded-full border-2 border-green-500">
+    <span className="w-10 h-10 flex items-center justify-center rounded-full border-2 border-green-500 text-xl">
       👤
     </span>
   ) : user.user_metadata?.avatar_url ? (
