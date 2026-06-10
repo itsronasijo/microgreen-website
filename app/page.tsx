@@ -5,7 +5,7 @@ import { supabase } from "../lib/supabase";
 export default function Home() {
 
   const [cart, setCart] = useState<any[]>([]);
-  const [wishlisted, setWishlisted] = useState(false);
+ 
   const [cartOpen, setCartOpen] = useState(false);
   const [ingredients, setIngredients] =
   useState("");
@@ -1059,6 +1059,7 @@ function ProductCard({
   product,
   addToCart,
 }: any) {
+   const [wishlisted, setWishlisted] = useState(false);
 
  const packs = ["50g", "100g", "250g"];
 
