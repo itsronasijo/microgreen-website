@@ -202,7 +202,7 @@ const microgreenSection =
       .toLowerCase()
       .includes(search.toLowerCase())
 );
-  
+  console.log("User:", user);
  return (
 
   <main className="min-h-screen bg-black text-white">
