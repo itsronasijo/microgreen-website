@@ -452,7 +452,7 @@ const microgreenSection =
   </p>
 
   <p className="text-green-400 text-xl mt-3 font-semibold">
-    🌻 Sunflower • 🌱 Chia • ❤️ Beetroot • 🥬 Turnip • 💛 Mustard Green • 🍃 Amaranthus Red
+    🌻 Sunflower • 🌱 Chia • ❤️ Beetroot • 🥬 Turnip • 💛 Mustard  • 🍃 Amaranthus Red .🌽 Corn .🍀 Fenugreek
   </p>
 
 </div>  
