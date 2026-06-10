@@ -15,6 +15,13 @@ export default function Home() {
   const [loading, setLoading] =
   useState(false);
   const [products, setProducts] = useState<any[]>([]);
+  const [user, setUser] = useState<any>(null);
+
+useEffect(() => {
+  supabase.auth.getUser().then(({ data }) => {
+    setUser(data.user);
+  });
+}, []);
 
   useEffect(() => {
   async function loadProducts() {
@@ -279,11 +286,11 @@ const microgreenSection =
     {/* RIGHT SIDE */}
     <div className="flex items-center gap-5">
 
-      <button
+     <button
   onClick={handleGoogleLogin}
-  className="text-2xl hover:scale-110 transition"
+  className="text-lg hover:scale-110 transition"
 >
-  👤
+  {user?.user_metadata?.full_name || "👤"}
 </button>
 
       <button className="text-2xl">
