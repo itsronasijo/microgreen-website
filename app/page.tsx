@@ -290,7 +290,11 @@ const microgreenSection =
   onClick={handleGoogleLogin}
   className="hover:scale-110 transition"
 >
-  {user?.user_metadata?.avatar_url ? (
+  {!user ? (
+    <span className="w-10 h-10 flex items-center justify-center rounded-full border-2 border-green-500">
+      👤
+    </span>
+  ) : user.user_metadata?.avatar_url ? (
     <img
       src={user.user_metadata.avatar_url}
       alt="Profile"
@@ -298,11 +302,10 @@ const microgreenSection =
     />
   ) : (
     <div className="w-10 h-10 rounded-full bg-green-500 text-black font-bold flex items-center justify-center">
-      {user?.user_metadata?.full_name?.charAt(0) || "U"}
+      {user.user_metadata?.full_name?.charAt(0) || "U"}
     </div>
   )}
-</button>
-
+</button>     
       <button className="text-2xl">
         ❤️
       </button>
