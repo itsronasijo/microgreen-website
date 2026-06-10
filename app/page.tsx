@@ -286,7 +286,7 @@ const microgreenSection =
     {/* RIGHT SIDE */}
     <div className="flex items-center gap-5">
 
-     <button
+<button
   onClick={handleGoogleLogin}
   className="hover:scale-110 transition"
 >
@@ -297,9 +297,9 @@ const microgreenSection =
       className="w-10 h-10 rounded-full border-2 border-green-500"
     />
   ) : (
-    <span className="w-10 h-10 flex items-center justify-center rounded-full border-2 border-green-500">
-      👤
-    </span>
+    <div className="w-10 h-10 rounded-full bg-green-500 text-black font-bold flex items-center justify-center">
+      {user?.user_metadata?.full_name?.charAt(0) || "U"}
+    </div>
   )}
 </button>
 
