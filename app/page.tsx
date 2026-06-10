@@ -473,6 +473,9 @@ Amaranthus
         </h2>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+          <p className="text-center text-red-400 mb-4">
+  Found {filteredProducts.length} products
+</p>
 
          {filteredProducts.map((product) => (
 
