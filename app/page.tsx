@@ -5,7 +5,7 @@ import { supabase } from "../lib/supabase";
 export default function Home() {
 
   const [cart, setCart] = useState<any[]>([]);
- 
+ const [profileOpen, setProfileOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
   const [ingredients, setIngredients] =
   useState("");
@@ -303,71 +303,118 @@ const microgreenSection =
       </a>
 
     </nav>
+{/* RIGHT SIDE */}
+<div className="flex items-center gap-5">
 
-    {/* RIGHT SIDE */}
-    <div className="flex items-center gap-5">
+  {/* PROFILE */}
+  <div className="relative">
 
-<div className="flex items-center">
-  <button
-    onClick={handleGoogleLogin}
-    className="w-10 h-10 rounded-full overflow-hidden border-2 border-green-500 hover:scale-110 transition flex items-center justify-center"
-  >
-    {user ? (
-      user.user_metadata?.avatar_url ? (
-        <img
-          src={user.user_metadata.avatar_url}
-          alt="Profile"
-          className="w-full h-full object-cover"
-        />
+    <button
+      onClick={() => {
+        if (!user) {
+          handleGoogleLogin();
+        } else {
+          setProfileOpen(!profileOpen);
+        }
+      }}
+      className="w-10 h-10 rounded-full overflow-hidden border-2 border-green-500 hover:scale-110 transition flex items-center justify-center"
+    >
+      {user ? (
+        user.user_metadata?.avatar_url ? (
+          <img
+            src={user.user_metadata.avatar_url}
+            alt="Profile"
+            className="w-full h-full object-cover"
+          />
+        ) : (
+          <div className="w-full h-full flex items-center justify-center bg-green-600 text-white font-bold text-sm">
+            {(
+              user.user_metadata?.full_name ||
+              user.user_metadata?.name ||
+              ""
+            )
+              .split(" ")
+              .filter(Boolean)
+              .map((word: string) => word[0])
+              .join("")
+              .slice(0, 2)
+              .toUpperCase() || "👤"}
+          </div>
+        )
       ) : (
-        <div className="w-full h-full flex items-center justify-center bg-green-600 text-white font-bold text-sm">
-          {(
-            user.user_metadata?.full_name ||
-            user.user_metadata?.name ||
-            ""
-          )
-            .split(" ")
-            .filter(Boolean)
-            .map((word: string) => word[0])
-            .join("")
-            .slice(0, 2)
-            .toUpperCase() || "👤"}
+        <span className="text-2xl">👤</span>
+      )}
+    </button>
+
+    {profileOpen && user && (
+      <div className="absolute right-0 mt-3 w-64 bg-black border border-green-500 rounded-xl shadow-xl z-50">
+
+        <div className="p-4 border-b border-gray-700">
+          <p className="text-white font-bold">
+            {user.user_metadata?.full_name ||
+              user.user_metadata?.name}
+          </p>
+
+          <p className="text-gray-400 text-sm">
+            {user.email}
+          </p>
         </div>
-      )
-    ) : (
-      <span className="text-2xl">👤</span>
+
+        <button className="w-full text-left px-4 py-3 hover:bg-green-600">
+          ❤️ My Wishlist
+        </button>
+
+        <button className="w-full text-left px-4 py-3 hover:bg-green-600">
+          🛒 My Cart
+        </button>
+
+        <button className="w-full text-left px-4 py-3 hover:bg-green-600">
+          📦 My Orders
+        </button>
+
+        <button
+          onClick={async () => {
+            await supabase.auth.signOut();
+            setProfileOpen(false);
+          }}
+          className="w-full text-left px-4 py-3 text-red-400 hover:bg-red-900"
+        >
+          🚪 Logout
+        </button>
+
+      </div>
     )}
-  </button>
-</div>      
-      <button className="text-2xl">
-        ❤️
-      </button>
-
-      <button
-        onClick={() => setCartOpen(true)}
-        className="relative text-3xl"
-      >
-        🛒
-
-        <span className="absolute -top-2 -right-3 bg-green-500 text-black text-sm px-2 rounded-full font-bold">
-          {cart.reduce((sum, item) => sum + item.quantity, 0)}
-        </span>
-
-      </button>
-
-      <a
-        href="#products"
-        className="bg-green-500 hover:bg-green-600 transition px-6 py-3 rounded-xl text-black font-bold"
-      >
-        Shop Now
-      </a>
-
-    </div>
 
   </div>
-</header>
-</div> {/* <-- CLOSE COMPLETE HEADER HERE */}   
-{/* HERO*/}
+
+  {/* WISHLIST */}
+  <button className="text-2xl">
+    ❤️
+  </button>
+
+  {/* CART */}
+  <button
+    onClick={() => setCartOpen(true)}
+    className="relative text-3xl"
+  >
+    🛒
+
+    <span className="absolute -top-2 -right-3 bg-green-500 text-black text-sm px-2 rounded-full font-bold">
+      {cart.reduce((sum, item) => sum + item.quantity, 0)}
+    </span>
+  </button>
+
+  {/* SHOP BUTTON */}
+  <a
+    href="#products"
+    className="bg-green-500 hover:bg-green-600 transition px-6 py-3 rounded-xl text-black font-bold"
+  >
+    Shop Now
+  </a>
+
+</div>
+    
+    {/* HERO*/}
       <section
         id="home"
         className="min-h-screen grid md:grid-cols-2 gap-10 items-center px-8 md:px-16 pt-32"  >
