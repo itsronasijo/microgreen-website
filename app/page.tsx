@@ -5,7 +5,7 @@ import { supabase } from "../lib/supabase";
 export default function Home() {
 
   const [cart, setCart] = useState<any[]>([]);
- const [profileOpen, setProfileOpen] = useState(false);
+
   const [cartOpen, setCartOpen] = useState(false);
   const [ingredients, setIngredients] =
   useState("");
@@ -16,7 +16,7 @@ export default function Home() {
   useState(false);
   const [products, setProducts] = useState<any[]>([]);
  const [user, setUser] = useState<any>(null);
-
+ const [profileOpen, setProfileOpen] = useState(false);
 useEffect(() => {
   const getUser = async () => {
     const {
