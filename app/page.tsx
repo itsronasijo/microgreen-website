@@ -310,18 +310,23 @@ const microgreenSection =
 <div className="flex items-center gap-2">
   <button
     onClick={handleGoogleLogin}
-    className="w-10 h-10 rounded-full overflow-hidden border-2 border-green-500 hover:scale-110 transition"
+    className="w-10 h-10 rounded-full overflow-hidden border-2 border-green-500 hover:scale-110 transition flex items-center justify-center"
   >
-    {user?.user_metadata?.avatar_url ? (
-      <img
-        src={user.user_metadata.avatar_url}
-        alt="Profile"
-        className="w-full h-full object-cover"
-      />
+    {user ? (
+      user.user_metadata?.avatar_url ? (
+        <img
+          src={user.user_metadata.avatar_url}
+          alt="Profile"
+          className="w-full h-full object-cover"
+        />
+      ) : (
+        <div className="w-full h-full flex items-center justify-center bg-green-600 text-white font-bold">
+          {user.user_metadata?.name?.charAt(0) ||
+            user.email?.charAt(0)?.toUpperCase()}
+        </div>
+      )
     ) : (
-      <div className="w-full h-full flex items-center justify-center bg-green-600 text-white font-bold">
-        {user?.user_metadata?.name?.charAt(0) || "U"}
-      </div>
+      <span className="text-2xl">👤</span>
     )}
   </button>
 
@@ -330,7 +335,7 @@ const microgreenSection =
       {user.user_metadata?.name}
     </span>
   )}
-</div>     
+</div> 
       
       <button className="text-2xl">
         ❤️
