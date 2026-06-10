@@ -5,6 +5,7 @@ import { supabase } from "../lib/supabase";
 export default function Home() {
 
   const [cart, setCart] = useState<any[]>([]);
+  const [wishlisted, setWishlisted] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
   const [ingredients, setIngredients] =
   useState("");
@@ -1073,10 +1074,11 @@ const currentStock =
 
 <div className="group bg-white/5 border border-white/10 rounded-3xl overflow-hidden flex flex-col hover:border-green-500 hover:-translate-y-2 transition-all duration-500">
 <div className="relative h-64 flex items-center justify-center p-4">
-  <button
+ <button
+  onClick={() => setWishlisted(!wishlisted)}
   className="absolute top-3 right-3 text-2xl hover:scale-110 transition z-10"
 >
-  ❤️
+  {wishlisted ? "❤️" : "🤍"}
 </button>
   {product.featured && (
     <span className="absolute top-3 left-3 bg-yellow-500 text-black px-3 py-1 rounded-full text-xs font-bold z-10">
