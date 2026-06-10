@@ -17,6 +17,30 @@ export default function Home() {
   const [products, setProducts] = useState<any[]>([]);
  const [user, setUser] = useState<any>(null);
  const [profileOpen, setProfileOpen] = useState(false);
+const [profileRef, setProfileRef] = useState<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+  const handleClickOutside = (event: MouseEvent) => {
+    if (
+      profileRef &&
+      !profileRef.contains(event.target as Node)
+    ) {
+      setProfileOpen(false);
+    }
+  };
+
+  document.addEventListener("mousedown", handleClickOutside);
+
+  return () => {
+    document.removeEventListener(
+      "mousedown",
+      handleClickOutside
+    );
+  };
+}, [profileRef]);
+
+  
+  
 useEffect(() => {
   const getUser = async () => {
     const {
@@ -307,7 +331,10 @@ const microgreenSection =
 <div className="flex items-center gap-5">
 
   {/* PROFILE */}
-  <div className="relative">
+ <div
+  className="relative"
+  ref={(el) => setProfileRef(el)}
+>
 
     <button
       onClick={() => {
