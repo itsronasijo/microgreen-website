@@ -335,7 +335,7 @@ const microgreenSection =
             )
               .split(" ")
               .filter(Boolean)
-              .map((word: string) => word[0])
+              .map((word) => word[0])
               .join("")
               .slice(0, 2)
               .toUpperCase() || "👤"}
@@ -412,6 +412,9 @@ const microgreenSection =
     Shop Now
   </a>
 
+</div>
+     </div>
+</header>
 </div>
     
     {/* HERO*/}
