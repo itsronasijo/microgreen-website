@@ -202,7 +202,9 @@ const microgreenSection =
       .toLowerCase()
       .includes(search.toLowerCase())
 );
-  console.log("User:", user);
+  <div className="text-white text-center">
+  {user ? `Logged in as: ${user.email}` : "Not logged in"}
+</div>
  return (
 
   <main className="min-h-screen bg-black text-white">
