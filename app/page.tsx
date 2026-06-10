@@ -38,6 +38,7 @@ useEffect(() => {
   });
 
   return () => subscription.unsubscribe();
+};
 }, []);
 
   useEffect(() => {
