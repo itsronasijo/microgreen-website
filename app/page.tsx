@@ -307,49 +307,38 @@ const microgreenSection =
     {/* RIGHT SIDE */}
     <div className="flex items-center gap-5">
 
-<div className="flex items-center gap-2">
- <button
-  onClick={handleGoogleLogin}
-  className="w-10 h-10 rounded-full overflow-hidden border-2 border-green-500 hover:scale-110 transition flex items-center justify-center"
->
-  {user ? (
-    user.user_metadata?.avatar_url ? (
-      <img
-        src={user.user_metadata.avatar_url}
-        alt="Profile"
-        className="w-full h-full object-cover"
-      />
-    ) : (
-      <div className="w-full h-full flex items-center justify-center bg-green-600 text-white font-bold text-sm">
-        {(() => {
-          const name =
+<div className="flex items-center">
+  <button
+    onClick={handleGoogleLogin}
+    className="w-10 h-10 rounded-full overflow-hidden border-2 border-green-500 hover:scale-110 transition flex items-center justify-center"
+  >
+    {user ? (
+      user.user_metadata?.avatar_url ? (
+        <img
+          src={user.user_metadata.avatar_url}
+          alt="Profile"
+          className="w-full h-full object-cover"
+        />
+      ) : (
+        <div className="w-full h-full flex items-center justify-center bg-green-600 text-white font-bold text-sm">
+          {(
             user.user_metadata?.full_name ||
             user.user_metadata?.name ||
-            "";
-
-          const parts = name.trim().split(" ");
-
-          if (parts.length >= 2) {
-            return (
-              parts[0][0] + parts[parts.length - 1][0]
-            ).toUpperCase();
-          }
-
-          return parts[0]?.[0]?.toUpperCase() || "U";
-        })()}
-      </div>
-    )
-  ) : (
-    <span className="text-2xl">👤</span>
-  )}
-</button>  
- <span className="text-xs text-white">
-  {user?.user_metadata?.full_name ||
-   user?.user_metadata?.name ||
-   "No Name"}
-</span> 
-</div> 
-      
+            ""
+          )
+            .split(" ")
+            .filter(Boolean)
+            .map((word: string) => word[0])
+            .join("")
+            .slice(0, 2)
+            .toUpperCase() || "👤"}
+        </div>
+      )
+    ) : (
+      <span className="text-2xl">👤</span>
+    )}
+  </button>
+</div>      
       <button className="text-2xl">
         ❤️
       </button>
