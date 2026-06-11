@@ -62,46 +62,51 @@ export default function ProfilePage() {
   }, [router]);
 
   const saveProfile = async () => {
-    setLoading(true);
+  setLoading(true);
 
-    const {
-      data: { user },
-    } = await supabase.auth.getUser();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
 
-    if (!user) {
-      alert("Please login again.");
-      setLoading(false);
-      return;
-    }
-
-    const { error } = await supabase
-      .from("profiles")
-      .update({
-        phone,
-        alternate_phone: alternatePhone,
-        address,
-        landmark,
-        city,
-        state,
-        pincode,
-        updated_at: new Date().toISOString(),
-      })
-      .eq("id", user.id);
-
+  if (!user) {
+    alert("Please login again.");
     setLoading(false);
+    return;
+  }
 
-    if (error) {
-      alert(error.message);
-      return;
-    }
+  const { error } = await supabase
+    .from("profiles")
+    .upsert({
+      id: user.id,
+      email: user.email,
+      full_name: fullName,
+      avatar_url: avatarUrl,
 
-    alert("✅ Profile updated successfully");
-     setTimeout(() => {
-  router.push("/");
-}, 1000);
-  };
- 
+      phone,
+      alternate_phone: alternatePhone,
+      address,
+      landmark,
+      city,
+      state,
+      pincode,
 
+      profile_completed: true,
+      updated_at: new Date().toISOString(),
+    });
+
+  setLoading(false);
+
+  if (error) {
+    alert(error.message);
+    return;
+  }
+
+  alert("✅ Profile updated successfully");
+
+  setTimeout(() => {
+    router.push("/");
+  }, 1000);
+};
   return (
     <div className="min-h-screen bg-black text-white p-6">
       <div className="max-w-3xl mx-auto">
