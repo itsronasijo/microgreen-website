@@ -9,32 +9,32 @@ export default function AuthCallbackPage() {
 
   useEffect(() => {
     const handleAuth = async () => {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-
       const {
-        data: { user },
-      } = await supabase.auth.getUser();
+        data: { session },
+      } = await supabase.auth.getSession();
 
-      console.log("User:", user);
-
-      if (!user) {
+      if (!session?.user) {
         router.push("/login");
         return;
       }
 
-      const { data: profile, error } = await supabase
+      const user = session.user;
+
+      const { data: profile } = await supabase
         .from("profiles")
         .select("profile_completed")
         .eq("id", user.id)
-        .single();
+        .maybeSingle();
 
-      console.log("Profile:", profile);
-      console.log("Error:", error);
-
-      if (!profile || !profile.profile_completed) {
+      if (!profile) {
         router.push("/complete-profile");
-      } else {
+        return;
+      }
+
+      if (profile.profile_completed) {
         router.push("/");
+      } else {
+        router.push("/complete-profile");
       }
     };
 
