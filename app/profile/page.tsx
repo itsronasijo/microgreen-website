@@ -395,7 +395,7 @@ export default function ProfilePage() {
               text-black
               font-bold
               py-4
-              rounded-xl
+              rounded-xl 
               transition
             "
           >
