@@ -23,10 +23,12 @@ export default function WishlistPage() {
 
     const { data, error } = await supabase
       .from("wishlist")
-      .select(`
+      .select(
+        `
         *,
         products (*)
-      `)
+      `
+      )
       .eq("user_id", user.id);
 
     if (!error && data) {
@@ -58,71 +60,141 @@ export default function WishlistPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-black text-white flex items-center justify-center">
+      <div className="min-h-screen bg-black flex items-center justify-center text-white text-xl">
         Loading Wishlist...
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-black text-white p-6">
+    <div className="min-h-screen bg-black text-white px-6 py-10">
 
-      <h1 className="text-4xl font-bold text-green-400 mb-8">
-        My Wishlist ❤️ ({wishlist.length})
-      </h1>
+      <div className="flex items-center justify-between mb-10">
+
+        <h1 className="text-5xl font-bold text-green-400">
+          My Wishlist ❤️
+          <span className="text-3xl ml-3">
+            ({wishlist.length})
+          </span>
+        </h1>
+
+      </div>
 
       {wishlist.length === 0 ? (
-        <p className="text-gray-400 text-lg">
-          No products in wishlist.
-        </p>
+        <div className="flex flex-col items-center justify-center py-24">
+
+          <div className="text-8xl mb-4">💔</div>
+
+          <h2 className="text-3xl font-bold text-white mb-2">
+            Wishlist Empty
+          </h2>
+
+          <p className="text-gray-400">
+            Save your favorite microgreens here.
+          </p>
+
+        </div>
       ) : (
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
 
           {wishlist.map((item) => (
             <div
               key={item.id}
-              className="bg-white/5 border border-green-500 rounded-2xl p-4 text-center hover:border-green-400 hover:-translate-y-1 transition-all"
+              className="
+                bg-white/5
+                backdrop-blur-sm
+                border border-green-500/40
+                rounded-3xl
+                p-5
+                text-center
+                hover:border-green-400
+                hover:-translate-y-2
+                hover:shadow-[0_0_25px_rgba(34,197,94,0.25)]
+                transition-all
+                duration-300
+              "
             >
+
               <img
                 src={item.products?.image}
                 alt={item.products?.name}
-                className="w-32 h-32 object-contain mx-auto"
+                className="
+                  w-28
+                  h-28
+                  object-contain
+                  mx-auto
+                  transition
+                  duration-300
+                  hover:scale-110
+                "
               />
 
-              <h2 className="text-xl font-bold text-green-400 mt-3">
+              <h2 className="text-2xl font-bold text-green-400 mt-4">
                 {item.products?.name}
               </h2>
 
-              <p className="text-white font-bold mt-1 text-lg">
+              <p className="text-2xl font-bold text-white mt-2">
                 ₹{item.products?.price50}
               </p>
 
-              <p className="text-gray-400 text-sm mt-1">
+              <p className="text-gray-400 text-sm mt-2">
                 Fresh Organic Microgreens
               </p>
 
-              <span className="inline-block mt-2 bg-green-500 text-black text-xs px-3 py-1 rounded-full font-bold">
+              <span
+                className="
+                  inline-block
+                  mt-3
+                  bg-green-500
+                  text-black
+                  text-xs
+                  px-3
+                  py-1
+                  rounded-full
+                  font-bold
+                "
+              >
                 Organic
               </span>
 
-              <div className="flex flex-col gap-2 mt-4">
+              <div className="flex items-center justify-center gap-3 mt-6">
 
                 <button
-                  className="bg-green-500 hover:bg-green-600 text-black py-2 rounded-lg font-bold transition"
+                  className="
+                    bg-green-500
+                    hover:bg-green-600
+                    text-black
+                    px-4
+                    py-2
+                    rounded-xl
+                    font-semibold
+                    transition
+                  "
                 >
-                  Add to Cart
+                  🛒 Add
                 </button>
 
                 <button
                   onClick={() =>
                     removeWishlist(item.product_id)
                   }
-                  className="bg-red-600 hover:bg-red-700 py-2 rounded-lg transition"
+                  className="
+                    border
+                    border-red-500
+                    text-red-400
+                    hover:bg-red-500
+                    hover:text-white
+                    px-4
+                    py-2
+                    rounded-xl
+                    transition
+                  "
                 >
-                  Remove
+                  ❤️ Remove
                 </button>
 
               </div>
+
             </div>
           ))}
 
