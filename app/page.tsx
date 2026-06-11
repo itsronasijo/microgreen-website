@@ -5,6 +5,19 @@ import { supabase } from "../lib/supabase";
 export default function Home() {
 
   const [cart, setCart] = useState<any[]>([]);
+  useEffect(() => {
+  const savedCart = localStorage.getItem("cart");
+
+  if (savedCart) {
+    setCart(JSON.parse(savedCart));
+  }
+}, []);
+  useEffect(() => {
+  localStorage.setItem(
+    "cart",
+    JSON.stringify(cart)
+  );
+}, [cart]);
 
   const [cartOpen, setCartOpen] = useState(false);
   const [wishlistCount, setWishlistCount] = useState(0);
