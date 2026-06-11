@@ -4,7 +4,17 @@ import { useEffect, useState } from "react";
 import { supabase } from "../../lib/supabase";
 
 export default function ProfilePage() {
-  const [profile, setProfile] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
+
+  const [email, setEmail] = useState("");
+  const [fullName, setFullName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [alternatePhone, setAlternatePhone] = useState("");
+  const [address, setAddress] = useState("");
+  const [landmark, setLandmark] = useState("");
+  const [city, setCity] = useState("");
+  const [stateName, setStateName] = useState("");
+  const [pincode, setPincode] = useState("");
 
   useEffect(() => {
     loadProfile();
@@ -15,37 +25,303 @@ export default function ProfilePage() {
       data: { user },
     } = await supabase.auth.getUser();
 
-    if (!user) return;
+    if (!user) {
+      setLoading(false);
+      return;
+    }
 
-    const { data } = await supabase
+    const { data, error } = await supabase
       .from("profiles")
       .select("*")
       .eq("id", user.id)
       .single();
 
-    setProfile(data);
+    if (!error && data) {
+      setEmail(data.email || "");
+      setFullName(data.full_name || "");
+      setPhone(data.phone || "");
+      setAlternatePhone(data.alternate_phone || "");
+      setAddress(data.address || "");
+      setLandmark(data.landmark || "");
+      setCity(data.city || "");
+      setStateName(data.state || "");
+      setPincode(data.pincode || "");
+    }
+
+    setLoading(false);
   };
 
-  if (!profile) {
+  const saveProfile = async () => {
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+
+    if (!user) return;
+
+    const { error } = await supabase
+      .from("profiles")
+      .update({
+        full_name: fullName,
+        phone,
+        alternate_phone: alternatePhone,
+        address,
+        landmark,
+        city,
+        state: stateName,
+        pincode,
+        updated_at: new Date().toISOString(),
+      })
+      .eq("id", user.id);
+
+    if (error) {
+      alert("Failed to update profile ❌");
+      return;
+    }
+
+    alert("Profile updated successfully ✅");
+  };
+
+  if (loading) {
     return (
       <div className="min-h-screen bg-black text-white flex items-center justify-center">
-        Loading...
+        Loading Profile...
       </div>
     );
   }
 
   return (
     <div className="min-h-screen bg-black text-white px-6 py-10">
-      <h1 className="text-4xl font-bold text-green-400 mb-8">
-        My Profile
-      </h1>
+      <div className="max-w-3xl mx-auto">
+        <h1 className="text-5xl font-bold text-green-400 mb-8">
+          My Profile 👤
+        </h1>
 
-      <div className="max-w-xl bg-white/5 border border-green-500/30 rounded-3xl p-6">
-        <p><strong>Name:</strong> {profile.full_name}</p>
-        <p className="mt-3"><strong>Email:</strong> {profile.email}</p>
-        <p className="mt-3"><strong>Phone:</strong> {profile.phone}</p>
-        <p className="mt-3"><strong>City:</strong> {profile.city}</p>
-        <p className="mt-3"><strong>State:</strong> {profile.state}</p>
+        <div
+          className="
+            bg-white/5
+            border
+            border-green-500/30
+            rounded-3xl
+            p-8
+            space-y-5
+          "
+        >
+          <div>
+            <label className="block mb-2 text-green-400">
+              Full Name
+            </label>
+
+            <input
+              type="text"
+              value={fullName}
+              onChange={(e) =>
+                setFullName(e.target.value)
+              }
+              className="
+                w-full
+                bg-black
+                border
+                border-green-500/30
+                rounded-xl
+                p-3
+              "
+            />
+          </div>
+
+          <div>
+            <label className="block mb-2 text-green-400">
+              Email
+            </label>
+
+            <input
+              type="email"
+              value={email}
+              disabled
+              className="
+                w-full
+                bg-gray-900
+                border
+                border-green-500/30
+                rounded-xl
+                p-3
+                opacity-70
+              "
+            />
+          </div>
+
+          <div>
+            <label className="block mb-2 text-green-400">
+              Phone Number
+            </label>
+
+            <input
+              type="text"
+              value={phone}
+              onChange={(e) =>
+                setPhone(e.target.value)
+              }
+              className="
+                w-full
+                bg-black
+                border
+                border-green-500/30
+                rounded-xl
+                p-3
+              "
+            />
+          </div>
+
+          <div>
+            <label className="block mb-2 text-green-400">
+              Alternate Phone
+            </label>
+
+            <input
+              type="text"
+              value={alternatePhone}
+              onChange={(e) =>
+                setAlternatePhone(e.target.value)
+              }
+              className="
+                w-full
+                bg-black
+                border
+                border-green-500/30
+                rounded-xl
+                p-3
+              "
+            />
+          </div>
+
+          <div>
+            <label className="block mb-2 text-green-400">
+              Address
+            </label>
+
+            <textarea
+              value={address}
+              onChange={(e) =>
+                setAddress(e.target.value)
+              }
+              rows={4}
+              className="
+                w-full
+                bg-black
+                border
+                border-green-500/30
+                rounded-xl
+                p-3
+              "
+            />
+          </div>
+
+          <div>
+            <label className="block mb-2 text-green-400">
+              Landmark
+            </label>
+
+            <input
+              type="text"
+              value={landmark}
+              onChange={(e) =>
+                setLandmark(e.target.value)
+              }
+              className="
+                w-full
+                bg-black
+                border
+                border-green-500/30
+                rounded-xl
+                p-3
+              "
+            />
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-4">
+            <div>
+              <label className="block mb-2 text-green-400">
+                City
+              </label>
+
+              <input
+                type="text"
+                value={city}
+                onChange={(e) =>
+                  setCity(e.target.value)
+                }
+                className="
+                  w-full
+                  bg-black
+                  border
+                  border-green-500/30
+                  rounded-xl
+                  p-3
+                "
+              />
+            </div>
+
+            <div>
+              <label className="block mb-2 text-green-400">
+                State
+              </label>
+
+              <input
+                type="text"
+                value={stateName}
+                onChange={(e) =>
+                  setStateName(e.target.value)
+                }
+                className="
+                  w-full
+                  bg-black
+                  border
+                  border-green-500/30
+                  rounded-xl
+                  p-3
+                "
+              />
+            </div>
+
+            <div>
+              <label className="block mb-2 text-green-400">
+                Pincode
+              </label>
+
+              <input
+                type="text"
+                value={pincode}
+                onChange={(e) =>
+                  setPincode(e.target.value)
+                }
+                className="
+                  w-full
+                  bg-black
+                  border
+                  border-green-500/30
+                  rounded-xl
+                  p-3
+                "
+              />
+            </div>
+          </div>
+
+          <button
+            onClick={saveProfile}
+            className="
+              bg-green-500
+              hover:bg-green-600
+              text-black
+              font-bold
+              px-8
+              py-3
+              rounded-xl
+              mt-4
+              transition
+            "
+          >
+            💾 Save Changes
+          </button>
+        </div>
       </div>
     </div>
   );
