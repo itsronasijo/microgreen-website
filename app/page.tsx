@@ -452,9 +452,17 @@ const microgreenSection =
   </div>
 
   {/* WISHLIST */}
-  <button className="text-2xl">
+  <Link href="/wishlist">
+  <button
+    className="
+      text-2xl
+      hover:scale-110
+      transition
+    "
+  >
     ❤️
   </button>
+</Link>
 
   {/* CART */}
   <button
