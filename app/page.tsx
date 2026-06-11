@@ -386,7 +386,13 @@ const microgreenSection =
     </span>
   </button>
 
-
+ {/* SHOP BUTTON */}
+  <a
+    href="#products"
+    className="bg-green-500 hover:bg-green-600 transition px-4 py-2 rounded-xl text-black font-bold"
+  >
+    Shop Now
+  </a>
   {/* PROFILE */}
  <div
   className="relative"
@@ -478,13 +484,7 @@ const microgreenSection =
 
  
 
-  {/* SHOP BUTTON */}
-  <a
-    href="#products"
-    className="bg-green-500 hover:bg-green-600 transition px-6 py-3 rounded-xl text-black font-bold"
-  >
-    Shop Now
-  </a>
+ 
 
 </div>
      </div>
