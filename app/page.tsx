@@ -374,6 +374,17 @@ const microgreenSection =
     ❤️
   </button>
 </Link>
+  {/* CART */}
+  <button
+    onClick={() => setCartOpen(true)}
+    className="relative text-3xl"
+  >
+    🛒
+
+    <span className="absolute -top-2 -right-3 bg-green-500 text-black text-sm px-2 rounded-full font-bold">
+      {cart.reduce((sum, item) => sum + item.quantity, 0)}
+    </span>
+  </button>
 
 
   {/* PROFILE */}
@@ -466,17 +477,6 @@ const microgreenSection =
   </div>
 
  
-  {/* CART */}
-  <button
-    onClick={() => setCartOpen(true)}
-    className="relative text-3xl"
-  >
-    🛒
-
-    <span className="absolute -top-2 -right-3 bg-green-500 text-black text-sm px-2 rounded-full font-bold">
-      {cart.reduce((sum, item) => sum + item.quantity, 0)}
-    </span>
-  </button>
 
   {/* SHOP BUTTON */}
   <a
