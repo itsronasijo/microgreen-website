@@ -320,102 +320,51 @@ export default function ProfilePage() {
 
           <div className="grid md:grid-cols-3 gap-4">
             <div>
-              <label className="block mb-2 text-sm text-gray-400">
-                City
-              </label>
+  <label className="block mb-2 text-sm text-gray-400">
+    Country
+  </label>
 
-              <input
-                type="text"
-                value={city}
-                onChange={(e) =>
-                  setCity(e.target.value)
-                }
-                className="
-                  w-full
-                  bg-black
-                  border
-                  border-green-500/30
-                  rounded-xl
-                  p-3
-                "
-              />
-            </div>
+  <select
+    value={country}
+    onChange={(e) => setCountry(e.target.value)}
+    className="
+      w-full
+      bg-black
+      border
+      border-green-500/30
+      rounded-xl
+      p-3
+    "
+  >
+    <option value="India">India</option>
+    <option value="United States">United States</option>
+    <option value="United Kingdom">United Kingdom</option>
+    <option value="Canada">Canada</option>
+    <option value="Australia">Australia</option>
+    <option value="Singapore">Singapore</option>
+  </select>
+</div>
 
-            <div>
-              <label className="block mb-2 text-sm text-gray-400">
-                State
-              </label>
+<div>
+  <label className="block mb-2 text-sm text-gray-400">
+    Pincode
+  </label>
 
-              <input
-                type="text"
-                value={stateName}
-                onChange={(e) =>
-                  setStateName(e.target.value)
-                }
-                className="
-                  w-full
-                  bg-black
-                  border
-                  border-green-500/30
-                  rounded-xl
-                  p-3
-                "
-              />
-            </div>
-
-            <div>
-    <label className="block mb-2 text-sm text-gray-400">
-      Country
-    </label>
-
-    <select
-      value={country}
-      onChange={(e) => setCountry(e.target.value)}
-      className="
-        w-full
-        bg-black
-        border
-        border-green-500/30
-        rounded-xl
-        p-3
-      "
-    >
-      <option value="India">India</option>
-      <option value="United States">United States</option>
-      <option value="United Kingdom">United Kingdom</option>
-      <option value="Canada">Canada</option>
-      <option value="Australia">Australia</option>
-      <option value="Singapore">Singapore</option>
-    </select>
-  </div>
-
-  <div>
-  
-
-            <div>
-              <label className="block mb-2 text-sm text-gray-400">
-                Pincode
-              </label>
-
-              <input
-                type="text"
-                value={pincode}
-                onChange={(e) =>
-                  setPincode(e.target.value)
-                }
-                className="
-                  w-full
-                  bg-black
-                  border
-                  border-green-500/30
-                  rounded-xl
-                  p-3
-                "
-              />
-            </div>
-          </div>
-
-          <button
+  <input
+    type="text"
+    value={pincode}
+    onChange={(e) => setPincode(e.target.value)}
+    className="
+      w-full
+      bg-black
+      border
+      border-green-500/30
+      rounded-xl
+      p-3
+    "
+  />
+</div>        
+            <button
             onClick={saveProfile}
             className="
               w-full
