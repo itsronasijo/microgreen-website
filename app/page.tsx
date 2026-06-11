@@ -362,6 +362,19 @@ const microgreenSection =
     </nav>
 {/* RIGHT SIDE */}
 <div className="flex items-center gap-5">
+   {/* WISHLIST */}
+  <Link href="/wishlist">
+  <button
+    className="
+      text-2xl
+      hover:scale-110
+      transition
+    "
+  >
+    ❤️
+  </button>
+</Link>
+
 
   {/* PROFILE */}
  <div
@@ -452,19 +465,7 @@ const microgreenSection =
 
   </div>
 
-  {/* WISHLIST */}
-  <Link href="/wishlist">
-  <button
-    className="
-      text-2xl
-      hover:scale-110
-      transition
-    "
-  >
-    ❤️
-  </button>
-</Link>
-
+ 
   {/* CART */}
   <button
     onClick={() => setCartOpen(true)}
