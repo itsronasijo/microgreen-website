@@ -89,25 +89,70 @@ export default function ProfilePage() {
     );
   }
 
-  return (
-    <div className="min-h-screen bg-black text-white px-6 py-10">
-      <div className="max-w-3xl mx-auto">
-        <h1 className="text-5xl font-bold text-green-400 mb-8">
-          My Profile 👤
-        </h1>
+ return (
+  <div className="min-h-screen bg-black text-white px-6 py-10">
+    <div className="max-w-4xl mx-auto">
 
+      {/* Header */}
+      <div
+        className="
+          bg-white/5
+          border
+          border-green-500/30
+          rounded-3xl
+          p-8
+          mb-6
+          flex
+          items-center
+          gap-5
+        "
+      >
         <div
           className="
-            bg-white/5
-            border
-            border-green-500/30
-            rounded-3xl
-            p-8
-            space-y-5
+            w-20
+            h-20
+            rounded-full
+            bg-green-500
+            text-black
+            flex
+            items-center
+            justify-center
+            text-3xl
+            font-bold
           "
         >
+          {fullName?.charAt(0)?.toUpperCase() || "U"}
+        </div>
+
+        <div>
+          <h1 className="text-3xl font-bold text-green-400">
+            {fullName || "User"}
+          </h1>
+
+          <p className="text-gray-400">
+            {email}
+          </p>
+        </div>
+      </div>
+
+      {/* Personal Information */}
+      <div
+        className="
+          bg-white/5
+          border
+          border-green-500/30
+          rounded-3xl
+          p-6
+          mb-5
+        "
+      >
+        <h2 className="text-2xl font-bold text-green-400 mb-5">
+          👤 Personal Information
+        </h2>
+
+        <div className="grid md:grid-cols-2 gap-4">
           <div>
-            <label className="block mb-2 text-green-400">
+            <label className="block mb-2 text-sm text-gray-400">
               Full Name
             </label>
 
@@ -129,7 +174,7 @@ export default function ProfilePage() {
           </div>
 
           <div>
-            <label className="block mb-2 text-green-400">
+            <label className="block mb-2 text-sm text-gray-400">
               Email
             </label>
 
@@ -148,9 +193,27 @@ export default function ProfilePage() {
               "
             />
           </div>
+        </div>
+      </div>
 
+      {/* Contact Information */}
+      <div
+        className="
+          bg-white/5
+          border
+          border-green-500/30
+          rounded-3xl
+          p-6
+          mb-5
+        "
+      >
+        <h2 className="text-2xl font-bold text-green-400 mb-5">
+          📞 Contact Information
+        </h2>
+
+        <div className="grid md:grid-cols-2 gap-4">
           <div>
-            <label className="block mb-2 text-green-400">
+            <label className="block mb-2 text-sm text-gray-400">
               Phone Number
             </label>
 
@@ -172,7 +235,7 @@ export default function ProfilePage() {
           </div>
 
           <div>
-            <label className="block mb-2 text-green-400">
+            <label className="block mb-2 text-sm text-gray-400">
               Alternate Phone
             </label>
 
@@ -192,18 +255,35 @@ export default function ProfilePage() {
               "
             />
           </div>
+        </div>
+      </div>
 
+      {/* Delivery Address */}
+      <div
+        className="
+          bg-white/5
+          border
+          border-green-500/30
+          rounded-3xl
+          p-6
+        "
+      >
+        <h2 className="text-2xl font-bold text-green-400 mb-5">
+          📍 Delivery Address
+        </h2>
+
+        <div className="space-y-4">
           <div>
-            <label className="block mb-2 text-green-400">
+            <label className="block mb-2 text-sm text-gray-400">
               Address
             </label>
 
             <textarea
+              rows={4}
               value={address}
               onChange={(e) =>
                 setAddress(e.target.value)
               }
-              rows={4}
               className="
                 w-full
                 bg-black
@@ -216,7 +296,7 @@ export default function ProfilePage() {
           </div>
 
           <div>
-            <label className="block mb-2 text-green-400">
+            <label className="block mb-2 text-sm text-gray-400">
               Landmark
             </label>
 
@@ -239,7 +319,7 @@ export default function ProfilePage() {
 
           <div className="grid md:grid-cols-3 gap-4">
             <div>
-              <label className="block mb-2 text-green-400">
+              <label className="block mb-2 text-sm text-gray-400">
                 City
               </label>
 
@@ -261,7 +341,7 @@ export default function ProfilePage() {
             </div>
 
             <div>
-              <label className="block mb-2 text-green-400">
+              <label className="block mb-2 text-sm text-gray-400">
                 State
               </label>
 
@@ -283,7 +363,7 @@ export default function ProfilePage() {
             </div>
 
             <div>
-              <label className="block mb-2 text-green-400">
+              <label className="block mb-2 text-sm text-gray-400">
                 Pincode
               </label>
 
@@ -308,14 +388,14 @@ export default function ProfilePage() {
           <button
             onClick={saveProfile}
             className="
+              w-full
+              mt-4
               bg-green-500
               hover:bg-green-600
               text-black
               font-bold
-              px-8
-              py-3
+              py-4
               rounded-xl
-              mt-4
               transition
             "
           >
@@ -324,5 +404,5 @@ export default function ProfilePage() {
         </div>
       </div>
     </div>
-  );
-}
+  </div>
+);
