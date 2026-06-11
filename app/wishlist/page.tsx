@@ -25,7 +25,7 @@ export default function WishlistPage() {
       .from("wishlist")
       .select(`
         *,
-        products (*)
+        products(*)
       `)
       .eq("user_id", user.id);
 
@@ -95,7 +95,6 @@ export default function WishlistPage() {
 
   return (
     <div className="min-h-screen bg-black text-white px-6 py-10">
-
       <h1 className="text-5xl font-bold text-green-400 mb-10">
         My Wishlist ❤️ ({wishlist.length})
       </h1>
@@ -114,7 +113,6 @@ export default function WishlistPage() {
         </div>
       ) : (
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
-
           {wishlist.map((item) => (
             <div
               key={item.id}
@@ -130,7 +128,6 @@ export default function WishlistPage() {
                 transition-all
               "
             >
-
               <img
                 src={item.products?.image}
                 alt={item.products?.name}
@@ -146,4 +143,70 @@ export default function WishlistPage() {
                 {item.products?.name}
               </h2>
 
-              <p className="text-xl font-bold text
+              <p className="text-xl font-bold text-white mt-2">
+                ₹{item.products?.price50}
+              </p>
+
+              <p className="text-gray-400 text-sm mt-2">
+                Fresh Organic Microgreens
+              </p>
+
+              <span
+                className="
+                  inline-block
+                  mt-3
+                  bg-green-500
+                  text-black
+                  text-xs
+                  px-3
+                  py-1
+                  rounded-full
+                  font-bold
+                "
+              >
+                Organic
+              </span>
+
+              <div className="flex items-center justify-center gap-3 mt-6">
+                <button
+                  onClick={() => addToCart(item.products)}
+                  className="
+                    bg-green-500
+                    hover:bg-green-600
+                    text-black
+                    px-4
+                    py-2
+                    rounded-xl
+                    font-semibold
+                    transition
+                  "
+                >
+                  🛒 Add
+                </button>
+
+                <button
+                  onClick={() =>
+                    removeWishlist(item.product_id)
+                  }
+                  className="
+                    border
+                    border-red-500
+                    text-red-400
+                    hover:bg-red-500
+                    hover:text-white
+                    px-4
+                    py-2
+                    rounded-xl
+                    transition
+                  "
+                >
+                  ❤️ Remove
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
