@@ -6,7 +6,31 @@ import { supabase } from "../../lib/supabase";
 export default function WishlistPage() {
   const [wishlist, setWishlist] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
+const addToCart = (product: any) => {
+  const existingCart = JSON.parse(
+    localStorage.getItem("cart") || "[]"
+  );
 
+  const existingItem = existingCart.find(
+    (item: any) => item.id === product.id
+  );
+
+  if (existingItem) {
+    existingItem.quantity += 1;
+  } else {
+    existingCart.push({
+      ...product,
+      quantity: 1,
+    });
+  }
+
+  localStorage.setItem(
+    "cart",
+    JSON.stringify(existingCart)
+  );
+
+  alert(`${product.name} added to cart`);
+};
   useEffect(() => {
     loadWishlist();
   }, []);
@@ -160,19 +184,20 @@ export default function WishlistPage() {
               <div className="flex items-center justify-center gap-3 mt-6">
 
                 <button
-                  className="
-                    bg-green-500
-                    hover:bg-green-600
-                    text-black
-                    px-4
-                    py-2
-                    rounded-xl
-                    font-semibold
-                    transition
-                  "
-                >
-                  🛒 Add
-                </button>
+  onClick={() => addToCart(item.products)}
+  className="
+    bg-green-500
+    hover:bg-green-600
+    text-black
+    px-4
+    py-2
+    rounded-xl
+    font-semibold
+    transition
+  "
+>
+  🛒 Add
+</button>
 
                 <button
                   onClick={() =>
