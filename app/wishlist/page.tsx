@@ -63,6 +63,7 @@ export default function WishlistPage() {
       "cart",
       JSON.stringify(existingCart)
     );
+    alert(`${product.name} added to cart! 🛒`);
   };
 
   const removeWishlist = async (productId: number) => {
