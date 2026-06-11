@@ -8,7 +8,7 @@ export default function LoginPage() {
   provider: "google",
   options: {
     redirectTo:
-      "https://microgreen-website-gjayehn7x-itsronasijos-projects.vercel.app",
+       "https://verdemicrogreens.vercel.app/auth/callback",
   },
 });
   };
