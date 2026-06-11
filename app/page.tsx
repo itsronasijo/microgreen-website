@@ -169,12 +169,12 @@ const generateRecipe = async () => {
   }
 
 };    
-  const handleGoogleLogin = async () => {
+ const handleGoogleLogin = async () => {
   await supabase.auth.signInWithOAuth({
     provider: "google",
     options: {
       redirectTo:
-        "https://microgreen-website-gjayehn7x-itsronasijos-projects.vercel.app",
+        "https://verdemicrogreens.vercel.app/auth/callback",
     },
   });
 };
