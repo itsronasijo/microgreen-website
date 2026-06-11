@@ -450,13 +450,19 @@ const microgreenSection =
           </p>
         </div>
 
+        <Link href="/profile">
+  <button className="w-full text-left px-4 py-3 hover:bg-white/5 transition">
+    👤Profile
+  </button>
+</Link>
+
        <button
   onClick={() => {
     window.location.href = "/wishlist";
   }}
   className="w-full text-left px-4 py-3 hover:bg-green-600"
 >
-  ❤️ My Wishlist
+  ❤️Wishlist
 </button>
 
         <button className="w-full text-left px-4 py-3 hover:bg-green-600">
@@ -464,7 +470,7 @@ const microgreenSection =
         </button>
 
         <button className="w-full text-left px-4 py-3 hover:bg-green-600">
-          📦 My Orders
+          📦Orders
         </button>
 
         <button
@@ -474,7 +480,7 @@ const microgreenSection =
           }}
           className="w-full text-left px-4 py-3 text-red-400 hover:bg-red-900"
         >
-          🚪 Logout
+          🚪Logout
         </button>
 
       </div>
