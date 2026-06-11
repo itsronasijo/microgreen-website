@@ -23,10 +23,12 @@ export default function WishlistPage() {
 
     const { data, error } = await supabase
       .from("wishlist")
-      .select(`
+      .select(
+        `
         *,
         products (*)
-      `)
+      `
+      )
       .eq("user_id", user.id);
 
     if (!error && data) {
@@ -65,7 +67,7 @@ export default function WishlistPage() {
   }
 
   return (
-    <div className="min-h-screen bg-black text-white p-8">
+    <div className="min-h-screen bg-black text-white p-6">
 
       <h1 className="text-4xl font-bold text-green-400 mb-8">
         My Wishlist ❤️ ({wishlist.length})
@@ -76,37 +78,41 @@ export default function WishlistPage() {
           No products in wishlist.
         </p>
       ) : (
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid lg:grid-cols-2 gap-4">
 
           {wishlist.map((item) => (
             <div
               key={item.id}
-              className="flex items-center gap-6 bg-white/5 border border-green-500 rounded-2xl p-5 hover:border-green-400 transition"
+              className="flex items-center gap-4 bg-white/5 border border-green-500 rounded-2xl p-4 hover:border-green-400 transition"
             >
               <img
                 src={item.products?.image}
                 alt={item.products?.name}
-                className="w-32 h-32 object-contain"
+                className="w-24 h-24 object-contain flex-shrink-0"
               />
 
               <div className="flex-1">
 
-                <h2 className="text-2xl font-bold text-green-400 mb-2">
+                <h2 className="text-2xl font-bold text-green-400">
                   {item.products?.name}
                 </h2>
 
-                <p className="text-xl font-bold text-white mb-2">
+                <p className="text-xl font-bold text-white mt-1">
                   ₹{item.products?.price50}
                 </p>
 
-                <p className="text-gray-400 text-sm">
+                <p className="text-gray-400 text-sm mt-1">
                   Fresh Organic Microgreens
                 </p>
 
-                <div className="flex gap-3 mt-4">
+                <span className="inline-block mt-2 bg-green-500 text-black text-xs px-3 py-1 rounded-full font-bold">
+                  Organic
+                </span>
+
+                <div className="flex gap-2 mt-3">
 
                   <button
-                    className="bg-green-500 hover:bg-green-600 text-black px-4 py-2 rounded-lg font-bold"
+                    className="bg-green-500 hover:bg-green-600 text-black px-4 py-2 rounded-lg font-bold transition"
                   >
                     Add to Cart
                   </button>
@@ -115,7 +121,7 @@ export default function WishlistPage() {
                     onClick={() =>
                       removeWishlist(item.product_id)
                     }
-                    className="bg-red-600 hover:bg-red-700 px-4 py-2 rounded-lg"
+                    className="bg-red-600 hover:bg-red-700 px-4 py-2 rounded-lg transition"
                   >
                     Remove
                   </button>
