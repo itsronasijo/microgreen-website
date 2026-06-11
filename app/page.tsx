@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { supabase } from "../lib/supabase";
+import Link from "next/link";
 export default function Home() {
 
   const [cart, setCart] = useState<any[]>([]);
