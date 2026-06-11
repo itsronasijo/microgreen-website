@@ -1224,6 +1224,29 @@ function ProductCard({
   }
 };
 
+  useEffect(() => {
+  const loadWishlist = async () => {
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+
+    if (!user) return;
+
+    const { data } = await supabase
+      .from("wishlist")
+      .select("id")
+      .eq("user_id", user.id)
+      .eq("product_id", product.id)
+      .single();
+
+    if (data) {
+      setWishlisted(true);
+    }
+  };
+
+  loadWishlist();
+}, [product.id]);
+
  const packs = ["50g", "100g", "250g"];
 
   const [selectedPack, setSelectedPack] =
