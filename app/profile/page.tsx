@@ -15,6 +15,7 @@ export default function ProfilePage() {
   const [city, setCity] = useState("");
   const [stateName, setStateName] = useState("");
   const [pincode, setPincode] = useState("");
+  const [country, setCountry] = useState("India");
 
   useEffect(() => {
     loadProfile();
@@ -361,6 +362,35 @@ export default function ProfilePage() {
                 "
               />
             </div>
+
+            <div>
+    <label className="block mb-2 text-sm text-gray-400">
+      Country
+    </label>
+
+    <select
+      value={country}
+      onChange={(e) => setCountry(e.target.value)}
+      className="
+        w-full
+        bg-black
+        border
+        border-green-500/30
+        rounded-xl
+        p-3
+      "
+    >
+      <option value="India">India</option>
+      <option value="United States">United States</option>
+      <option value="United Kingdom">United Kingdom</option>
+      <option value="Canada">Canada</option>
+      <option value="Australia">Australia</option>
+      <option value="Singapore">Singapore</option>
+    </select>
+  </div>
+
+  <div>
+  
 
             <div>
               <label className="block mb-2 text-sm text-gray-400">
