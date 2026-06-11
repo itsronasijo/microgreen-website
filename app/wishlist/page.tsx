@@ -23,12 +23,10 @@ export default function WishlistPage() {
 
     const { data, error } = await supabase
       .from("wishlist")
-      .select(
-        `
+      .select(`
         *,
         products (*)
-      `
-      )
+      `)
       .eq("user_id", user.id);
 
     if (!error && data) {
@@ -78,58 +76,53 @@ export default function WishlistPage() {
           No products in wishlist.
         </p>
       ) : (
-        <div className="grid lg:grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
 
           {wishlist.map((item) => (
             <div
               key={item.id}
-              className="flex items-center gap-4 bg-white/5 border border-green-500 rounded-2xl p-4 hover:border-green-400 transition"
+              className="bg-white/5 border border-green-500 rounded-2xl p-4 text-center hover:border-green-400 hover:-translate-y-1 transition-all"
             >
               <img
                 src={item.products?.image}
                 alt={item.products?.name}
-                className="w-24 h-24 object-contain flex-shrink-0"
+                className="w-32 h-32 object-contain mx-auto"
               />
 
-              <div className="flex-1">
+              <h2 className="text-xl font-bold text-green-400 mt-3">
+                {item.products?.name}
+              </h2>
 
-                <h2 className="text-2xl font-bold text-green-400">
-                  {item.products?.name}
-                </h2>
+              <p className="text-white font-bold mt-1 text-lg">
+                ₹{item.products?.price50}
+              </p>
 
-                <p className="text-xl font-bold text-white mt-1">
-                  ₹{item.products?.price50}
-                </p>
+              <p className="text-gray-400 text-sm mt-1">
+                Fresh Organic Microgreens
+              </p>
 
-                <p className="text-gray-400 text-sm mt-1">
-                  Fresh Organic Microgreens
-                </p>
+              <span className="inline-block mt-2 bg-green-500 text-black text-xs px-3 py-1 rounded-full font-bold">
+                Organic
+              </span>
 
-                <span className="inline-block mt-2 bg-green-500 text-black text-xs px-3 py-1 rounded-full font-bold">
-                  Organic
-                </span>
+              <div className="flex flex-col gap-2 mt-4">
 
-                <div className="flex gap-2 mt-3">
+                <button
+                  className="bg-green-500 hover:bg-green-600 text-black py-2 rounded-lg font-bold transition"
+                >
+                  Add to Cart
+                </button>
 
-                  <button
-                    className="bg-green-500 hover:bg-green-600 text-black px-4 py-2 rounded-lg font-bold transition"
-                  >
-                    Add to Cart
-                  </button>
-
-                  <button
-                    onClick={() =>
-                      removeWishlist(item.product_id)
-                    }
-                    className="bg-red-600 hover:bg-red-700 px-4 py-2 rounded-lg transition"
-                  >
-                    Remove
-                  </button>
-
-                </div>
+                <button
+                  onClick={() =>
+                    removeWishlist(item.product_id)
+                  }
+                  className="bg-red-600 hover:bg-red-700 py-2 rounded-lg transition"
+                >
+                  Remove
+                </button>
 
               </div>
-
             </div>
           ))}
 
