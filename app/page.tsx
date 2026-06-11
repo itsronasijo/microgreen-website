@@ -1190,6 +1190,39 @@ function ProductCard({
   addToCart,
 }: any) {
    const [wishlisted, setWishlisted] = useState(false);
+  const toggleWishlist = async () => {
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  if (!user) {
+    alert("Please login first");
+    return;
+  }
+
+  if (!wishlisted) {
+    const { error } = await supabase
+      .from("wishlist")
+      .insert({
+        user_id: user.id,
+        product_id: product.id,
+      });
+
+    if (!error) {
+      setWishlisted(true);
+    }
+  } else {
+    const { error } = await supabase
+      .from("wishlist")
+      .delete()
+      .eq("user_id", user.id)
+      .eq("product_id", product.id);
+
+    if (!error) {
+      setWishlisted(false);
+    }
+  }
+};
 
  const packs = ["50g", "100g", "250g"];
 
@@ -1205,8 +1238,8 @@ const currentStock =
 
 <div className="group bg-white/5 border border-white/10 rounded-3xl overflow-hidden flex flex-col hover:border-green-500 hover:-translate-y-2 transition-all duration-500">
 <div className="relative h-64 flex items-center justify-center p-4">
- <button
-  onClick={() => setWishlisted(!wishlisted)}
+<button
+  onClick={toggleWishlist}
   className="absolute top-3 right-3 text-2xl hover:scale-110 transition z-10"
 >
   {wishlisted ? "❤️" : "🤍"}
