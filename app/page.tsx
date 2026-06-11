@@ -7,6 +7,25 @@ export default function Home() {
   const [cart, setCart] = useState<any[]>([]);
 
   const [cartOpen, setCartOpen] = useState(false);
+  const [wishlistCount, setWishlistCount] = useState(0);
+  useEffect(() => {
+  loadWishlistCount();
+}, []);
+
+const loadWishlistCount = async () => {
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  if (!user) return;
+
+  const { count } = await supabase
+    .from("wishlist")
+    .select("*", { count: "exact", head: true })
+    .eq("user_id", user.id);
+
+  setWishlistCount(count || 0);
+};
   const [ingredients, setIngredients] =
   useState("");
   const [search, setSearch] = useState("");
@@ -387,9 +406,14 @@ const microgreenSection =
           </p>
         </div>
 
-        <button className="w-full text-left px-4 py-3 hover:bg-green-600">
-          ❤️ My Wishlist
-        </button>
+       <button
+  onClick={() => {
+    window.location.href = "/wishlist";
+  }}
+  className="w-full text-left px-4 py-3 hover:bg-green-600"
+>
+  ❤️ My Wishlist
+</button>
 
         <button className="w-full text-left px-4 py-3 hover:bg-green-600">
           🛒 My Cart
