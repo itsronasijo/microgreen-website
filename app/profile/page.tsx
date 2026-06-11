@@ -46,6 +46,7 @@ export default function ProfilePage() {
       setLandmark(data.landmark || "");
       setCity(data.city || "");
       setStateName(data.state || "");
+      setCountry(data.country || "India");
       setPincode(data.pincode || "");
     }
 
@@ -69,6 +70,7 @@ export default function ProfilePage() {
         landmark,
         city,
         state: stateName,
+        country,
         pincode,
         updated_at: new Date().toISOString(),
       })
@@ -318,7 +320,7 @@ export default function ProfilePage() {
             />
           </div>
 
-          <div className="grid md:grid-cols-3 gap-4">
+    <div className="grid md:grid-cols-4 gap-4">
             <div>
   <label className="block mb-2 text-sm text-gray-400">
     Country
