@@ -82,8 +82,9 @@ export default function Header() {
   };
 
   return (
+  <>
     {/* COMPLETE HEADER */}
-<div className="fixed top-0 left-0 w-full z-50">
+    <div className="fixed top-0 left-0 w-full z-50">
 
   {/* SOCIAL BAR */}
   <div className="bg-green-800 text-white">
@@ -164,14 +165,14 @@ export default function Header() {
   </button>
 </Link>
   {/* CART */}
-  <button
-    onClick={() => setCartOpen(true)}
-    className="relative text-3xl"
-  >
+  <Link
+  href="/cart"
+  className="relative text-3xl block"
+>
     🛒
 
     <span className="absolute -top-2 -right-3 bg-green-500 text-black text-sm px-2 rounded-full font-bold">
-      {cart.reduce((sum, item) => sum + item.quantity, 0)}
+     {cartCount}
     </span>
   </button>
 
@@ -185,7 +186,7 @@ export default function Header() {
   {/* PROFILE */}
  <div
   className="relative"
-  ref={(el) => setProfileRef(el)}
+ ref={profileRef}
 >
 
     <button
