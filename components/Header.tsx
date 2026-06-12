@@ -137,7 +137,7 @@ export default function Header() {
         AI Kitchen
       </a>
 
-      <a href="#grow-guide" className="hover:text-green-400 transition duration-300"">
+      <a href="#grow-guide" className="hover:text-green-400 transition duration-300">
         Grow Guide
       </a>
 
@@ -145,7 +145,7 @@ export default function Header() {
         About Us
       </a>
 
-      <a href="#contact" className="hover:text-green-400 transition duration-300"">
+      <a href="#contact" className="hover:text-green-400 transition duration-300">
         Contact
       </a>
 
