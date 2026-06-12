@@ -174,7 +174,7 @@ export default function Header() {
                         user.user_metadata.avatar_url
                       }
                       alt="Profile"
-                        className="w-full h-full object-cover rounded-full"
+                        className="w-8 h-8 rounded-full border border-green-500 overflow-hidden flex items-center justify-center"
                     />
                   ) : (
                     "👤"
