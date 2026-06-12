@@ -13,10 +13,14 @@ export default function Home() {
     setCart(JSON.parse(savedCart));
   }
 }, []);
-  useEffect(() => {
+ useEffect(() => {
   localStorage.setItem(
     "cart",
     JSON.stringify(cart)
+  );
+
+  window.dispatchEvent(
+    new Event("cartUpdated")
   );
 }, [cart]);
 
