@@ -111,8 +111,8 @@ export default function Header() {
         Home
       </a>
 
-      <a href="#benefits" className="hover:text-green-400 transition duration-300">
-        Benefits
+      <a href="#products" className="hover:text-green-400 transition duration-300">
+       Products
       </a>
 
       <a href="#recipes" className="hover:text-green-400 transition duration-300">
