@@ -18,7 +18,7 @@ export default function RootLayout({
       <body>
          <TopBar />
         <Header />
-         <main className="pt-36">
+         <main className="pt-40">
         {children}
          </main>
       </body>
