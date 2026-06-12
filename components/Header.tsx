@@ -110,7 +110,7 @@ export default function Header() {
   <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-2">
 
     {/* LOGO */}
-    <div className="w-36">
+    <div className="w-24">
       <img
         src="/logo1.png"
         alt="Logo"
