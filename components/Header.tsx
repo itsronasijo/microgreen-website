@@ -107,7 +107,7 @@ export default function Header() {
   </div>
 
  <header className="bg-black border-b border-green-900">
-  <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
+  <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-2">
 
     {/* LOGO */}
     <div className="w-36">
