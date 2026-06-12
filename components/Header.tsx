@@ -87,7 +87,7 @@ export default function Header() {
     <div className="fixed top-0 left-0 w-full z-50">
 
   {/* SOCIAL BAR */}
-  <div className="bg-green-800 text-white">
+  <div className="bg-gradient-to-r from-green-700 via-green-800 to-green-900 text-white">
 
     <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-2 text-sm">
 
@@ -106,15 +106,15 @@ export default function Header() {
 
   </div>
 
- <header className="bg-black border-b border-green-900">
+<header className="bg-black/95 backdrop-blur-sm border-b border-green-900">
   <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-2">
 
     {/* LOGO */}
-    <div className="w-24">
+    <div className="w-28">
       <img
         src="/logo1.png"
         alt="Logo"
-        className="h-16 w-auto object-contain"
+        className="h-20 w-auto object-contain"
         />
 
       
@@ -124,28 +124,28 @@ export default function Header() {
 
     {/* NAVIGATION */}
     
-   <nav className="flex items-center gap-8 mx-auto text-gray-300">
-      <a href="#home" className="hover:text-green-400 transition">
+   <nav className="hidden lg:flex items-center gap-8 mx-auto text-gray-300 font-medium">
+      <a href="#home" className="hover:text-green-400 transition duration-300">
         Home
       </a>
 
-      <a href="#benefits" className="hover:text-green-400 transition">
+      <a href="#benefits" className="hover:text-green-400 transition duration-300">
         Benefits
       </a>
 
-      <a href="#recipes" className="hover:text-green-400 transition">
+      <a href="#recipes" className="hover:text-green-400 transition duration-300">
         AI Kitchen
       </a>
 
-      <a href="#grow-guide" className="hover:text-green-400 transition">
+      <a href="#grow-guide" className="hover:text-green-400 transition duration-300"">
         Grow Guide
       </a>
 
-      <a href="#about" className="hover:text-green-400 transition">
+      <a href="#about" className="hover:text-green-400 transition duration-300">
         About Us
       </a>
 
-      <a href="#contact" className="hover:text-green-400 transition">
+      <a href="#contact" className="hover:text-green-400 transition duration-300"">
         Contact
       </a>
 
@@ -153,16 +153,11 @@ export default function Header() {
 {/* RIGHT SIDE */}
 <div className="flex items-center gap-5">
    {/* WISHLIST */}
-  <Link href="/wishlist">
-  <button
-    className="
-      text-2xl
-      hover:scale-110
-      transition
-    "
-  >
-    ❤️
-  </button>
+  <Link
+  href="/wishlist"
+  className="text-2xl hover:scale-110 transition block"
+>
+  ❤️
 </Link>
   {/* CART */}
   <Link
@@ -171,7 +166,7 @@ export default function Header() {
 >
     🛒
 
-    <span className="absolute -top-2 -right-3 bg-green-500 text-black text-sm px-2 rounded-full font-bold">
+    <span className="absolute -top-1 -right-2 bg-green-500 text-black text-[10px] px-1.5 rounded-full font-bold">
      {cartCount}
     </span>
  </Link>
@@ -197,7 +192,7 @@ export default function Header() {
           setProfileOpen(!profileOpen);
         }
       }}
-    className="w-8 h-8 rounded-full overflow-hidden border-2 border-green-500 hover:scale-110 transition flex items-center justify-center">
+    className="w-10 h-10 rounded-full overflow-hidden border-2 border-green-500 hover:scale-110 transition flex items-center justify-center">
       {user ? (
         user.user_metadata?.avatar_url ? (
           <img
