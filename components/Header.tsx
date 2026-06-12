@@ -85,7 +85,7 @@ export default function Header() {
     <div className="sticky top-0 z-50">
 
       {/* TOP BAR */}
-      <div className="bg-green-900 text-white text-sm">
+      <div className="bg-green-700 text-white">
   <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-2">
 
     <div className="flex gap-6">
@@ -103,7 +103,7 @@ export default function Header() {
 </div>
 
       {/* MAIN HEADER */}
-      <header className="bg-black border-b border-green-900">
+     <header className="bg-zinc-950 border-b-2 border-green-500 shadow-lg shadow-green-900/20">
         <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
 
           {/* LOGO */}
@@ -116,28 +116,13 @@ export default function Header() {
           </Link>
 
           {/* NAV */}
-          <nav className="hidden lg:flex items-center gap-8 text-gray-300 font-medium">
-  <Link href="/" className="hover:text-green-400 transition">
-    Home
-  </Link>
-
-  <Link href="/shop" className="hover:text-green-400 transition">
-    Shop
-  </Link>
-
-  <Link href="/recipes" className="hover:text-green-400 transition">
-    Recipes
-  </Link>
-
-  <Link href="/about" className="hover:text-green-400 transition">
-    About
-  </Link>
-
-  <Link href="/contact" className="hover:text-green-400 transition">
-    Contact
-  </Link>
-</nav>        
-          
+         <nav className="hidden lg:flex items-center gap-8 text-white font-medium">
+  <Link href="/">Home</Link>
+  <Link href="/wishlist">Wishlist</Link>
+  <Link href="/profile">Profile</Link>
+  <Link href="#products">Shop</Link>
+  <Link href="#recipes">Recipes</Link>
+</nav>          
           {/* RIGHT SIDE */}
           <div className="flex items-center gap-5">
 
