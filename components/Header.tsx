@@ -124,7 +124,7 @@ export default function Header() {
 
     {/* NAVIGATION */}
     
-    <nav className="hidden lg:flex items-center gap-4 text-gray-300">
+   <nav className="flex items-center gap-6 text-gray-300">
       <a href="#home" className="hover:text-green-400 transition">
         Home
       </a>
