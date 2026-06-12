@@ -308,7 +308,7 @@ const microgreenSection =
         src="/logo1.png"
         alt="Logo"
         className="h-24 w-auto object-contain"
-      />
+        />
 
       
     </div>
@@ -552,7 +552,8 @@ const microgreenSection =
         <div className="relative">
 
           <img
-            src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd"
+           
+            src="/images/homepage_hoverpic.png"
             alt="Microgreens"
             className="rounded-3xl shadow-2xl"
           />
