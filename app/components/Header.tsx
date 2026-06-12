@@ -106,27 +106,27 @@ export default function Header() {
     {/* NAVIGATION */}
     
    <nav className="hidden lg:flex items-center gap-8 mx-auto text-gray-300 font-medium">
-      <a href="#home" className="hover:text-green-400 transition duration-300">
+      <a href="/#home" className="hover:text-green-400 transition duration-300">
         Home
       </a>
 
-      <a href="#products" className="hover:text-green-400 transition duration-300">
+      <a href="/#products" className="hover:text-green-400 transition duration-300">
        Products
       </a>
 
-      <a href="#recipes" className="hover:text-green-400 transition duration-300">
+      <a href="/#recipes" className="hover:text-green-400 transition duration-300">
         AI Kitchen
       </a>
 
-      <a href="#grow-guide" className="hover:text-green-400 transition duration-300">
+      <a href="/#grow-guide" className="hover:text-green-400 transition duration-300">
         Grow Guide
       </a>
 
-      <a href="#about" className="hover:text-green-400 transition duration-300">
+      <a href="/#about" className="hover:text-green-400 transition duration-300">
         About Us
       </a>
 
-      <a href="#contact" className="hover:text-green-400 transition duration-300">
+      <a href="/#contact" className="hover:text-green-400 transition duration-300">
         Contact
       </a>
 
@@ -154,7 +154,7 @@ export default function Header() {
 
  {/* SHOP BUTTON */}
   <a
-    href="#products"
+    href="/#products"
     className="bg-green-500 hover:bg-green-600 transition px-4 py-2 rounded-xl text-black font-bold"
   >
     Shop Now
