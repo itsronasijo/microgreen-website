@@ -174,7 +174,7 @@ export default function Header() {
     <span className="absolute -top-2 -right-3 bg-green-500 text-black text-sm px-2 rounded-full font-bold">
      {cartCount}
     </span>
-  </button>
+ </Link>
 
  {/* SHOP BUTTON */}
   <a
