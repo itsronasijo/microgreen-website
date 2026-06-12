@@ -103,7 +103,16 @@ export default function Header() {
 </div>
 
       {/* MAIN HEADER */}
-     <header className="bg-zinc-950 border-b-2 border-green-500 shadow-lg shadow-green-900/20">
+     <header
+  className="
+  bg-black/60
+  backdrop-blur-xl
+  border-b
+  border-green-500/30
+  shadow-xl
+  shadow-green-900/20
+"
+>
         <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
 
           {/* LOGO */}
