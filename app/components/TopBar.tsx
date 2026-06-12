@@ -2,7 +2,7 @@
 
 export default function TopBar() {
   return (
-  <div className="bg-red-500 text-white">
+ <div className="bg-[#14532D] text-white">
       <div className="max-w-7xl mx-auto px-6 py-2 flex justify-between items-center">
         
         {/* Left */}
