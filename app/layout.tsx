@@ -1,6 +1,6 @@
 import "./globals.css";
 import TopBar from "./components/TopBar";
-import Header from "../components/Header";
+import Header from "./components/Header";
 
 
 export const metadata = {
