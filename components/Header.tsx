@@ -87,25 +87,7 @@ export default function Header() {
     <div className="fixed top-0 left-0 w-full z-50">
 
   {/* SOCIAL BAR */}
-  <div className="bg-gradient-to-r from-green-700 via-green-800 to-green-900 text-white">
-
-    <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-2 text-sm">
-
-      <div className="flex gap-5">
-        <a href="#">📷 Instagram</a>
-        <a href="#">📘 Facebook</a>
-        <a href="#">📞 WhatsApp</a>
-      </div>
-
-      <div className="flex gap-5">
-        <span>🚚 Fresh Delivery</span>
-        <span>📱 App Coming Soon</span>
-      </div>
-
-    </div>
-
-  </div>
-
+  
 <header className="bg-black/95 backdrop-blur-sm border-b border-green-900">
   <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-2">
 
