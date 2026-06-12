@@ -1,5 +1,4 @@
 import "./globals.css";
-import Header from "../components/Header";
 
 export const metadata = {
   title: "MicroGreen",
@@ -13,10 +12,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
-        <Header />
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
