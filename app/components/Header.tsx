@@ -84,10 +84,10 @@ export default function Header() {
   return (
   <>
     {/* COMPLETE HEADER */}
-   <div className="fixed top-10 left-0 w-full z-40">
+  <div className="fixed top-10 left-0 w-full z-40 bg-red-500">
   {/* SOCIAL BAR */}
   
-<header className="bg-black border-b border-green-900">
+<header className="bg-blue-500 border-b border-green-900">
   <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-2">
 
     {/* LOGO */}
