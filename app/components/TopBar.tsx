@@ -2,7 +2,7 @@
 
 export default function TopBar() {
   return (
-   <div className="sticky top-0 z-50 bg-[#14532D] text-white">
+   <div className="fixed top-0 left-0 w-full z-50 bg-[#14532D] text-white">
       <div className="px-8 py-2 flex justify-between items-center text-sm">
 
         <div className="flex gap-6">
