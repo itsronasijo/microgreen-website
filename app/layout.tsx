@@ -16,8 +16,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Header />
          <TopBar />
+        <Header />
+        
         {children}
       </body>
     </html>
