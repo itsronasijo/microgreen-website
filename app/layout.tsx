@@ -7,7 +7,7 @@ export const metadata = {
   title: "MicroGreen",
   description: "Fresh Organic Microgreens",
 };
-
+ 
 export default function RootLayout({
   children,
 }: {
