@@ -84,7 +84,7 @@ export default function Header() {
   return (
   <>
     {/* COMPLETE HEADER */}
-    <div className="sticky top-0 z-50 w-full">
+    <div className="sticky top-0 z-40 w-full">
 
   {/* SOCIAL BAR */}
   
