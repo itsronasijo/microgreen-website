@@ -285,4 +285,7 @@ export default function Header() {
 </div>
      </div>
 </header>
-</div> 
+</div>
+  </>
+);
+}
