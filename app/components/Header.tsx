@@ -33,7 +33,8 @@ export default function Header() {
     return () => subscription.unsubscribe();
   }, []);
 
-  useEffect(() => {
+useEffect(() => {
+  const updateCartCount = () => {
     const cart = JSON.parse(
       localStorage.getItem("cart") || "[]"
     );
@@ -45,7 +46,21 @@ export default function Header() {
     );
 
     setCartCount(total);
-  }, []);
+  };
+
+  updateCartCount();
+
+  window.addEventListener(
+    "cartUpdated",
+    updateCartCount
+  );
+
+  return () =>
+    window.removeEventListener(
+      "cartUpdated",
+      updateCartCount
+    );
+}, []);
 
   useEffect(() => {
     const handleClick = (event: MouseEvent) => {
