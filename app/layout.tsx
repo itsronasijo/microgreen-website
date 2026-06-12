@@ -20,6 +20,7 @@ export default function RootLayout({
         <Header />
          <main className="pt-32">
         {children}
+         </main>
       </body>
     </html>
   );
