@@ -197,8 +197,7 @@ export default function Header() {
           setProfileOpen(!profileOpen);
         }
       }}
-      className="w-10 h-10 rounded-full overflow-hidden border-2 border-green-500 hover:scale-110 transition flex items-center justify-center"
-    >
+     className="w-12 h-12 rounded-full overflow-hidden border-2 border-green-500 hover:scale-110 transition flex items-center justify-center bg-slate-600 text-white text-lg font-bold" >
       {user ? (
         user.user_metadata?.avatar_url ? (
           <img
