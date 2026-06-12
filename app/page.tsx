@@ -281,7 +281,7 @@ const microgreenSection =
     {/* HERO*/}
       <section
         id="home"
-      className="min-h-screen grid md:grid-cols-2 gap-10 items-center px-8 md:px-16 pt-28"
+     className="grid md:grid-cols-2 gap-10 items-center px-8 md:px-16 pt-36 pb-20"
   >
 
         {/* LEFT */}
