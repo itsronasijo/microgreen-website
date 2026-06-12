@@ -27,6 +27,9 @@ export default function CartPage() {
       "cart",
       JSON.stringify(updated)
     );
+    window.dispatchEvent(
+  new Event("cartUpdated")
+);
   };
 
   const decreaseQty = (index: number) => {
