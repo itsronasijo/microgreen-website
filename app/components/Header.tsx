@@ -84,7 +84,7 @@ export default function Header() {
   return (
   <>
     {/* COMPLETE HEADER */}
-  <div className="fixed top-10 left-0 w-full z-40 bg-red-500">
+ <div className="w-full">
   {/* SOCIAL BAR */}
   
 <header className="bg-blue-500 border-b border-green-900">
