@@ -164,7 +164,8 @@ export default function Header() {
                     setProfileOpen(!profileOpen);
                   }
                 }}
-                className="w-10 h-10 rounded-full border-2 border-green-500 overflow-hidden"
+                className="w-9 h-9 rounded-full border border-green-500 overflow-hidden flex items-center justify-center"
+
               >
                 {user ? (
                   user.user_metadata?.avatar_url ? (
@@ -173,7 +174,7 @@ export default function Header() {
                         user.user_metadata.avatar_url
                       }
                       alt="Profile"
-                      className="w-full h-full object-cover"
+                        className="w-full h-full object-cover rounded-full"
                     />
                   ) : (
                     "👤"
