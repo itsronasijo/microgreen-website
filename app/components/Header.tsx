@@ -87,7 +87,7 @@ export default function Header() {
  <div className="w-full">
   {/* SOCIAL BAR */}
   
-<header className="bg-blue-500 border-b border-green-900">
+<header className="bg-black border-b border-green-900">
   <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-2">
 
     {/* LOGO */}
