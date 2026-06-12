@@ -6,7 +6,8 @@ import { supabase } from "../../lib/supabase";
 export default function WishlistPage() {
   const [wishlist, setWishlist] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
-
+const [toast, setToast] = useState("");
+  let toastTimer: any;
   useEffect(() => {
     loadWishlist();
   }, []);
@@ -63,7 +64,14 @@ export default function WishlistPage() {
       "cart",
       JSON.stringify(existingCart)
     );
-    alert(`${product.name} added to cart! 🛒`);
+    window.dispatchEvent(
+  new Event("cartUpdated")
+);
+   setToast(`${product.name} added to cart! 🛒`);
+
+setTimeout(() => {
+  setToast("");
+}, 2500);
   };
 
   const removeWishlist = async (productId: number) => {
@@ -96,7 +104,7 @@ export default function WishlistPage() {
 
   return (
     <div className="min-h-screen bg-black text-white px-6 py-10">
-      <h1 className="text-5xl font-bold text-green-400 mb-10">
+      <h1 className="text-3xl font-bold text-green-400 mb-10">
         My Wishlist ❤️ ({wishlist.length})
       </h1>
 
@@ -182,7 +190,7 @@ export default function WishlistPage() {
                     transition
                   "
                 >
-                  🛒 Add
+                   AddTo🛒
                 </button>
 
                 <button
@@ -208,6 +216,9 @@ export default function WishlistPage() {
           ))}
         </div>
       )}
+      {toast && (
+  <div className="fixed bottom-6 right-6 bg-black border border-green-500 text-green-400 px-6 py-3 rounded-2xl shadow-2xl z-50">
+    {toast}
     </div>
   );
 }
