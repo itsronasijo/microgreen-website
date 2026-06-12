@@ -553,7 +553,7 @@ const microgreenSection =
 
           <img
            
-             src="/images/homepage_hoverpic.png"
+             src="homepage_hoverpic.png"
             alt="Microgreens"
             className="rounded-3xl shadow-2xl"
           />
