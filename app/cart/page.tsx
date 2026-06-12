@@ -47,6 +47,9 @@ export default function CartPage() {
       "cart",
       JSON.stringify(updated)
     );
+    window.dispatchEvent(
+  new Event("cartUpdated")
+);
   };
 
   const removeItem = (index: number) => {
@@ -60,6 +63,9 @@ export default function CartPage() {
       "cart",
       JSON.stringify(updated)
     );
+    window.dispatchEvent(
+  new Event("cartUpdated")
+);
   };
 
   return (
