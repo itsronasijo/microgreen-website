@@ -85,7 +85,7 @@ export default function Header() {
     <div className="sticky top-0 z-50">
 
       {/* TOP BAR */}
-      <div className="bg-green-700 text-white">
+      <div className="bg-gradient-to-r from-green-700 via-green-800 to-green-900 text-white">
   <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-2">
 
     <div className="flex gap-6">
@@ -125,12 +125,49 @@ export default function Header() {
           </Link>
 
           {/* NAV */}
-         <nav className="hidden lg:flex items-center gap-8 text-white font-medium">
-  <Link href="/">Home</Link>
-  <Link href="/wishlist">Wishlist</Link>
-  <Link href="/profile">Profile</Link>
-  <Link href="#products">Shop</Link>
-  <Link href="#recipes">Recipes</Link>
+         <nav className="hidden lg:flex items-center gap-8 text-white font-semibold text-lg">
+  <Link
+  href="/"
+  className="hover:text-green-400 transition duration-300"
+>
+  Home
+</Link>
+ <Link
+  href="/"
+  className="hover:text-green-400 transition duration-300"
+>
+ shop
+</Link>
+  <Link
+  href="/"
+  className="hover:text-green-400 transition duration-300"
+>
+ Grow guide
+</Link>
+  <Link
+  href="/"
+  className="hover:text-green-400 transition duration-300"
+>
+ About Us
+</Link> 
+           <Link
+  href="/"
+  className="hover:text-green-400 transition duration-300"
+>
+  Contact Us
+</Link>
+  <Link
+  href="/"
+  className="hover:text-green-400 transition duration-300"
+>
+ Products
+</Link>
+  <Link
+  href="/"
+  className="hover:text-green-400 transition duration-300"
+>
+ AI Kitchen
+</Link>
 </nav>          
           {/* RIGHT SIDE */}
           <div className="flex items-center gap-5">
