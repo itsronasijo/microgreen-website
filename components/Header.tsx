@@ -85,20 +85,22 @@ export default function Header() {
     <div className="sticky top-0 z-50">
 
       {/* TOP BAR */}
-      <div className="bg-green-800 text-white">
-        <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-2 text-sm">
-          <div className="flex gap-5">
-            <span>📷 Instagram</span>
-            <span>📘 Facebook</span>
-            <span>📞 WhatsApp</span>
-          </div>
+      <div className="bg-green-900 text-white text-sm">
+  <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-2">
 
-          <div className="hidden md:flex gap-5">
-            <span>🚚 Fresh Delivery</span>
-            <span>📱 App Coming Soon</span>
-          </div>
-        </div>
-      </div>
+    <div className="flex gap-6">
+      <span>📷 Instagram</span>
+      <span>📘 Facebook</span>
+      <span>💬 WhatsApp</span>
+    </div>
+
+    <div className="hidden md:flex gap-6">
+      <span>🌱 Freshly Harvested Daily</span>
+      <span>🚚 Fast Delivery</span>
+    </div>
+
+  </div>
+</div>
 
       {/* MAIN HEADER */}
       <header className="bg-black border-b border-green-900">
