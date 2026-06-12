@@ -164,8 +164,7 @@ export default function Header() {
                     setProfileOpen(!profileOpen);
                   }
                 }}
-                className="w-9 h-9 rounded-full border border-green-500 overflow-hidden flex items-center justify-center"
-
+               className="w-8 h-8 rounded-full border border-green-500 overflow-hidden flex items-center justify-center"
               >
                 {user ? (
                   user.user_metadata?.avatar_url ? (
@@ -174,8 +173,7 @@ export default function Header() {
                         user.user_metadata.avatar_url
                       }
                       alt="Profile"
-                        className="w-8 h-8 rounded-full border border-green-500 overflow-hidden flex items-center justify-center"
-                    />
+                       className="w-full h-full object-cover rounded-full" />
                   ) : (
                     "👤"
                   )
@@ -185,28 +183,29 @@ export default function Header() {
               </button>
 
               {profileOpen && user && (
-                <div className="absolute right-0 mt-3 w-64 bg-black border border-green-500 rounded-xl">
+                <div className="absolute right-0 mt-2 w-56 bg-black border border-green-500 rounded-xl">
 
-                  <div className="p-4 border-b border-gray-700">
-                    <p className="font-bold">
+                  <div className="p-3 border-b border-gray-700">
+                   <p className="font-semibold text-sm">
                       {user.user_metadata?.full_name ||
                         user.user_metadata?.name}
                     </p>
 
-                    <p className="text-sm text-gray-400">
+                    <p className="text-xs text-gray-400">
                       {user.email}
                     </p>
                   </div>
 
                   <Link href="/profile">
-                    <button className="w-full text-left px-4 py-3 hover:bg-green-900">
+                   <button className="w-full text-left px-4 py-2 text-sm hover:bg-green-900">
+
                       👤 Profile
                     </button>
                   </Link>
 
                   <Link href="/wishlist">
-                    <button className="w-full text-left px-4 py-3 hover:bg-green-900">
-                      ❤️ Wishlist
+                   <button className="w-full text-left px-4 py-2 text-sm hover:bg-green-900">
+                   ❤️ Wishlist
                     </button>
                   </Link>
 
@@ -215,7 +214,7 @@ export default function Header() {
                       await supabase.auth.signOut();
                       setProfileOpen(false);
                     }}
-                    className="w-full text-left px-4 py-3 text-red-400 hover:bg-red-900"
+                    className="w-full text-left px-4 py-2 text-sm text-red-400 hover:bg-red-900"
                   >
                     🚪 Logout
                   </button>
