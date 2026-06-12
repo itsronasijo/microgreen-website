@@ -220,5 +220,7 @@ setTimeout(() => {
   <div className="fixed bottom-6 right-6 bg-black border border-green-500 text-green-400 px-6 py-3 rounded-2xl shadow-2xl z-50">
     {toast}
     </div>
+       )}
+    </div>
   );
 }
