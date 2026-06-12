@@ -143,14 +143,15 @@ export default function Header() {
               </button>
             </Link>
 
-           <Link href="/cart">
-  <button className="relative text-3xl hover:scale-110 transition">
-    🛒
+          <Link
+  href="/cart"
+  className="relative text-3xl hover:scale-110 transition block"
+>
+  🛒
 
-    <span className="absolute -top-2 -right-3 bg-green-500 text-black text-xs px-2 rounded-full font-bold">
-      {cartCount}
-    </span>
-  </button>
+  <span className="absolute -top-2 -right-3 bg-green-500 text-black text-xs px-2 rounded-full font-bold">
+    {cartCount}
+  </span>
 </Link>
             {/* PROFILE */}
             <div
