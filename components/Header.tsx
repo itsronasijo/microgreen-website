@@ -114,26 +114,28 @@ export default function Header() {
           </Link>
 
           {/* NAV */}
-          <nav className="hidden md:flex items-center gap-8 text-gray-300">
-            <Link href="/" className="hover:text-green-400">
-              Home
-            </Link>
+          <nav className="hidden lg:flex items-center gap-8 text-gray-300 font-medium">
+  <Link href="/" className="hover:text-green-400 transition">
+    Home
+  </Link>
 
-            <Link
-              href="/wishlist"
-              className="hover:text-green-400"
-            >
-              Wishlist
-            </Link>
+  <Link href="/shop" className="hover:text-green-400 transition">
+    Shop
+  </Link>
 
-            <Link
-              href="/profile"
-              className="hover:text-green-400"
-            >
-              Profile
-            </Link>
-          </nav>
+  <Link href="/recipes" className="hover:text-green-400 transition">
+    Recipes
+  </Link>
 
+  <Link href="/about" className="hover:text-green-400 transition">
+    About
+  </Link>
+
+  <Link href="/contact" className="hover:text-green-400 transition">
+    Contact
+  </Link>
+</nav>        
+          
           {/* RIGHT SIDE */}
           <div className="flex items-center gap-5">
 
