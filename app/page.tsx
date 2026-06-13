@@ -346,7 +346,7 @@ const microgreenSection =
           <img
             src="/homepagepic.png"
             alt="Healthy Food"
-            className="absolute -bottom-10 -left-10 w-48 rounded-3xl border-4 border-green-500"
+            className="absolute -bottom-16 -left-16 w-72 rounded-3xl shadow-2xl"
           />
 
         </div>
