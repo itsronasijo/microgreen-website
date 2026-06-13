@@ -8,9 +8,8 @@ export default function Header() {
   const [user, setUser] = useState<any>(null);
   const [profileOpen, setProfileOpen] = useState(false);
   const [cartCount, setCartCount] = useState(0);
-
   const profileRef = useRef<HTMLDivElement>(null);
-
+  const [cartOpen, setCartOpen] = useState(false);
   useEffect(() => {
     const getUser = async () => {
       const {
@@ -156,16 +155,17 @@ useEffect(() => {
   ❤️
 </Link>
   {/* CART */}
-  <Link
-  href="/cart"
-  className="relative text-3xl block"
+  <button
+  onClick={() => setCartOpen(true)}
+  className="relative text-3xl hover:scale-110 transition"
 >
-    🛒
+  🛒
+    
 
     <span className="absolute -top-1 -right-2 bg-green-500 text-black text-[10px] px-1.5 rounded-full font-bold">
      {cartCount}
     </span>
- </Link>
+ </button>
 
  {/* SHOP BUTTON */}
   <a
@@ -274,6 +274,22 @@ useEffect(() => {
 
 </div>
      </div>
+   {/* Overlay */}
+    {cartOpen && (
+      <div
+        className="fixed inset-0 bg-black/50 z-40"
+        onClick={() => setCartOpen(false)}
+      />
+    )}
+
+    {/* Cart Drawer */}
+    <div
+      className={`fixed top-0 right-0 h-full w-[400px] bg-[#0f172a] border-l border-green-500 z-50 shadow-2xl transform transition-transform duration-300 ${
+        cartOpen ? "translate-x-0" : "translate-x-full"
+      }`}
+    >
+      ...
+    </div>
 </header>
 </div>
   </>
