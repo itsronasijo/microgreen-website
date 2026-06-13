@@ -440,7 +440,8 @@ const microgreenSection =
           <span className="text-green-400">
             {" "}Products
           </span>
-          <span> {/* SEARCH */}
+       </h2>
+         {/* SEARCH */}
   <div className="hidden lg:block mr-4">
 <input
   type="text"
@@ -457,10 +458,7 @@ const microgreenSection =
   }}
   className="w-64 bg-white/10 border border-green-800 rounded-xl px-4 py-3 text-white outline-none"
 />
-</div></span>
-          
-
-        </h2>
+</div>
         {search.trim() !== "" && (
   <p className="text-center text-gray-400 mb-6">
     {filteredProducts.length} product(s) found
