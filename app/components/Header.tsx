@@ -10,6 +10,7 @@ export default function Header() {
   const [cartCount, setCartCount] = useState(0);
   const profileRef = useRef<HTMLDivElement>(null);
   const [cartOpen, setCartOpen] = useState(false);
+  const [cartItems, setCartItems] = useState<any[]>([]);
   useEffect(() => {
     const getUser = async () => {
       const {
@@ -35,8 +36,10 @@ export default function Header() {
 useEffect(() => {
   const updateCartCount = () => {
     const cart = JSON.parse(
-      localStorage.getItem("cart") || "[]"
-    );
+  localStorage.getItem("cart") || "[]"
+);
+
+setCartItems(cart);
 
     const total = cart.reduce(
       (sum: number, item: any) =>
@@ -276,23 +279,85 @@ useEffect(() => {
      </div>
    
 </header>
-   {/* Overlay */}
-    {cartOpen && (
-      <div
-        className="fixed inset-0 bg-black/50 z-40"
-        onClick={() => setCartOpen(false)}
-      />
-    )}
+  {/* Cart Drawer */}
+<div
+  className={`fixed top-0 right-0 h-full w-full sm:w-[400px] bg-black border-l border-green-500 z-50 shadow-2xl transform transition-transform duration-300 ${
+    cartOpen ? "translate-x-0" : "translate-x-full"
+  }`}
+>
+  <div className="h-full flex flex-col">
 
-    {/* Cart Drawer */}
-    <div
-      className={`fixed top-0 right-0 h-full w-[400px] bg-[#0f172a] border-l border-green-500 z-50 shadow-2xl transform transition-transform duration-300 ${
-        cartOpen ? "translate-x-0" : "translate-x-full"
-      }`}
-    >
-      ...
+    {/* Top */}
+    <div className="flex items-center justify-between p-5 border-b border-green-900">
+      <h2 className="text-2xl font-bold text-green-400">
+        Your Cart
+      </h2>
+
+      <button
+        onClick={() => setCartOpen(false)}
+        className="text-2xl"
+      >
+        ✕
+      </button>
     </div>
+
+    {/* Items */}
+    <div className="flex-1 overflow-y-auto p-4 space-y-4">
+
+      {cartItems.length === 0 ? (
+        <div className="text-center text-gray-400 mt-10">
+          Your cart is empty 🌱
+        </div>
+      ) : (
+        cartItems.map((item, index) => (
+          <div
+            key={index}
+            className="bg-zinc-900 rounded-xl p-4 border border-green-900"
+          >
+            <h3 className="font-semibold text-white">
+              {item.name}
+            </h3>
+
+            <p className="text-green-400">
+              ₹{item.price}
+            </p>
+
+            <p className="text-gray-400">
+              Qty: {item.quantity}
+            </p>
+          </div>
+        ))
+      )}
+
+    </div>
+
+    {/* Bottom */}
+    <div className="border-t border-green-900 p-5">
+
+      <div className="flex justify-between mb-4 text-lg font-bold">
+        <span>Total</span>
+
+        <span>
+          ₹
+          {cartItems.reduce(
+            (sum, item) =>
+              sum + item.price * item.quantity,
+            0
+          )}
+        </span>
+      </div>
+
+      <Link href="/cart">
+        <button className="w-full bg-green-500 hover:bg-green-600 text-black font-bold py-3 rounded-xl">
+          View Cart
+        </button>
+      </Link>
+
+    </div>
+
+  </div>
 </div>
+ </div>
   </>
 );
 }
