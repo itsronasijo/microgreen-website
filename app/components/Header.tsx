@@ -165,7 +165,7 @@ setCartItems(cart);
   🛒
     
 
-    <span className="absolute -top-2 -right-2 text-white text-sm font-bold">
+    <span className="absolute -top-2 -right-2 text-white text-sm font-extrabold">
   {cartCount}
 </span>
  </button>
@@ -175,7 +175,7 @@ setCartItems(cart);
     href="/#products"
     className="bg-green-500 hover:bg-green-600 transition px-4 py-2 rounded-xl text-black font-bold"
   >
-    Shop Now
+    Shop 
   </a>
   {/* PROFILE */}
  <div
