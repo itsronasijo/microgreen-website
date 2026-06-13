@@ -416,7 +416,24 @@ const microgreenSection =
   </div>
 
 </section>
+ {/* SEARCH */}
+  <div className="hidden lg:block mr-4">
+<input
+  type="text"
+  placeholder="🔍 Search Products"
+  value={search}
+  onChange={(e) => {
+    setSearch(e.target.value);
 
+    document
+      .getElementById("products")
+      ?.scrollIntoView({
+        behavior: "smooth",
+      });
+  }}
+  className="w-64 bg-white/10 border border-green-800 rounded-xl px-4 py-3 text-white outline-none"
+/>
+</div>
       {/* PRODUCTS */}
       <section
         id="products"
