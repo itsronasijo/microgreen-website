@@ -165,9 +165,9 @@ setCartItems(cart);
   🛒
     
 
-    <span className="absolute -top-1 -right-2 bg-green-500 text-black text-[10px] px-1.5 rounded-full font-bold">
-     {cartCount}
-    </span>
+    <span className="absolute -top-2 -right-2 text-white text-sm font-bold">
+  {cartCount}
+</span>
  </button>
 
  {/* SHOP BUTTON */}
