@@ -285,7 +285,7 @@ const microgreenSection =
     {/* HERO*/}
       <section
         id="home"
-     className="grid md:grid-cols-2 gap-10 items-center px-8 md:px-16 pt-[220px] pb-20"
+     className="grid md:grid-cols-2 gap-10 items-center px-8 md:px-16 pt-10 pb-20"
   >
 
         {/* LEFT */}
@@ -338,12 +338,10 @@ const microgreenSection =
         <div className="relative">
 
           <img
-           
-             src="homepage_hoverpic.png"
-            alt="Microgreens"
-            className="rounded-3xl shadow-2xl"
-          />
-
+    src="/homepage_hoverpic.png"
+    alt="Microgreens"
+    className="rounded-3xl shadow-2xl w-full h-[550px] object-cover"
+  />
           {/* OVERLAY */}
           <img
             src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe"
