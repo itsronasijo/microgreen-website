@@ -344,7 +344,7 @@ const microgreenSection =
   />
           {/* OVERLAY */}
           <img
-            src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe"
+            src="/homepagepic.png"
             alt="Healthy Food"
             className="absolute -bottom-10 -left-10 w-48 rounded-3xl border-4 border-green-500"
           />
