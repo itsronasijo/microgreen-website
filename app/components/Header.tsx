@@ -274,6 +274,8 @@ useEffect(() => {
 
 </div>
      </div>
+   
+</header>
    {/* Overlay */}
     {cartOpen && (
       <div
@@ -290,7 +292,6 @@ useEffect(() => {
     >
       ...
     </div>
-</header>
 </div>
   </>
 );
