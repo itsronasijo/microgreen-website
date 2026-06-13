@@ -309,24 +309,59 @@ setCartItems(cart);
           Your cart is empty 🌱
         </div>
       ) : (
-        cartItems.map((item, index) => (
-          <div
-            key={index}
-            className="bg-zinc-900 rounded-xl p-4 border border-green-900"
-          >
-            <h3 className="font-semibold text-white">
-              {item.name}
-            </h3>
+cartItems.map((item, index) => (
+  <div
+    key={index}
+    className="bg-zinc-900 rounded-xl p-4 border border-green-900"
+  >
+    <div className="flex justify-between items-start">
 
-            <p className="text-green-400">
-              ₹{item.price}
-            </p>
+      <div>
+        <h3 className="font-semibold text-white">
+          {item.name}
+        </h3>
 
-            <p className="text-gray-400">
-              Qty: {item.quantity}
-            </p>
-          </div>
-        ))
+        <p className="text-green-400">
+          ₹{item.price}
+        </p>
+
+        <p className="text-gray-400">
+          Qty: {item.quantity}
+        </p>
+      </div>
+
+      <button
+        onClick={() => {
+          const updatedCart = cartItems.filter(
+            (_, i) => i !== index
+          );
+
+          setCartItems(updatedCart);
+
+          localStorage.setItem(
+            "cart",
+            JSON.stringify(updatedCart)
+          );
+
+          const total = updatedCart.reduce(
+            (sum, item) => sum + item.quantity,
+            0
+          );
+
+          setCartCount(total);
+
+          window.dispatchEvent(
+            new Event("cartUpdated")
+          );
+        }}
+        className="text-red-400 hover:text-red-500 text-xl"
+      >
+        🗑️
+      </button>
+
+    </div>
+  </div>
+))
       )}
 
     </div>
