@@ -49,7 +49,15 @@ export default function CartPage() {
     updated.splice(index, 1);
     updateCart(updated);
   };
+const emptyCart = () => {
+  const confirmClear = window.confirm(
+    "Are you sure you want to empty your cart?"
+  );
 
+  if (!confirmClear) return;
+
+  updateCart([]);
+};
   const total = cart.reduce(
     (sum, item) =>
       sum + item.price * item.quantity,
@@ -239,6 +247,24 @@ export default function CartPage() {
                 Order Summary
               </h2>
 
+              <button
+  onClick={emptyCart}
+  className="
+    w-full
+    border
+    border-red-500
+    text-red-400
+    hover:bg-red-500
+    hover:text-white
+    py-3
+    rounded-xl
+    font-semibold
+    transition
+    mb-5
+  "
+>
+  🗑️ Empty Cart
+</button>
               <div className="flex justify-between mb-3">
                 <span>Total Products</span>
                 <span>{cart.length}</span>
