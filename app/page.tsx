@@ -849,7 +849,7 @@ const microgreenSection =
       </h3>
     </div>
 
-    {selectedGoal === "Weight Managementt" && (
+    {selectedGoal === "Weight Management" && (
       <div className="text-green-400 text-2xl">
         ✓
       </div>
