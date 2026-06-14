@@ -1,5 +1,10 @@
-      
+  "use client";
+
+import Link from "next/link";
+
       {/* FOOTER */}
+export default function Footer() {
+  return (
       <footer className="border-t border-white/10 px-8 md:px-16 py-16 bg-black">
 
         <div className="grid md:grid-cols-4 gap-10">
@@ -103,4 +108,6 @@
         </div>
 
       </footer>
+         );
+}
 
