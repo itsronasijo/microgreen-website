@@ -1,4 +1,4 @@
-"use client";
+  "use client";
 
 import { useState, useEffect } from "react";
 import { supabase } from "../lib/supabase";
@@ -417,85 +417,100 @@ const microgreenSection =
 
 </section>
 
-      {/* PRODUCTS */}
-      <section
-        id="products"
-        className="px-8 md:px-16 py-24"
-      >
+{/* PRODUCTS */}
+<section
+  id="products"
+  className="px-8 md:px-16 py-24"
+>
 
-        <h2 className="text-5xl font-bold text-center mb-16">
-        <div className="text-center mb-12">
+  {/* VARIETIES */}
+  <div className="text-center mb-12">
 
-  <p className="text-gray-400 text-lg">
-    Available Varieties:
-  </p>
-
-  <p className="text-green-400 text-xl mt-3 font-semibold">
-    🌻 Sunflower • 🌱 Chia • ❤️ Beetroot • 🥬 Turnip • 💛 Mustard  • 🍃 Amaranthus Red .🌽 Corn .🍀 Fenugreek
-  </p>
-
-</div>  
-          Featured
-          
-          <span className="text-green-400">
-            {" "}Products
-          </span>
-       </h2>
-         {/* SEARCH */}
-  <div className="hidden lg:block mr-4">
-<input
-  type="text"
-  placeholder="🔍 Search Products"
-  value={search}
-  onChange={(e) => {
-    setSearch(e.target.value);
-
-    document
-      .getElementById("products")
-      ?.scrollIntoView({
-        behavior: "smooth",
-      });
-  }}
-  className="w-64 bg-white/10 border border-green-800 rounded-xl px-4 py-3 text-white outline-none"
-/>
-</div>
-        {search.trim() !== "" && (
-  <p className="text-center text-gray-400 mb-6">
-    {filteredProducts.length} product(s) found
-  </p>
-)}
-
-       {search.trim() !== "" && filteredProducts.length === 0 ? (
-
-  <div className="text-center py-20">
-    <h3 className="text-2xl text-red-400">
-      No products found
-    </h3>
-
-    <p className="text-gray-400 mt-2">
-      Try another search term
+    <p className="text-gray-400 text-lg">
+      Available Varieties:
     </p>
+
+    <p className="text-green-400 text-xl mt-3 font-semibold">
+      🌻 Sunflower • 🌱 Chia • ❤️ Beetroot • 🥬 Turnip • 💛 Mustard • 🍃 Amaranthus Red • 🌽 Corn • 🍀 Fenugreek
+    </p>
+
   </div>
 
-) : (
+  {/* HEADING + SEARCH */}
+  <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-12">
 
-  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+   <h2 className="text-5xl font-bold mb-4 lg:mb-0">
+      Featured
+      <span className="text-green-400">
+        {" "}Products
+      </span>
+    </h2>
 
-    {filteredProducts.map((product) => (
+    <div className="mt-4 lg:mt-0">
+      <input
+        type="text"
+        placeholder="🔍 Search Products"
+        value={search}
+        onChange={(e) => {
+          setSearch(e.target.value);
 
-      <ProductCard
-        key={product.name}
-        product={product}
-        addToCart={addToCart}
+          document
+            .getElementById("products")
+            ?.scrollIntoView({
+              behavior: "smooth",
+            });
+        }}
+        className="
+          w-64
+          bg-white/10
+          border
+          border-green-800
+          rounded-xl
+          px-4
+          py-3
+          text-white
+          outline-none
+        "
       />
-
-    ))}
+    </div>
 
   </div>
 
-)}
+  {search.trim() !== "" && (
+    <p className="text-center text-gray-400 mb-6">
+      {filteredProducts.length} product(s) found
+    </p>
+  )}
 
-      </section>
+  {search.trim() !== "" && filteredProducts.length === 0 ? (
+
+    <div className="text-center py-20">
+      <h3 className="text-2xl text-red-400">
+        No products found
+      </h3>
+
+      <p className="text-gray-400 mt-2">
+        Try another search term
+      </p>
+    </div>
+
+  ) : (
+
+    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+
+      {filteredProducts.map((product) => (
+        <ProductCard
+          key={product.name}
+          product={product}
+          addToCart={addToCart}
+        />
+      ))}
+
+    </div>
+
+  )}
+
+</section>
 
    {/* RECIPES */}
 <section
