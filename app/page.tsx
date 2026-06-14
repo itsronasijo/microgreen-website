@@ -791,11 +791,27 @@ const microgreenSection =
           {/* Logo */}
           <div>
 
-            <img
-              src="/logo1.png"
-              alt="Logo"
-              className="h-24 mb-4"
-            />
+           {/* LOGO */}
+<Link
+  href="/"
+  onClick={(e) => {
+    if (window.location.pathname === "/") {
+      e.preventDefault();
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }
+  }}
+  className="w-28 block"
+>
+  <img
+    src="/logo1.png"
+    alt="Logo"
+    className="h-20 w-auto object-contain hover:scale-105 transition"
+  />
+</Link>
 
             <p className="text-gray-400 leading-relaxed">
               Premium organic microgreens grown fresh
