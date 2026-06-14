@@ -6,6 +6,7 @@ import Link from "next/link";
 export default function Home() {
 
   const [cart, setCart] = useState<any[]>([]);
+  const [selectedGoal, setSelectedGoal] = useState("");
   const [showToast, setShowToast] = useState(false);
   useEffect(() => {
   const savedCart = localStorage.getItem("cart");
@@ -801,47 +802,178 @@ const microgreenSection =
 
     <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
 
-      <div className="group bg-white/5 backdrop-blur-md border border-green-500/20 rounded-3xl p-6 hover:border-green-400 hover:scale-105 transition duration-300 cursor-pointer">
-        <div className="text-4xl mb-3">💪</div>
-        <h3 className="font-bold text-lg text-white">
-          Active Lifestyle
-        </h3>
-      </div>
+      <div
+  onClick={() => setSelectedGoal("Active Lifestyle")}
+  className={`group backdrop-blur-md rounded-3xl p-6 cursor-pointer transition duration-300 hover:scale-105
+  ${
+    selectedGoal === "Active Lifestyle"
+      ? "bg-green-500/20 border-2 border-green-400 shadow-[0_0_30px_rgba(34,197,94,0.3)]"
+      : "bg-white/5 border border-green-500/20 hover:border-green-400"
+  }`}
+>
+  <div className="flex justify-between items-start">
 
-      <div className="group bg-white/5 backdrop-blur-md border border-green-500/20 rounded-3xl p-6 hover:border-green-400 hover:scale-105 transition duration-300 cursor-pointer">
-        <div className="text-4xl mb-3">⚖️</div>
-        <h3 className="font-bold text-lg text-white">
-          Weight Management
-        </h3>
-      </div>
+    <div>
+      <div className="text-4xl mb-3">💪</div>
 
-      <div className="group bg-white/5 backdrop-blur-md border border-green-500/20 rounded-3xl p-6 hover:border-green-400 hover:scale-105 transition duration-300 cursor-pointer">
-        <div className="text-4xl mb-3">🛡️</div>
-        <h3 className="font-bold text-lg text-white">
-          Everyday Wellness
-        </h3>
-      </div>
+      <h3 className="font-bold text-lg text-white">
+        Active Lifestyle
+      </h3>
+    </div>
 
-      <div className="group bg-white/5 backdrop-blur-md border border-green-500/20 rounded-3xl p-6 hover:border-green-400 hover:scale-105 transition duration-300 cursor-pointer">
-        <div className="text-4xl mb-3">⚡</div>
-        <h3 className="font-bold text-lg text-white">
-          Energy & Vitality
-        </h3>
+    {selectedGoal === "Active Lifestyle" && (
+      <div className="text-green-400 text-2xl">
+        ✓
       </div>
+    )}
 
-      <div className="group bg-white/5 backdrop-blur-md border border-green-500/20 rounded-3xl p-6 hover:border-green-400 hover:scale-105 transition duration-300 cursor-pointer">
-        <div className="text-4xl mb-3">🌿</div>
-        <h3 className="font-bold text-lg text-white">
-          General Wellbeing
-        </h3>
-      </div>
+  </div>
+</div>
 
-      <div className="group bg-white/5 backdrop-blur-md border border-green-500/20 rounded-3xl p-6 hover:border-green-400 hover:scale-105 transition duration-300 cursor-pointer">
-        <div className="text-4xl mb-3">🥗</div>
-        <h3 className="font-bold text-lg text-white">
-          Balanced Nutrition
-        </h3>
+   <div
+  onClick={() => setSelectedGoal("Weight Management")}
+  className={`group backdrop-blur-md rounded-3xl p-6 cursor-pointer transition duration-300 hover:scale-105
+  ${
+    selectedGoal === "Weight Management"
+      ? "bg-green-500/20 border-2 border-green-400 shadow-[0_0_30px_rgba(34,197,94,0.3)]"
+      : "bg-white/5 border border-green-500/20 hover:border-green-400"
+  }`}
+>
+  <div className="flex justify-between items-start">
+
+    <div>
+      <div className="text-4xl mb-3">⚖️</div>
+
+      <h3 className="font-bold text-lg text-white">
+      Weight Management
+      </h3>
+    </div>
+
+    {selectedGoal === "Weight Managementt" && (
+      <div className="text-green-400 text-2xl">
+        ✓
       </div>
+    )}
+
+  </div>
+</div>
+      
+      <div
+  onClick={() => setSelectedGoal("Everyday Wellness")}
+  className={`group backdrop-blur-md rounded-3xl p-6 cursor-pointer transition duration-300 hover:scale-105
+  ${
+    selectedGoal === "Everyday Wellness"
+      ? "bg-green-500/20 border-2 border-green-400 shadow-[0_0_30px_rgba(34,197,94,0.3)]"
+      : "bg-white/5 border border-green-500/20 hover:border-green-400"
+  }`}
+>
+  <div className="flex justify-between items-start">
+
+    <div>
+      <div className="text-4xl mb-3">🛡️</div>
+
+      <h3 className="font-bold text-lg text-white">
+       Everyday Wellness
+      </h3>
+    </div>
+
+    {selectedGoal === "Everyday Wellness" && (
+      <div className="text-green-400 text-2xl">
+        ✓
+      </div>
+    )}
+
+  </div>
+</div>
+
+
+       
+               <div
+  onClick={() => setSelectedGoal("Energy & Vitality")}
+  className={`group backdrop-blur-md rounded-3xl p-6 cursor-pointer transition duration-300 hover:scale-105
+  ${
+    selectedGoal === "Energy & Vitality"
+      ? "bg-green-500/20 border-2 border-green-400 shadow-[0_0_30px_rgba(34,197,94,0.3)]"
+      : "bg-white/5 border border-green-500/20 hover:border-green-400"
+  }`}
+>
+  <div className="flex justify-between items-start">
+
+    <div>
+      <div className="text-4xl mb-3">⚡</div>
+
+      <h3 className="font-bold text-lg text-white">
+       Energy & Vitality
+      </h3>
+    </div>
+
+    {selectedGoal === "Energy & Vitality" && (
+      <div className="text-green-400 text-2xl">
+        ✓
+      </div>
+    )}
+
+  </div>
+</div>
+
+
+
+       
+      <div
+  onClick={() => setSelectedGoal("General Wellbeing")}
+  className={`group backdrop-blur-md rounded-3xl p-6 cursor-pointer transition duration-300 hover:scale-105
+  ${
+    selectedGoal === "General Wellbeing"
+      ? "bg-green-500/20 border-2 border-green-400 shadow-[0_0_30px_rgba(34,197,94,0.3)]"
+      : "bg-white/5 border border-green-500/20 hover:border-green-400"
+  }`}
+>
+  <div className="flex justify-between items-start">
+
+    <div>
+      <div className="text-4xl mb-3">🌿</div>
+
+      <h3 className="font-bold text-lg text-white">
+        General Wellbeing
+      </h3>
+    </div>
+
+    {selectedGoal === "General Wellbeing" && (
+      <div className="text-green-400 text-2xl">
+        ✓
+      </div>
+    )}
+
+  </div>
+</div>
+
+            <div
+  onClick={() => setSelectedGoal("Balanced Nutrition")}
+  className={`group backdrop-blur-md rounded-3xl p-6 cursor-pointer transition duration-300 hover:scale-105
+  ${
+    selectedGoal === "Balanced Nutrition"
+      ? "bg-green-500/20 border-2 border-green-400 shadow-[0_0_30px_rgba(34,197,94,0.3)]"
+      : "bg-white/5 border border-green-500/20 hover:border-green-400"
+  }`}
+>
+  <div className="flex justify-between items-start">
+
+    <div>
+      <div className="text-4xl mb-3">🥗</div>
+
+      <h3 className="font-bold text-lg text-white">
+        Balanced Nutrition
+      </h3>
+    </div>
+
+    {selectedGoal === "Balanced Nutrition" && (
+      <div className="text-green-400 text-2xl">
+        ✓
+      </div>
+    )}
+
+  </div>
+</div>
 
     </div>
 
@@ -854,7 +986,11 @@ const microgreenSection =
     </div>
 
   </div>
-</section>               {/* Products */}
+</section>              
+  
+  
+  
+  {/* Products */}
           <div>
 
             <h3 className="text-2xl font-bold text-green-400 mb-5">
