@@ -1027,19 +1027,21 @@ selectedGoals.includes("Balanced Nutrition")
 )}
 
     <div className="text-center mt-12">
+       <p className="text-gray-400 mb-4">
+    Select up to 3 wellness goals
+  </p>
      <button
-  disabled={selectedGoals.length === 0}
-  className={`font-bold px-10 py-4 rounded-full transition
-  ${
-    selectedGoals.length > 0
-      ? "bg-green-500 hover:bg-green-400 text-black hover:scale-105"
-      : "bg-gray-700 text-gray-400 cursor-not-allowed"
-  }`}
->
-  {selectedGoals.length > 0
-    ? "Start Analysis →"
-    : "Select up to 3 Goals"}
-</button>
+    disabled={selectedGoals.length === 0}
+    className={`px-10 py-4 rounded-full font-bold transition
+    ${
+      selectedGoals.length > 0
+        ? "bg-green-500 hover:bg-green-400 text-black hover:scale-105"
+        : "bg-gray-700 text-gray-400 cursor-not-allowed"
+    }`}
+  >
+    Start Analysis →
+  </button>
+
     </div>
 
   </div>
