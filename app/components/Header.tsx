@@ -146,6 +146,12 @@ setCartItems(cart);
       <a href="/#recipes" className="hover:text-green-400 transition duration-300">
         AI Kitchen
       </a>
+     <a href="/#analyzer"className="hover:text-green-400 transition duration-300">
+        🧠Health Analyzer
+     </a>
+
+     
+
 
       <a href="/#grow-guide" className="hover:text-green-400 transition duration-300">
         Grow Guide
