@@ -801,42 +801,7 @@ const microgreenSection =
 
           </div>
 
-          {/* Contact */}
-          <div>
-
-            <h3 className="text-2xl font-bold text-green-400 mb-5">
-              Contact
-            </h3>
-
-            <div className="space-y-3 text-gray-400">
-
-              <p>hello@verdegreens.com</p>
-
-              <p>+91 **********</p>
-
-              <p>@verde.microgreens</p>
-
-              <button className="bg-green-500 hover:bg-green-600 transition px-5 py-3 rounded-xl text-black font-bold mt-4">
-
-                Subscribe
-
-              </button>
-
-            </div>
-
-          </div>
-
-        </div>
-
-        {/* Bottom */}
-        <div className="border-t border-white/10 mt-12 pt-6 text-center text-gray-500">
-
-          © 2026 Verde Microgreens. All rights reserved.
-
-        </div>
-
-      </footer>
-{/* BACKDROP */}
+         {/* BACKDROP */}
 {cartOpen && (
 
   <div
