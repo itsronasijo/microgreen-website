@@ -6,7 +6,7 @@ import Link from "next/link";
 export default function Home() {
 
   const [cart, setCart] = useState<any[]>([]);
-  const [selectedGoal, setSelectedGoal] = useState("");
+ const [selectedGoals, setSelectedGoals] = useState<string[]>([]);
   const [showToast, setShowToast] = useState(false);
   useEffect(() => {
   const savedCart = localStorage.getItem("cart");
@@ -283,6 +283,26 @@ const microgreenSection =
       .toLowerCase()
       .includes(search.toLowerCase())
 );
+  const toggleGoal = (goal: string) => {
+
+  if (selectedGoals.includes(goal)) {
+
+    setSelectedGoals(
+      selectedGoals.filter((g) => g !== goal)
+    );
+
+  } else {
+
+    if (selectedGoals.length >= 3) return;
+
+    setSelectedGoals([
+      ...selectedGoals,
+      goal
+    ]);
+
+  }
+
+};
   
  return (
    <>
@@ -784,6 +804,9 @@ const microgreenSection =
 
   </section>
 
+
+    
+
 {/* HEALTH ANALYZER */}
 <section
   id="analyzer"
@@ -805,10 +828,10 @@ const microgreenSection =
     <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
 
       <div
-  onClick={() => setSelectedGoal("Active Lifestyle")}
+  onClick={() => toggleGoal("Active Lifestyle")}
   className={`group backdrop-blur-md rounded-3xl p-6 cursor-pointer transition duration-300 hover:scale-105
   ${
-    selectedGoal === "Active Lifestyle"
+   selectedGoals.includes("Active Lifestyle")
       ? "bg-green-500/20 border-2 border-green-400 shadow-[0_0_30px_rgba(34,197,94,0.3)]"
       : "bg-white/5 border border-green-500/20 hover:border-green-400"
   }`}
@@ -823,7 +846,7 @@ const microgreenSection =
       </h3>
     </div>
 
-    {selectedGoal === "Active Lifestyle" && (
+    {selectedGoals.includes("Active Lifestyle") && (
       <div className="text-green-400 text-2xl">
         ✓
       </div>
@@ -833,10 +856,10 @@ const microgreenSection =
 </div>
 
    <div
-  onClick={() => setSelectedGoal("Weight Management")}
+ onClick={() => toggleGoal("Weight Management")}
   className={`group backdrop-blur-md rounded-3xl p-6 cursor-pointer transition duration-300 hover:scale-105
   ${
-    selectedGoal === "Weight Management"
+    selectedGoals.includes ("Weight Management")
       ? "bg-green-500/20 border-2 border-green-400 shadow-[0_0_30px_rgba(34,197,94,0.3)]"
       : "bg-white/5 border border-green-500/20 hover:border-green-400"
   }`}
@@ -851,7 +874,7 @@ const microgreenSection =
       </h3>
     </div>
 
-    {selectedGoal === "Weight Management" && (
+    {selectedGoals.includes( "Weight Management") && (
       <div className="text-green-400 text-2xl">
         ✓
       </div>
@@ -861,10 +884,10 @@ const microgreenSection =
 </div>
       
       <div
-  onClick={() => setSelectedGoal("Everyday Wellness")}
+  onClick={() => toggleGoal("Everyday Wellness")}
   className={`group backdrop-blur-md rounded-3xl p-6 cursor-pointer transition duration-300 hover:scale-105
   ${
-    selectedGoal === "Everyday Wellness"
+    selectedGoals.includes("Everyday Wellness")
       ? "bg-green-500/20 border-2 border-green-400 shadow-[0_0_30px_rgba(34,197,94,0.3)]"
       : "bg-white/5 border border-green-500/20 hover:border-green-400"
   }`}
@@ -879,7 +902,7 @@ const microgreenSection =
       </h3>
     </div>
 
-    {selectedGoal === "Everyday Wellness" && (
+    {selectedGoals.includes ("Everyday Wellness" )&& (
       <div className="text-green-400 text-2xl">
         ✓
       </div>
@@ -891,10 +914,10 @@ const microgreenSection =
 
        
                <div
-  onClick={() => setSelectedGoal("Energy & Vitality")}
+  onClick={() => toggleGoal("Energy & Vitality")}
   className={`group backdrop-blur-md rounded-3xl p-6 cursor-pointer transition duration-300 hover:scale-105
   ${
-    selectedGoal === "Energy & Vitality"
+   selectedGoals.includes("Energy & Vitality")
       ? "bg-green-500/20 border-2 border-green-400 shadow-[0_0_30px_rgba(34,197,94,0.3)]"
       : "bg-white/5 border border-green-500/20 hover:border-green-400"
   }`}
@@ -909,7 +932,7 @@ const microgreenSection =
       </h3>
     </div>
 
-    {selectedGoal === "Energy & Vitality" && (
+    {selectedGoals.includes( "Energy & Vitality") && (
       <div className="text-green-400 text-2xl">
         ✓
       </div>
@@ -922,10 +945,10 @@ const microgreenSection =
 
        
       <div
-  onClick={() => setSelectedGoal("General Wellbeing")}
+  onClick={() => toggleGoal("General Wellbeing")}
   className={`group backdrop-blur-md rounded-3xl p-6 cursor-pointer transition duration-300 hover:scale-105
   ${
-    selectedGoal === "General Wellbeing"
+   selectedGoals.includes("General Wellbeing")
       ? "bg-green-500/20 border-2 border-green-400 shadow-[0_0_30px_rgba(34,197,94,0.3)]"
       : "bg-white/5 border border-green-500/20 hover:border-green-400"
   }`}
@@ -940,7 +963,7 @@ const microgreenSection =
       </h3>
     </div>
 
-    {selectedGoal === "General Wellbeing" && (
+    {selectedGoals.includes( "General Wellbeing") && (
       <div className="text-green-400 text-2xl">
         ✓
       </div>
@@ -950,10 +973,10 @@ const microgreenSection =
 </div>
 
             <div
-  onClick={() => setSelectedGoal("Balanced Nutrition")}
+  onClick={() => toggleGoal("Balanced Nutrition")}
   className={`group backdrop-blur-md rounded-3xl p-6 cursor-pointer transition duration-300 hover:scale-105
   ${
-    selectedGoal === "Balanced Nutrition"
+selectedGoals.includes("Balanced Nutrition")
       ? "bg-green-500/20 border-2 border-green-400 shadow-[0_0_30px_rgba(34,197,94,0.3)]"
       : "bg-white/5 border border-green-500/20 hover:border-green-400"
   }`}
@@ -968,7 +991,7 @@ const microgreenSection =
       </h3>
     </div>
 
-    {selectedGoal === "Balanced Nutrition" && (
+    {selectedGoals.includes("Balanced Nutrition") && (
       <div className="text-green-400 text-2xl">
         ✓
       </div>
@@ -979,12 +1002,44 @@ const microgreenSection =
 
     </div>
 
+
+    {selectedGoals.length > 0 && (
+  <div className="mt-8 text-center">
+
+    <p className="text-green-400 font-semibold mb-3">
+      Selected Goals
+    </p>
+
+    <div className="flex flex-wrap justify-center gap-3">
+
+      {selectedGoals.map((goal) => (
+        <span
+          key={goal}
+          className="bg-green-500 text-black px-4 py-2 rounded-full font-bold"
+        >
+          {goal}
+        </span>
+      ))}
+
+    </div>
+
+  </div>
+)}
+
     <div className="text-center mt-12">
-      <button
-        className="bg-green-500 hover:bg-green-400 text-black font-bold px-10 py-4 rounded-full transition hover:scale-105"
-      >
-        Start Analysis →
-      </button>
+     <button
+  disabled={selectedGoals.length === 0}
+  className={`font-bold px-10 py-4 rounded-full transition
+  ${
+    selectedGoals.length > 0
+      ? "bg-green-500 hover:bg-green-400 text-black hover:scale-105"
+      : "bg-gray-700 text-gray-400 cursor-not-allowed"
+  }`}
+>
+  {selectedGoals.length > 0
+    ? "Start Analysis →"
+    : "Select up to 3 Goals"}
+</button>
     </div>
 
   </div>
