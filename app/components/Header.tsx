@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useRef } from "react";
 import Link from "next/link";
+
 import { supabase } from "../../lib/supabase";
 
 export default function Header() {
@@ -107,16 +108,27 @@ setCartItems(cart);
 <header className="bg-black border-b border-green-900">
   <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-2">
 
-    {/* LOGO */}
-    <div className="w-28">
-      <img
-        src="/logo1.png"
-        alt="Logo"
-        className="h-20 w-auto object-contain"
-        />
+   {/* LOGO */}
+<Link
+  href="/"
+  onClick={(e) => {
+    if (window.location.pathname === "/") {
+      e.preventDefault();
 
-      
-    </div>
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }
+  }}
+  className="w-28 block"
+>
+  <img
+    src="/logo1.png"
+    alt="Logo"
+    className="h-20 w-auto object-contain hover:scale-105 transition"
+  />
+</Link>
 
    
 
