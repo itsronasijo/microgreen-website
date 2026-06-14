@@ -782,6 +782,8 @@ const microgreenSection =
 
   </div>
 
+  </section>
+
 {/* HEALTH ANALYZER */}
 <section
   id="analyzer"
