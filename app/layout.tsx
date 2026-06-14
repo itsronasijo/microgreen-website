@@ -1,7 +1,7 @@
 import "./globals.css";
 import TopBar from "./components/TopBar";
 import Header from "./components/Header";
-
+import Footer from "./components/Footer";
 
 export const metadata = {
   title: "MicroGreen",
@@ -22,6 +22,7 @@ export default function RootLayout({
             </div>
          <main>
         {children}
+           <Footer />
          </main>
       </body>
     </html>
