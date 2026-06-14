@@ -23,11 +23,7 @@ export default function Home() {
   window.dispatchEvent(
     new Event("cartUpdated")
   );
-   setShowToast(true);
-
-setTimeout(() => {
-  setShowToast(false);
-}, 2500);
+ 
 }, [cart]);
 
   const [cartOpen, setCartOpen] = useState(false);
@@ -169,6 +165,12 @@ useEffect(() => {
       ]);
 
     }
+    // TOAST
+  setShowToast(true);
+
+  setTimeout(() => {
+    setShowToast(false);
+  }, 2500);
 
   };
 
