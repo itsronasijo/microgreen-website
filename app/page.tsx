@@ -6,6 +6,7 @@ import Link from "next/link";
 export default function Home() {
 
   const [cart, setCart] = useState<any[]>([]);
+  const [showToast, setShowToast] = useState(false);
   useEffect(() => {
   const savedCart = localStorage.getItem("cart");
 
@@ -22,6 +23,11 @@ export default function Home() {
   window.dispatchEvent(
     new Event("cartUpdated")
   );
+   setShowToast(true);
+
+setTimeout(() => {
+  setShowToast(false);
+}, 2500);
 }, [cart]);
 
   const [cartOpen, setCartOpen] = useState(false);
@@ -276,6 +282,29 @@ const microgreenSection =
 );
   
  return (
+   <>
+  {showToast && (
+    <div
+      className="
+        fixed
+        top-24
+        right-6
+        z-50
+        bg-green-500
+        text-black
+        px-6
+        py-4
+        rounded-2xl
+        shadow-2xl
+        font-bold
+        animate-pulse
+      "
+    >
+     🌱 Added to Cart Successfully
+    </div>
+  )}
+
+ 
 
   <main className="min-h-screen bg-black text-white">
 
@@ -1051,6 +1080,7 @@ className={`fixed top-0 right-0 h-full w-[65%] md:w-[360px] bg-black border-l bo
 </a>
 
 </main>
+     </>
 
   );
 }
