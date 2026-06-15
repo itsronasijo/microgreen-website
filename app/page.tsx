@@ -7,8 +7,9 @@ import { analyzeGoals } from "../lib/healthAnalyzer";
 export default function Home() {
 
   const [cart, setCart] = useState<any[]>([]);
- const [selectedGoals, setSelectedGoals] = useState<string[]>([]);
+  const [selectedGoals, setSelectedGoals] = useState<string[]>([]);
   const [showToast, setShowToast] = useState(false);
+  const [results, setResults] = useState<any[]>([]);
   useEffect(() => {
   const savedCart = localStorage.getItem("cart");
 
