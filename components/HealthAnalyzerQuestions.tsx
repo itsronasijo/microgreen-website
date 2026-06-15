@@ -339,6 +339,26 @@ export default function HealthAnalyzerQuestions({
 
     </div>
   )}
+  {step === 4 && (
+  <div className="text-center">
+
+    <h3 className="text-3xl font-bold text-green-400 mb-6">
+      🌱 Analysis Complete
+    </h3>
+
+    <p className="text-gray-400 mb-8">
+      Your personalized microgreen recommendations are ready.
+    </p>
+
+    <button
+      onClick={onComplete}
+      className="w-full bg-green-500 hover:bg-green-400 text-black font-bold py-4 rounded-2xl"
+    >
+      View Recommendations
+    </button>
+
+  </div>
+)}
 
 </div>
        
