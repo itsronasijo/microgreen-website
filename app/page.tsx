@@ -847,6 +847,7 @@ if (currentView === "questions") {
   className="px-8 md:px-16 py-24"
 >
   <div className="max-w-6xl mx-auto">
+<div className="bg-white/5 border border-green-500/20 rounded-[40px] p-8 md:p-12 backdrop-blur-xl">
 
     <div className="text-center mb-14">
       <h2 className="text-5xl font-bold text-green-400 mb-4">
@@ -1078,7 +1079,7 @@ selectedGoals.includes("Balanced Nutrition")
   </button>
 
     </div>
-
+ </div> {/* Glass Container */}
   </div>
   {showAnalyzer && (
   <>
