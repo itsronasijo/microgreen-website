@@ -1036,7 +1036,7 @@ selectedGoals.includes("Balanced Nutrition")
     </div>
 
 {selectedGoals.length > 0 && (
-  <div className="mt-10 max-w-2xl mx-auto bg-green-500/10 border border-green-500/30 rounded-3xl p-8 text-center">
+ <div className="mt-8 max-w-xl mx-auto bg-green-500/10 border border-green-500/30 rounded-3xl p-5 text-center">
 
     <p className="text-green-400 font-bold text-xl mb-5">
       🌱 Your Wellness Focus
@@ -1046,26 +1046,26 @@ selectedGoals.includes("Balanced Nutrition")
       {selectedGoals.map((goal) => (
         <span
           key={goal}
-          className="bg-green-500 text-black px-4 py-2 rounded-full font-bold"
+         className="bg-green-500 text-black px-3 py-1 rounded-full text-sm font-bold"
         >
           {goal}
         </span>
       ))}
     </div>
 
-    <div className="border-t border-green-500/20 pt-6">
+    <div className="border-t border-green-500/20 pt-4">
       <p className="text-green-300 font-semibold text-lg">
         {selectedGoals.length}/3 Goals Selected
       </p>
 
-      <p className="text-gray-400 mt-2 mb-6">
+      <p className="text-gray-400 text-sm mt-1 mb-4">
         Get your personalized microgreen recommendations
       </p>
 
       <button
         onClick={() => setShowAnalyzer(true)}
         className="
-          px-10 py-4
+         px-8 py-3
           rounded-full
           bg-green-500
           hover:bg-green-400
