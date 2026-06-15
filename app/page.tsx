@@ -1054,13 +1054,15 @@ selectedGoals.includes("Balanced Nutrition")
     </div>
 
     <div className="border-t border-green-500/20 pt-4">
-      <p className="text-green-300 font-semibold text-lg">
-        {selectedGoals.length}/3 Goals Selected
-      </p>
+     <p className="text-sm mb-4">
+  <span className="text-green-300 font-semibold">
+    {selectedGoals.length}/3 Goals Selected
+  </span>
 
-      <p className="text-gray-400 text-sm mt-1 mb-4">
-        Get your personalized microgreen recommendations
-      </p>
+  <span className="text-gray-400 ml-2">
+    • Get your personalized microgreen recommendations
+  </span>
+</p>
 
       <button
         onClick={() => setShowAnalyzer(true)}
