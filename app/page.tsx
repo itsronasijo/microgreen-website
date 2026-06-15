@@ -1037,12 +1037,11 @@ selectedGoals.includes("Balanced Nutrition")
 
     </div>
 
+{selectedGoals.length > 0 && (
+  <div className="mt-10 max-w-xl mx-auto bg-green-500/10 border border-green-500/30 rounded-3xl p-6">
 
-    {selectedGoals.length > 0 && (
-  <div className="mt-8 text-center">
-
-    <p className="text-green-400 font-semibold mb-3">
-      Selected Goals
+    <p className="text-green-400 font-bold text-lg mb-4 text-center">
+      🌱 Your Wellness Focus
     </p>
 
     <div className="flex flex-wrap justify-center gap-3">
