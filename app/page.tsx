@@ -15,7 +15,7 @@ export default function Home() {
   const [results, setResults] = useState<any[]>([]);
   const [showSafetyModal, setShowSafetyModal] =
   useState(false);
-
+  const [showAnalyzer, setShowAnalyzer] = useState(false);
   const [currentView, setCurrentView] =
   useState<"goals" | "questions" | "results">(
     "goals"
@@ -1064,8 +1064,8 @@ selectedGoals.includes("Balanced Nutrition")
        <p className="text-gray-400 mb-4">
     Select up to 3 wellness goals
   </p>
-     <button
-   onClick={() => setCurrentView("questions")}
+   <button
+    onClick={() => setShowAnalyzer(true)}
     disabled={selectedGoals.length === 0}
     className={`px-10 py-4 rounded-full font-bold transition
     ${
@@ -1080,6 +1080,40 @@ selectedGoals.includes("Balanced Nutrition")
     </div>
 
   </div>
+  {showAnalyzer && (
+  <>
+    {/* Overlay */}
+    <div
+      className="fixed inset-0 bg-black/70 z-40"
+      onClick={() => setShowAnalyzer(false)}
+    />
+
+    {/* Slider Drawer */}
+    <div
+      className="
+        fixed
+        top-0
+        right-0
+        h-screen
+        w-full
+        md:w-[700px]
+        bg-black
+        border-l
+        border-green-500/20
+        z-50
+        overflow-y-auto
+        shadow-2xl
+      "
+    >
+      <HealthAnalyzerQuestions
+        onComplete={() => {
+          console.log("Analysis complete");
+        }}
+        onBack={() => setShowAnalyzer(false)}
+      />
+    </div>
+  </>
+)}
 </section>              
   
   
