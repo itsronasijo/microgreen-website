@@ -32,15 +32,50 @@ export default function HealthAnalyzerQuestions({
           🧠 Verde Safety Check
         </h2>
 
-        <p className="text-center text-gray-400 mb-10">
-          Question {step} of 3
-        </p>
+       <div className="w-full bg-white/10 rounded-full h-3 mb-12">
+
+  <div
+    className="bg-green-500 h-3 rounded-full transition-all duration-500"
+    style={{
+      width: `${(step / 3) * 100}%`,
+    }}
+  />
+
+</div>
 
         <div className="bg-white/5 border border-green-500/20 rounded-3xl p-8">
 
-          <h3 className="text-2xl font-bold">
-            Component Working 🚀
-          </h3>
+         <div>
+
+  <h3 className="text-3xl font-bold mb-8 text-center">
+    Do you have any known food allergies?
+  </h3>
+
+  <div className="flex justify-center gap-6">
+
+    <button
+      onClick={() => {
+        setHasAllergies(true);
+        setStep(2);
+      }}
+      className="bg-red-500 hover:bg-red-400 px-10 py-4 rounded-2xl font-bold text-black"
+    >
+      Yes
+    </button>
+
+    <button
+      onClick={() => {
+        setHasAllergies(false);
+        setStep(2);
+      }}
+      className="bg-green-500 hover:bg-green-400 px-10 py-4 rounded-2xl font-bold text-black"
+    >
+      No
+    </button>
+
+  </div>
+
+</div>
 
         </div>
 
