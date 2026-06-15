@@ -171,24 +171,80 @@ export default function HealthAnalyzerQuestions({
       <div className="flex justify-center gap-6">
 
         <button
-          onClick={() => {
-            setPregnant(true);
-            setStep(3);
-          }}
-          className="bg-red-500 hover:bg-red-400 px-10 py-4 rounded-2xl font-bold text-black"
-        >
-          Yes
-        </button>
+  onClick={() => {
+    setHasAllergies(true);
+    setStep(2);
+  }}
+  className="
+    w-full
+    p-5
+    rounded-2xl
+    bg-white/5
+    border
+    border-red-500/30
+    hover:border-red-400
+    hover:bg-red-500/10
+    transition-all
+    text-left
+  "
+>
+  <div className="flex items-center gap-4">
+
+    <div className="text-3xl">
+      ⚠️
+    </div>
+
+    <div>
+      <p className="font-bold text-lg">
+        Yes
+      </p>
+
+      <p className="text-gray-400 text-sm">
+       
+      Pregnant or breastfeeding
+      </p>
+    </div>
+
+  </div>
+</button>
 
         <button
-          onClick={() => {
-            setPregnant(false);
-            setStep(3);
-          }}
-          className="bg-green-500 hover:bg-green-400 px-10 py-4 rounded-2xl font-bold text-black"
-        >
-          No
-        </button>
+  onClick={() => {
+    setHasAllergies(false);
+    setStep(2);
+  }}
+  className="
+    w-full
+    p-5
+    rounded-2xl
+    bg-white/5
+    border
+    border-green-500/30
+    hover:border-green-400
+    hover:bg-green-500/10
+    transition-all
+    text-left
+  "
+>
+  <div className="flex items-center gap-4">
+
+    <div className="text-3xl">
+      ✅
+    </div>
+
+    <div>
+      <p className="font-bold text-lg">
+        No
+      </p>
+
+      <p className="text-gray-400 text-sm">
+       
+      Not pregnant or breastfeeding
+      </p>
+    </div>
+
+  </div>
+</button>
 
       </div>
 
@@ -205,24 +261,79 @@ export default function HealthAnalyzerQuestions({
       <div className="flex justify-center gap-6">
 
         <button
-          onClick={() => {
-            setMedication(true);
-            onComplete();
-          }}
-          className="bg-red-500 hover:bg-red-400 px-10 py-4 rounded-2xl font-bold text-black"
-        >
-          Yes
-        </button>
+  onClick={() => {
+    setHasAllergies(true);
+    setStep(2);
+  }}
+  className="
+    w-full
+    p-5
+    rounded-2xl
+    bg-white/5
+    border
+    border-red-500/30
+    hover:border-red-400
+    hover:bg-red-500/10
+    transition-all
+    text-left
+  "
+>
+  <div className="flex items-center gap-4">
 
-        <button
-          onClick={() => {
-            setMedication(false);
-            onComplete();
-          }}
-          className="bg-green-500 hover:bg-green-400 px-10 py-4 rounded-2xl font-bold text-black"
-        >
-          No
-        </button>
+    <div className="text-3xl">
+      ⚠️
+    </div>
+
+    <div>
+      <p className="font-bold text-lg">
+        Yes
+      </p>
+
+      <p className="text-gray-400 text-sm">
+       Currently taking medication
+
+      </p>
+    </div>
+
+  </div>
+</button>
+
+       <button
+  onClick={() => {
+    setHasAllergies(false);
+    setStep(2);
+  }}
+  className="
+    w-full
+    p-5
+    rounded-2xl
+    bg-white/5
+    border
+    border-green-500/30
+    hover:border-green-400
+    hover:bg-green-500/10
+    transition-all
+    text-left
+  "
+>
+  <div className="flex items-center gap-4">
+
+    <div className="text-3xl">
+      ✅
+    </div>
+
+    <div>
+      <p className="font-bold text-lg">
+        No
+      </p>
+
+      <p className="text-gray-400 text-sm">
+       Not taking medication
+      </p>
+    </div>
+
+  </div>
+</button>
 
       </div>
 
