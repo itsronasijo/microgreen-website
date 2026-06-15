@@ -4,6 +4,9 @@ import { useState, useEffect } from "react";
 import { supabase } from "../lib/supabase";
 import Link from "next/link";
 import { analyzeGoals } from "../lib/healthAnalyzer";
+import HealthAnalyzerQuestions from "../components/HealthAnalyzerQuestions";
+
+
 export default function Home() {
 
   const [cart, setCart] = useState<any[]>([]);
@@ -13,15 +16,12 @@ export default function Home() {
   const [showSafetyModal, setShowSafetyModal] =
   useState(false);
 
-  const [hasAllergies, setHasAllergies] =
-  useState<boolean | null>(null);
+  const [currentView, setCurrentView] =
+  useState<"goals" | "questions" | "results">(
+    "goals"
+  );
 
-  const [pregnant, setPregnant] =
-  useState<boolean | null>(null);
-
-  const [medication, setMedication] =
-  useState<boolean | null>(null);
-  
+ 
   useEffect(() => {
   const savedCart = localStorage.getItem("cart");
 
@@ -328,7 +328,14 @@ const microgreenSection =
   setResults(recommendations);
 };
 
-
+if (currentView === "questions") {
+  return (
+    <HealthAnalyzerQuestions
+      onBack={() => setCurrentView("goals")}
+      onComplete={() => setCurrentView("results")}
+    />
+  );
+}
 
   
  return (
@@ -1058,7 +1065,7 @@ selectedGoals.includes("Balanced Nutrition")
     Select up to 3 wellness goals
   </p>
      <button
-    onClick={() => setShowSafetyModal(true)}
+   onClick={() => setCurrentView("questions")}
     disabled={selectedGoals.length === 0}
     className={`px-10 py-4 rounded-full font-bold transition
     ${
