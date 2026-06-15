@@ -1096,7 +1096,7 @@ selectedGoals.includes("Balanced Nutrition")
         right-0
         h-screen
         w-full
-        md:w-[700px]
+        md:w-[550px]
         bg-black
         border-l
         border-green-500/20
