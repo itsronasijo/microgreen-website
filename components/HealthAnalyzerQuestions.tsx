@@ -168,7 +168,7 @@ export default function HealthAnalyzerQuestions({
         Are you pregnant or breastfeeding?
       </h3>
 
-      <div className="flex justify-center gap-6">
+      <div className="space-y-4 mt-8">
 
         <button
   onClick={() => {
@@ -258,7 +258,7 @@ export default function HealthAnalyzerQuestions({
         Are you currently taking any medication?
       </h3>
 
-      <div className="flex justify-center gap-6">
+     <div className="space-y-4 mt-8">
 
         <button
   onClick={() => {
