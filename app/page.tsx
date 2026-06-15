@@ -10,6 +10,18 @@ export default function Home() {
   const [selectedGoals, setSelectedGoals] = useState<string[]>([]);
   const [showToast, setShowToast] = useState(false);
   const [results, setResults] = useState<any[]>([]);
+  const [showSafetyModal, setShowSafetyModal] =
+  useState(false);
+
+  const [hasAllergies, setHasAllergies] =
+  useState<boolean | null>(null);
+
+  const [pregnant, setPregnant] =
+  useState<boolean | null>(null);
+
+  const [medication, setMedication] =
+  useState<boolean | null>(null);
+  
   useEffect(() => {
   const savedCart = localStorage.getItem("cart");
 
@@ -17,6 +29,8 @@ export default function Home() {
     setCart(JSON.parse(savedCart));
   }
 }, []);
+
+  
  useEffect(() => {
   localStorage.setItem(
     "cart",
@@ -31,6 +45,8 @@ export default function Home() {
 
   const [cartOpen, setCartOpen] = useState(false);
   const [wishlistCount, setWishlistCount] = useState(0);
+
+  
   useEffect(() => {
   loadWishlistCount();
 }, []);
@@ -56,10 +72,10 @@ const loadWishlistCount = async () => {
   useState("");
   const [loading, setLoading] =
   useState(false);
-  const [products, setProducts] = useState<any[]>([]);
+ const [products, setProducts] = useState<any[]>([]);
  const [user, setUser] = useState<any>(null);
  const [profileOpen, setProfileOpen] = useState(false);
-const [profileRef, setProfileRef] = useState<HTMLDivElement | null>(null);
+ const [profileRef, setProfileRef] = useState<HTMLDivElement | null>(null);
 
   useEffect(() => {
   const handleClickOutside = (event: MouseEvent) => {
@@ -311,6 +327,9 @@ const microgreenSection =
 
   setResults(recommendations);
 };
+
+
+
   
  return (
    <>
@@ -1039,7 +1058,7 @@ selectedGoals.includes("Balanced Nutrition")
     Select up to 3 wellness goals
   </p>
      <button
-    onClick={handleAnalysis}
+    onClick={() => setShowSafetyModal(true)}
     disabled={selectedGoals.length === 0}
     className={`px-10 py-4 rounded-full font-bold transition
     ${
