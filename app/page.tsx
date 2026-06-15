@@ -392,7 +392,7 @@ if (currentView === "questions") {
 
           </h1>
 
-          <p className="text-gray-400 text-lg mb-8 max-w-xl">
+          <p className="text-gray-400 text-lg mb-8 max-w-lg">
 
             Fresh organic microgreens packed with vitamins,
             minerals, antioxidants, and freshness delivered
@@ -1036,7 +1036,7 @@ selectedGoals.includes("Balanced Nutrition")
     </div>
 
 {selectedGoals.length > 0 && (
- <div className="mt-8 max-w-xl mx-auto bg-green-500/10 border border-green-500/30 rounded-3xl p-5 text-center">
+ <div className="mt-6 max-w-xl mx-auto bg-green-500/10 border border-green-500/30 rounded-3xl p-5 text-center">
 
     <p className="text-green-400 font-bold text-xl mb-5">
       🌱 Your Wellness Focus
