@@ -173,7 +173,7 @@ export default function HealthAnalyzerQuestions({
         <button
   onClick={() => {
     setHasAllergies(true);
-    setStep(2);
+    setStep(3);
   }}
   className="
     w-full
@@ -211,7 +211,7 @@ export default function HealthAnalyzerQuestions({
         <button
   onClick={() => {
     setHasAllergies(false);
-    setStep(2);
+    setStep(3);
   }}
   className="
     w-full
@@ -263,7 +263,7 @@ export default function HealthAnalyzerQuestions({
         <button
   onClick={() => {
     setHasAllergies(true);
-    setStep(2);
+    setStep(4);
   }}
   className="
     w-full
@@ -301,7 +301,7 @@ export default function HealthAnalyzerQuestions({
        <button
   onClick={() => {
     setHasAllergies(false);
-    setStep(2);
+    setStep(4);
   }}
   className="
     w-full
