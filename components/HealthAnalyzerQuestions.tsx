@@ -30,6 +30,26 @@ export default function HealthAnalyzerQuestions({
         <h2 className="text-5xl font-bold text-green-400 text-center mb-3">
            Verde Safety Check
         </h2>
+        <div className="flex justify-between items-center mb-6">
+
+  <button
+    onClick={() => {
+      if (step > 1) {
+        setStep(step - 1);
+      } else {
+        onBack();
+      }
+    }}
+    className="text-gray-400 hover:text-white transition"
+  >
+    ← Back
+  </button>
+
+  <span className="text-green-400 font-semibold">
+    Question {step}/3
+  </span>
+
+</div>
 
        <div className="w-full bg-white/10 rounded-full h-3 mb-12">
 
@@ -147,23 +167,7 @@ export default function HealthAnalyzerQuestions({
   )}
 
 </div>
-        <div className="flex justify-center mt-8">
-
-  <button
-    onClick={() => {
-      if (step > 1) {
-        setStep(step - 1);
-      } else {
-        onBack();
-      }
-    }}
-    className="px-6 py-3 rounded-xl bg-white/10 hover:bg-white/20"
-  >
-    ← Back
-  </button>
-
-</div>
-
+       
       </div>
 
     </section>
