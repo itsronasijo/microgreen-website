@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { supabase } from "../lib/supabase";
 import Link from "next/link";
+import { analyzeGoals } from "../lib/healthAnalyzer";
 export default function Home() {
 
   const [cart, setCart] = useState<any[]>([]);
@@ -302,6 +303,12 @@ const microgreenSection =
 
   }
 
+};
+  const handleAnalysis = async () => {
+  const recommendations =
+    await analyzeGoals(selectedGoals);
+
+  setResults(recommendations);
 };
   
  return (
@@ -1031,6 +1038,7 @@ selectedGoals.includes("Balanced Nutrition")
     Select up to 3 wellness goals
   </p>
      <button
+    onClick={handleAnalysis}
     disabled={selectedGoals.length === 0}
     className={`px-10 py-4 rounded-full font-bold transition
     ${
