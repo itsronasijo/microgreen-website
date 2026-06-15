@@ -43,41 +43,127 @@ export default function HealthAnalyzerQuestions({
 
 </div>
 
-        <div className="bg-white/5 border border-green-500/20 rounded-3xl p-8">
+<div className="bg-white/5 border border-green-500/20 rounded-3xl p-8 min-h-[300px] flex items-center justify-center">
 
-         <div>
+  {step === 1 && (
+    <div className="w-full animate-in fade-in duration-300">
 
-  <h3 className="text-3xl font-bold mb-8 text-center">
-    Do you have any known food allergies?
-  </h3>
+      <h3 className="text-3xl font-bold mb-8 text-center">
+        Do you have any known food allergies?
+      </h3>
 
-  <div className="flex justify-center gap-6">
+      <div className="flex justify-center gap-6">
 
-    <button
-      onClick={() => {
-        setHasAllergies(true);
-        setStep(2);
-      }}
-      className="bg-red-500 hover:bg-red-400 px-10 py-4 rounded-2xl font-bold text-black"
-    >
-      Yes
-    </button>
+        <button
+          onClick={() => {
+            setHasAllergies(true);
+            setStep(2);
+          }}
+          className="bg-red-500 hover:bg-red-400 px-10 py-4 rounded-2xl font-bold text-black"
+        >
+          Yes
+        </button>
 
-    <button
-      onClick={() => {
-        setHasAllergies(false);
-        setStep(2);
-      }}
-      className="bg-green-500 hover:bg-green-400 px-10 py-4 rounded-2xl font-bold text-black"
-    >
-      No
-    </button>
+        <button
+          onClick={() => {
+            setHasAllergies(false);
+            setStep(2);
+          }}
+          className="bg-green-500 hover:bg-green-400 px-10 py-4 rounded-2xl font-bold text-black"
+        >
+          No
+        </button>
 
-  </div>
+      </div>
+
+    </div>
+  )}
+
+  {step === 2 && (
+    <div className="w-full animate-in fade-in duration-300">
+
+      <h3 className="text-3xl font-bold mb-8 text-center">
+        Are you pregnant or breastfeeding?
+      </h3>
+
+      <div className="flex justify-center gap-6">
+
+        <button
+          onClick={() => {
+            setPregnant(true);
+            setStep(3);
+          }}
+          className="bg-red-500 hover:bg-red-400 px-10 py-4 rounded-2xl font-bold text-black"
+        >
+          Yes
+        </button>
+
+        <button
+          onClick={() => {
+            setPregnant(false);
+            setStep(3);
+          }}
+          className="bg-green-500 hover:bg-green-400 px-10 py-4 rounded-2xl font-bold text-black"
+        >
+          No
+        </button>
+
+      </div>
+
+    </div>
+  )}
+
+  {step === 3 && (
+    <div className="w-full animate-in fade-in duration-300">
+
+      <h3 className="text-3xl font-bold mb-8 text-center">
+        Are you currently taking any medication?
+      </h3>
+
+      <div className="flex justify-center gap-6">
+
+        <button
+          onClick={() => {
+            setMedication(true);
+            onComplete();
+          }}
+          className="bg-red-500 hover:bg-red-400 px-10 py-4 rounded-2xl font-bold text-black"
+        >
+          Yes
+        </button>
+
+        <button
+          onClick={() => {
+            setMedication(false);
+            onComplete();
+          }}
+          className="bg-green-500 hover:bg-green-400 px-10 py-4 rounded-2xl font-bold text-black"
+        >
+          No
+        </button>
+
+      </div>
+
+    </div>
+  )}
 
 </div>
+        <div className="flex justify-center mt-8">
 
-        </div>
+  <button
+    onClick={() => {
+      if (step > 1) {
+        setStep(step - 1);
+      } else {
+        onBack();
+      }
+    }}
+    className="px-6 py-3 rounded-xl bg-white/10 hover:bg-white/20"
+  >
+    ← Back
+  </button>
+
+</div>
 
       </div>
 
