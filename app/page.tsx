@@ -839,9 +839,7 @@ if (currentView === "questions") {
   </section>
 
 
-    
-
-{/* HEALTH ANALYZER */}
+    {/* HEALTH ANALYZER */}
 <section
   id="analyzer"
   className="px-8 md:px-16 py-24"
@@ -1038,14 +1036,13 @@ selectedGoals.includes("Balanced Nutrition")
     </div>
 
 {selectedGoals.length > 0 && (
-  <div className="mt-10 max-w-xl mx-auto bg-green-500/10 border border-green-500/30 rounded-3xl p-6">
+  <div className="mt-10 max-w-2xl mx-auto bg-green-500/10 border border-green-500/30 rounded-3xl p-8 text-center">
 
-    <p className="text-green-400 font-bold text-lg mb-4 text-center">
+    <p className="text-green-400 font-bold text-xl mb-5">
       🌱 Your Wellness Focus
     </p>
 
-    <div className="flex flex-wrap justify-center gap-3">
-
+    <div className="flex flex-wrap justify-center gap-3 mb-6">
       {selectedGoals.map((goal) => (
         <span
           key={goal}
@@ -1054,31 +1051,38 @@ selectedGoals.includes("Balanced Nutrition")
           {goal}
         </span>
       ))}
+    </div>
 
+    <div className="border-t border-green-500/20 pt-6">
+      <p className="text-green-300 font-semibold text-lg">
+        {selectedGoals.length}/3 Goals Selected
+      </p>
+
+      <p className="text-gray-400 mt-2 mb-6">
+        Get your personalized microgreen recommendations
+      </p>
+
+      <button
+        onClick={() => setShowAnalyzer(true)}
+        className="
+          px-10 py-4
+          rounded-full
+          bg-green-500
+          hover:bg-green-400
+          text-black
+          font-bold
+          transition
+          hover:scale-105
+        "
+      >
+        Start Analysis →
+      </button>
     </div>
 
   </div>
 )}
+  
 
-    <div className="text-center mt-12">
-       <p className="text-gray-400 mb-4">
-          {selectedGoals.length}/3 Goals Selected
-    Select up to 3 wellness goals
-  </p>
-   <button
-    onClick={() => setShowAnalyzer(true)}
-    disabled={selectedGoals.length === 0}
-    className={`px-10 py-4 rounded-full font-bold transition
-    ${
-      selectedGoals.length > 0
-        ? "bg-green-500 hover:bg-green-400 text-black hover:scale-105"
-        : "bg-gray-700 text-gray-400 cursor-not-allowed"
-    }`}
-  >
-    Start Analysis →
-  </button>
-
-    </div>
  </div> {/* Glass Container */}
   </div>
   {showAnalyzer && (
