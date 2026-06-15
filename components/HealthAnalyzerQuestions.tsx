@@ -27,8 +27,8 @@ export default function HealthAnalyzerQuestions({
   <section className="h-full bg-black text-white flex items-center justify-center px-6 py-10">
       <div className="max-w-2xl w-full">
 
-        <h2 className="text-5xl font-bold text-green-400 text-center mb-4">
-          🧠 Verde Safety Check
+        <h2 className="text-5xl font-bold text-green-400 text-center mb-3">
+           Verde Safety Check
         </h2>
 
        <div className="w-full bg-white/10 rounded-full h-3 mb-12">
