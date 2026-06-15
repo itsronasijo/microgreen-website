@@ -24,8 +24,7 @@ export default function HealthAnalyzerQuestions({
     useState<boolean | null>(null);
 
   return (
-    <section className="min-h-screen bg-black text-white flex items-center justify-center px-6">
-
+  <section className="h-full bg-black text-white flex items-center justify-center px-6 py-10">
       <div className="max-w-2xl w-full">
 
         <h2 className="text-5xl font-bold text-green-400 text-center mb-4">
