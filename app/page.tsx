@@ -1062,6 +1062,7 @@ selectedGoals.includes("Balanced Nutrition")
 
     <div className="text-center mt-12">
        <p className="text-gray-400 mb-4">
+          {selectedGoals.length}/3 Goals Selected
     Select up to 3 wellness goals
   </p>
    <button
