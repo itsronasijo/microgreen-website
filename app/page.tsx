@@ -3,8 +3,8 @@
 import { useState, useEffect } from "react";
 import { supabase } from "../lib/supabase";
 import Link from "next/link";
-import { analyzeGoals } from "../lib/healthAnalyzer";
-import HealthAnalyzerQuestions from "../components/HealthAnalyzerQuestions";
+
+
 
 
 export default function Home() {
@@ -12,14 +12,10 @@ export default function Home() {
   const [cart, setCart] = useState<any[]>([]);
   const [selectedGoals, setSelectedGoals] = useState<string[]>([]);
   const [showToast, setShowToast] = useState(false);
-  const [results, setResults] = useState<any[]>([]);
-  const [showSafetyModal, setShowSafetyModal] =
-  useState(false);
-  const [showAnalyzer, setShowAnalyzer] = useState(false);
-  const [currentView, setCurrentView] =
-  useState<"goals" | "questions" | "results">(
-    "goals"
-  );
+  
+  
+ 
+ 
 
  
   useEffect(() => {
@@ -321,21 +317,9 @@ const microgreenSection =
   }
 
 };
-  const handleAnalysis = async () => {
-  const recommendations =
-    await analyzeGoals(selectedGoals);
+  
 
-  setResults(recommendations);
-};
 
-if (currentView === "questions") {
-  return (
-    <HealthAnalyzerQuestions
-      onBack={() => setCurrentView("goals")}
-      onComplete={() => setCurrentView("results")}
-    />
-  );
-}
 
   
  return (
@@ -1088,40 +1072,7 @@ selectedGoals.includes("Balanced Nutrition")
 
  </div> {/* Glass Container */}
   </div>
-  {showAnalyzer && (
-  <>
-    {/* Overlay */}
-    <div
-      className="fixed inset-0 bg-black/70 z-40"
-      onClick={() => setShowAnalyzer(false)}
-    />
 
-    {/* Slider Drawer */}
-    <div
-      className="
-        fixed
-        top-0
-        right-0
-        h-screen
-        w-full
-        md:w-[550px]
-        bg-black
-        border-l
-        border-green-500/20
-        z-50
-        overflow-y-auto
-        shadow-2xl
-      "
-    >
-      <HealthAnalyzerQuestions
-        onComplete={() => {
-          console.log("Analysis complete");
-        }}
-        onBack={() => setShowAnalyzer(false)}
-      />
-    </div>
-  </>
-)}
 </section>              
   
   
