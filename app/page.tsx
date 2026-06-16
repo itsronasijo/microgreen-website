@@ -992,118 +992,88 @@ setShowResults(true);
   </div>
 
   {/* RIGHT SIDE PANEL */}
-  <div className="sticky top-24">
-    
-<div className="bg-green-500/10 border border-green-500/30 rounded-3xl p-5">
+ <div className="sticky top-24">
 
-  <p className="text-green-400 font-bold text-xl mb-5 text-center">
-    🌱 Your Preferences
-  </p>
+  {!showResults ? (
 
- {!showResults ? (
+    <div className="bg-green-500/10 border border-green-500/30 rounded-3xl p-5">
 
-  <div className="bg-green-500/10 border border-green-500/30 rounded-3xl p-5">
-
-    <p className="text-green-400 font-bold text-xl mb-5 text-center">
-      🌱 Your Preferences
-    </p>
-
-    {selectedGoals.length === 0 ? (
-
-      <p className="text-center text-gray-400 py-8">
-        Select up to 3 preferences
+      <p className="text-green-400 font-bold text-xl mb-5 text-center">
+        🌱 Your Preferences
       </p>
 
-    ) : (
+      {selectedGoals.length === 0 ? (
 
-      <>
-        <div className="flex flex-wrap justify-center gap-3 mb-6">
-          {selectedGoals.map((goal) => (
-            <span
-              key={goal}
-              className="bg-green-500 text-black px-3 py-1 rounded-full text-sm font-bold"
-            >
-              {goal}
+        <p className="text-center text-gray-400 py-8">
+          Select up to 3 preferences
+        </p>
+
+      ) : (
+
+        <>
+          <div className="flex flex-wrap justify-center gap-3 mb-6">
+            {selectedGoals.map((goal) => (
+              <span
+                key={goal}
+                className="bg-green-500 text-black px-3 py-1 rounded-full text-sm font-bold"
+              >
+                {goal}
+              </span>
+            ))}
+          </div>
+
+          <button
+            onClick={findProducts}
+            className="w-full bg-green-500 hover:bg-green-400 text-black font-bold py-4 rounded-2xl"
+          >
+            Find My Microgreens →
+          </button>
+        </>
+      )}
+
+    </div>
+
+  ) : (
+
+    <div className="bg-green-500/10 border border-green-500/30 rounded-3xl p-5">
+
+      <h3 className="text-green-400 font-bold text-xl mb-5">
+        🌱 Recommended For You
+      </h3>
+
+      <div className="space-y-3">
+
+        {recommendations.map((product: any) => (
+          <div
+            key={product.id}
+            className="flex items-center justify-between bg-white/5 rounded-xl p-3"
+          >
+            <span className="font-semibold text-white">
+              {product.name}
             </span>
-          ))}
-        </div>
 
-        <button
-          onClick={findProducts}
-          className="
-            w-full
-            bg-green-500
-            hover:bg-green-400
-            text-black
-            font-bold
-            py-4
-            rounded-2xl
-          "
-        >
-          Find My Microgreens →
-        </button>
-      </>
-    )}
+            <button
+              className="bg-green-500 hover:bg-green-400 text-black px-4 py-2 rounded-lg font-bold"
+            >
+              Shop
+            </button>
+          </div>
+        ))}
 
-  </div>
-
-) : (
-
-  <div className="bg-green-500/10 border border-green-500/30 rounded-3xl p-5">
-
-    <h3 className="text-green-400 font-bold text-xl mb-5">
-      🌱 Recommended For You
-    </h3>
-<div className="space-y-3">
-
-  {recommendations.map((product: any) => (
-    <div
-      key={product.id}
-      className="flex items-center justify-between bg-white/5 rounded-xl p-3"
-    >
-      <span className="font-semibold text-white">
-        {product.name}
-      </span>
+      </div>
 
       <button
-        className="
-          bg-green-500
-          hover:bg-green-400
-          text-black
-          px-4
-          py-2
-          rounded-lg
-          font-bold
-        "
+        onClick={() => setShowResults(false)}
+        className="mt-5 w-full border border-green-500 rounded-2xl py-3 text-green-400"
       >
-        Shop
+        ← Back
       </button>
-    </div>
-  ))}
-
-</div>
 
     </div>
 
-    <button
-      onClick={() => setShowResults(false)}
-      className="
-        mt-5
-        w-full
-        border
-        border-green-500
-        rounded-2xl
-        py-3
-        text-green-400
-      "
-    >
-      ← Back
-    </button>
+  )}
 
-  </div>
-
-)}
-</div>
+</div>  
    </div> {/* End Right Panel */} 
 </div> {/* End 2 Column Grid */}
  </div> {/* Glass Container */}
