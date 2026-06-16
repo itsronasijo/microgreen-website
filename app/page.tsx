@@ -372,7 +372,7 @@ scores.forEach((row: any) => {
   }
 });
 
-const rankedProducts = Array.from(productMap.values())
+const rankedProducts = Array.from(productMap.values() as any[])
   .sort((a: any, b: any) => b.totalScore - a.totalScore)
   .slice(0, 3);
 
