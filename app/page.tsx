@@ -1387,8 +1387,10 @@ const currentStock =
     ? product.stock100
     : product.stock250;
   return (
- id={`product-${product.id}`}
-<div className="group bg-white/5 border border-white/10 rounded-3xl overflow-hidden flex flex-col hover:border-green-500 hover:-translate-y-2 transition-all duration-500">
+ 
+    <div
+      id={`product-${product.id}`}
+      className="group bg-white/5 border border-white/10 rounded-3xl overflow-hidden flex flex-col hover:border-green-500 hover:-translate-y-2 transition-all duration-500">
 <div className="relative h-64 flex items-center justify-center p-4">
 <button
   onClick={toggleWishlist}
