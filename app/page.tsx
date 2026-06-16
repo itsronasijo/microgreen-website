@@ -908,7 +908,7 @@ setShowResults(true);
     {/* Card 1 */}
     <div
       onClick={() => toggleGoal("Mild & Sweet")}
-      className={`group rounded-2xl p-4 min-h-[120px] cursor-pointer transition-all
+      className={`group rounded-2xl p-4 min-h-[80px] cursor-pointer transition-all
       ${
         selectedGoals.includes("Mild & Sweet")
           ? "bg-green-500/20 border-2 border-green-400"
