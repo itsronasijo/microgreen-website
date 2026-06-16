@@ -339,6 +339,7 @@ const findProducts = async () => {
   const { data: scores, error } = await supabase
     .from("microgreen_finder_scores")
     .select(`
+       score,
       product_id,
       products (
         id,
