@@ -908,6 +908,9 @@ setRecommendations(rankedProducts);
       <p className="text-gray-400 text-lg max-w-2xl mx-auto">
        Find microgreens based on your taste preferences and shopping style.
       </p>
+      <p className="text-green-400 text-sm mt-2">
+      Select up to 3 preferences
+      </p>
     </div>
 
   <div className="grid lg:grid-cols-[2fr_1fr] gap-8 items-start">
