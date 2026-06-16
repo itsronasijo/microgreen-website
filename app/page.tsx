@@ -823,7 +823,7 @@ const microgreenSection =
   </section>
 
 
-    {/* HEALTH ANALYZER */}
+    {/* Product Finder  */}
 <section
   id="analyzer"
   className="px-8 md:px-16 py-24"
@@ -833,22 +833,21 @@ const microgreenSection =
 
     <div className="text-center mb-14">
       <h2 className="text-5xl font-bold text-green-400 mb-4">
-        🧠 Verde Health Analyzer
+       🌱 Verde Product Finder
       </h2>
 
       <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-        Discover microgreens that align with your wellness interests
-        and nutritional preferences.
+       Find microgreens based on your taste preferences and shopping style.
       </p>
     </div>
 
     <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
 
       <div
-  onClick={() => toggleGoal("Active Lifestyle")}
+  onClick={() => toggleGoal("Mild & Sweet")}
   className={`group backdrop-blur-md rounded-3xl p-6 cursor-pointer transition duration-300 hover:scale-105
   ${
-   selectedGoals.includes("Active Lifestyle")
+   selectedGoals.includes("Mild & Sweet")
       ? "bg-green-500/20 border-2 border-green-400 shadow-[0_0_30px_rgba(34,197,94,0.3)]"
       : "bg-white/5 border border-green-500/20 hover:border-green-400"
   }`}
@@ -859,11 +858,11 @@ const microgreenSection =
       <div className="text-4xl mb-3">💪</div>
 
       <h3 className="font-bold text-lg text-white">
-        Active Lifestyle
+       Mild & Sweet
       </h3>
     </div>
 
-    {selectedGoals.includes("Active Lifestyle") && (
+    {selectedGoals.includes("Mild & Sweet") && (
       <div className="text-green-400 text-2xl">
         ✓
       </div>
@@ -873,10 +872,10 @@ const microgreenSection =
 </div>
 
    <div
- onClick={() => toggleGoal("Weight Management")}
+ onClick={() => toggleGoal("Bold & Peppery")}
   className={`group backdrop-blur-md rounded-3xl p-6 cursor-pointer transition duration-300 hover:scale-105
   ${
-    selectedGoals.includes ("Weight Management")
+    selectedGoals.includes ("Bold & Peppery")
       ? "bg-green-500/20 border-2 border-green-400 shadow-[0_0_30px_rgba(34,197,94,0.3)]"
       : "bg-white/5 border border-green-500/20 hover:border-green-400"
   }`}
@@ -887,11 +886,11 @@ const microgreenSection =
       <div className="text-4xl mb-3">⚖️</div>
 
       <h3 className="font-bold text-lg text-white">
-      Weight Management
+     Bold & Peppery
       </h3>
     </div>
 
-    {selectedGoals.includes( "Weight Management") && (
+    {selectedGoals.includes( "Bold & Peppery") && (
       <div className="text-green-400 text-2xl">
         ✓
       </div>
@@ -901,10 +900,10 @@ const microgreenSection =
 </div>
       
       <div
-  onClick={() => toggleGoal("Everyday Wellness")}
+  onClick={() => toggleGoal("Nutty & Crunchy")}
   className={`group backdrop-blur-md rounded-3xl p-6 cursor-pointer transition duration-300 hover:scale-105
   ${
-    selectedGoals.includes("Everyday Wellness")
+    selectedGoals.includes("Nutty & Crunchy")
       ? "bg-green-500/20 border-2 border-green-400 shadow-[0_0_30px_rgba(34,197,94,0.3)]"
       : "bg-white/5 border border-green-500/20 hover:border-green-400"
   }`}
@@ -915,11 +914,11 @@ const microgreenSection =
       <div className="text-4xl mb-3">🛡️</div>
 
       <h3 className="font-bold text-lg text-white">
-       Everyday Wellness
+      Nutty & Crunchy
       </h3>
     </div>
 
-    {selectedGoals.includes ("Everyday Wellness" )&& (
+    {selectedGoals.includes ("Nutty & Crunchy" )&& (
       <div className="text-green-400 text-2xl">
         ✓
       </div>
@@ -931,10 +930,10 @@ const microgreenSection =
 
        
                <div
-  onClick={() => toggleGoal("Energy & Vitality")}
+  onClick={() => toggleGoal("Everyday Choice")}
   className={`group backdrop-blur-md rounded-3xl p-6 cursor-pointer transition duration-300 hover:scale-105
   ${
-   selectedGoals.includes("Energy & Vitality")
+   selectedGoals.includes("Everyday Choice")
       ? "bg-green-500/20 border-2 border-green-400 shadow-[0_0_30px_rgba(34,197,94,0.3)]"
       : "bg-white/5 border border-green-500/20 hover:border-green-400"
   }`}
@@ -945,11 +944,11 @@ const microgreenSection =
       <div className="text-4xl mb-3">⚡</div>
 
       <h3 className="font-bold text-lg text-white">
-       Energy & Vitality
+      Everyday Choice
       </h3>
     </div>
 
-    {selectedGoals.includes( "Energy & Vitality") && (
+    {selectedGoals.includes( "Everyday Choice") && (
       <div className="text-green-400 text-2xl">
         ✓
       </div>
@@ -962,10 +961,10 @@ const microgreenSection =
 
        
       <div
-  onClick={() => toggleGoal("General Wellbeing")}
+  onClick={() => toggleGoal("Best Seller")}
   className={`group backdrop-blur-md rounded-3xl p-6 cursor-pointer transition duration-300 hover:scale-105
   ${
-   selectedGoals.includes("General Wellbeing")
+   selectedGoals.includes("Best Seller")
       ? "bg-green-500/20 border-2 border-green-400 shadow-[0_0_30px_rgba(34,197,94,0.3)]"
       : "bg-white/5 border border-green-500/20 hover:border-green-400"
   }`}
@@ -976,11 +975,11 @@ const microgreenSection =
       <div className="text-4xl mb-3">🌿</div>
 
       <h3 className="font-bold text-lg text-white">
-        General Wellbeing
+       Best Seller
       </h3>
     </div>
 
-    {selectedGoals.includes( "General Wellbeing") && (
+    {selectedGoals.includes( "Best Seller") && (
       <div className="text-green-400 text-2xl">
         ✓
       </div>
@@ -990,10 +989,10 @@ const microgreenSection =
 </div>
 
             <div
-  onClick={() => toggleGoal("Balanced Nutrition")}
+  onClick={() => toggleGoal("Explore New Flavors")}
   className={`group backdrop-blur-md rounded-3xl p-6 cursor-pointer transition duration-300 hover:scale-105
   ${
-selectedGoals.includes("Balanced Nutrition")
+selectedGoals.includes("Explore New Flavors")
       ? "bg-green-500/20 border-2 border-green-400 shadow-[0_0_30px_rgba(34,197,94,0.3)]"
       : "bg-white/5 border border-green-500/20 hover:border-green-400"
   }`}
@@ -1004,11 +1003,11 @@ selectedGoals.includes("Balanced Nutrition")
       <div className="text-4xl mb-3">🥗</div>
 
       <h3 className="font-bold text-lg text-white">
-        Balanced Nutrition
+        Explore New Flavors
       </h3>
     </div>
 
-    {selectedGoals.includes("Balanced Nutrition") && (
+    {selectedGoals.includes("Explore New Flavors") && (
       <div className="text-green-400 text-2xl">
         ✓
       </div>
