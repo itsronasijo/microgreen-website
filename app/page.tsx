@@ -1060,11 +1060,19 @@ setRecommendations(rankedProducts);
               {product.name}
             </span>
 
-            <button
-              className="bg-green-500 hover:bg-green-400 text-black px-4 py-2 rounded-lg font-bold"
-            >
-              Shop
-            </button>
+           <button
+  onClick={() => {
+    document
+      .getElementById(`product-${product.id}`)
+      ?.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+  }}
+  className="bg-green-500 hover:bg-green-400 text-black px-4 py-2 rounded-lg font-bold"
+>
+  Shop
+</button>
           </div>
         ))}
 
@@ -1379,7 +1387,7 @@ const currentStock =
     ? product.stock100
     : product.stock250;
   return (
-
+ id={`product-${product.id}`}
 <div className="group bg-white/5 border border-white/10 rounded-3xl overflow-hidden flex flex-col hover:border-green-500 hover:-translate-y-2 transition-all duration-500">
 <div className="relative h-64 flex items-center justify-center p-4">
 <button
