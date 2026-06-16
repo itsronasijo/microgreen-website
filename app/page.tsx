@@ -71,11 +71,7 @@ const loadWishlistCount = async () => {
   setWishlistCount(count || 0);
 };
 
-  const findProducts = () => {
-  const matchedProducts = getRecommendations(selectedGoals);
-
-  setRecommendations(matchedProducts);
-};
+ 
   const [ingredients, setIngredients] =
   useState("");
   const [search, setSearch] = useState("");
