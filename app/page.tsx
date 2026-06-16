@@ -355,19 +355,29 @@ const findProducts = async () => {
     return;
   }
 
-  const uniqueProducts = Array.from(
-    new Map(
-      scores.map((row: any) => [
-        row.products.id,
-        row.products,
-      ])
-    ).values()
-  );
+ const productMap = new Map();
 
-  setRecommendations(uniqueProducts);
-  setShowResults(true);
-};
+scores.forEach((row: any) => {
+  const product = row.products;
 
+  if (!product) return;
+
+  if (!productMap.has(product.id)) {
+    productMap.set(product.id, {
+      ...product,
+      totalScore: row.score,
+    });
+  } else {
+    productMap.get(product.id).totalScore += row.score;
+  }
+});
+
+const rankedProducts = Array.from(productMap.values())
+  .sort((a: any, b: any) => b.totalScore - a.totalScore)
+  .slice(0, 3);
+
+setRecommendations(rankedProducts);
+setShowResults(true);
 
   
  return (
