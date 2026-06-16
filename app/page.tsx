@@ -903,7 +903,7 @@ setShowResults(true);
    <div className="grid lg:grid-cols-[2fr_1fr] gap-8">
 
   {/* LEFT SIDE - 6 CARDS */}
-  <div className="grid grid-cols-2 gap-4">
+  <div className="grid grid-cols-2 gap-3 max-w-[600px] mx-auto">
 
     {/* Card 1 */}
     <div
