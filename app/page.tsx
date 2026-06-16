@@ -908,7 +908,7 @@ setShowResults(true);
     {/* Card 1 */}
     <div
       onClick={() => toggleGoal("Mild & Sweet")}
-      className={`group rounded-2xl p-4 cursor-pointer transition-all
+      className={`group rounded-2xl p-4 min-h-[120px] cursor-pointer transition-all
       ${
         selectedGoals.includes("Mild & Sweet")
           ? "bg-green-500/20 border-2 border-green-400"
@@ -1054,33 +1054,34 @@ setShowResults(true);
     <h3 className="text-green-400 font-bold text-xl mb-5">
       🌱 Recommended For You
     </h3>
+<div className="space-y-3">
 
-    <div className="space-y-4">
+  {recommendations.map((product: any) => (
+    <div
+      key={product.id}
+      className="flex items-center justify-between bg-white/5 rounded-xl p-3"
+    >
+      <span className="font-semibold text-white">
+        {product.name}
+      </span>
 
-      {recommendations.map((product: any) => (
-        <div
-          key={product.id}
-          className="bg-white/5 rounded-2xl p-4"
-        >
-          <img
-            src={product.image}
-            alt={product.name}
-            className="w-full h-32 object-cover rounded-xl mb-3"
-          />
+      <button
+        className="
+          bg-green-500
+          hover:bg-green-400
+          text-black
+          px-4
+          py-2
+          rounded-lg
+          font-bold
+        "
+      >
+        Shop
+      </button>
+    </div>
+  ))}
 
-          <h4 className="font-bold text-white">
-            {product.name}
-          </h4>
-
-          <p className="text-gray-400 text-sm mt-2">
-            {product.description}
-          </p>
-
-          <p className="text-green-400 font-bold mt-3">
-            From ₹{product.price50}
-          </p>
-        </div>
-      ))}
+</div>
 
     </div>
 
