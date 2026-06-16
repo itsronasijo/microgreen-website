@@ -147,7 +147,7 @@ setCartItems(cart);
         AI Kitchen
       </a>
      <a href="/#analyzer"className="hover:text-green-400 transition duration-300">
-        🧠Health Analyzer
+      🌱 Microgreen Finder
      </a>
 
      
