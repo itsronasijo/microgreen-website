@@ -378,7 +378,7 @@ const rankedProducts = Array.from(productMap.values() as any[])
 
 setRecommendations(rankedProducts);
 setShowResults(true);
-
+    };
   
  return (
    <>
