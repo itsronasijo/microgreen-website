@@ -1049,17 +1049,7 @@ selectedGoals.includes("Explore New Flavors")
   </p>
 
   <button
-    onClick={() => setShowAnalyzer(true)}
-    className="
-      px-8 py-3
-      rounded-full
-      bg-green-500
-      hover:bg-green-400
-      text-black
-      font-bold
-      transition
-      hover:scale-105
-    "
+    
   >
     Start Analysis →
   </button>
