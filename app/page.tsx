@@ -16,7 +16,15 @@ export default function Home() {
   const [recommendations, setRecommendations] = useState<any[]>([]);
   
  
- 
+ useEffect(() => {
+  if (selectedGoals.length > 0) {
+    findProducts();
+    setShowResults(true);
+  } else {
+    setShowResults(false);
+    setRecommendations([]);
+  }
+}, [selectedGoals]);
 
  
   useEffect(() => {
@@ -61,6 +69,12 @@ const loadWishlistCount = async () => {
     .eq("user_id", user.id);
 
   setWishlistCount(count || 0);
+};
+
+  const findProducts = () => {
+  const matchedProducts = getRecommendations(selectedGoals);
+
+  setRecommendations(matchedProducts);
 };
   const [ingredients, setIngredients] =
   useState("");
@@ -378,7 +392,7 @@ const rankedProducts = Array.from(productMap.values())
   .slice(0, 3);
 
 setRecommendations(rankedProducts);
-setShowResults(true);
+
     };
   
  return (
@@ -1005,7 +1019,7 @@ setShowResults(true);
       {selectedGoals.length === 0 ? (
 
         <p className="text-center text-gray-400 py-8">
-          Select up to 3 preferences
+         Select a preference to see recommendations
         </p>
 
       ) : (
@@ -1022,12 +1036,7 @@ setShowResults(true);
             ))}
           </div>
 
-          <button
-            onClick={findProducts}
-            className="w-full bg-green-500 hover:bg-green-400 text-black font-bold py-4 rounded-2xl"
-          >
-            Find My Microgreens →
-          </button>
+         
         </>
       )}
 
@@ -1062,12 +1071,7 @@ setShowResults(true);
 
       </div>
 
-      <button
-        onClick={() => setShowResults(false)}
-        className="mt-5 w-full border border-green-500 rounded-2xl py-3 text-green-400"
-      >
-        ← Back
-      </button>
+     
 
     </div>
 
