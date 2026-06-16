@@ -841,224 +841,162 @@ const microgreenSection =
       </p>
     </div>
 
-    <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
+   <div className="grid lg:grid-cols-[2fr_1fr] gap-8">
 
-      <div
-  onClick={() => toggleGoal("Mild & Sweet")}
-  className={`group backdrop-blur-md rounded-3xl p-6 cursor-pointer transition duration-300 hover:scale-105
-  ${
-   selectedGoals.includes("Mild & Sweet")
-      ? "bg-green-500/20 border-2 border-green-400 shadow-[0_0_30px_rgba(34,197,94,0.3)]"
-      : "bg-white/5 border border-green-500/20 hover:border-green-400"
-  }`}
->
-  <div className="flex justify-between items-start">
+  {/* LEFT SIDE - 6 CARDS */}
+  <div className="grid grid-cols-2 gap-4">
 
-    <div>
-      <div className="text-4xl mb-3">💪</div>
-
-      <h3 className="font-bold text-lg text-white">
-       Mild & Sweet
-      </h3>
+    {/* Card 1 */}
+    <div
+      onClick={() => toggleGoal("Mild & Sweet")}
+      className={`group rounded-2xl p-4 cursor-pointer transition-all
+      ${
+        selectedGoals.includes("Mild & Sweet")
+          ? "bg-green-500/20 border-2 border-green-400"
+          : "bg-white/5 border border-green-500/20"
+      }`}
+    >
+      <div className="text-3xl mb-2">💪</div>
+      <h3 className="font-bold text-lg">Mild & Sweet</h3>
     </div>
 
-    {selectedGoals.includes("Mild & Sweet") && (
-      <div className="text-green-400 text-2xl">
-        ✓
-      </div>
-    )}
+    {/* Card 2 */}
+    <div
+      onClick={() => toggleGoal("Bold & Peppery")}
+      className={`group rounded-2xl p-4 cursor-pointer transition-all
+      ${
+        selectedGoals.includes("Bold & Peppery")
+          ? "bg-green-500/20 border-2 border-green-400"
+          : "bg-white/5 border border-green-500/20"
+      }`}
+    >
+      <div className="text-3xl mb-2">🌶️</div>
+      <h3 className="font-bold text-lg">Bold & Peppery</h3>
+    </div>
+
+    {/* Card 3 */}
+    <div
+      onClick={() => toggleGoal("Nutty & Crunchy")}
+      className={`group rounded-2xl p-4 cursor-pointer transition-all
+      ${
+        selectedGoals.includes("Nutty & Crunchy")
+          ? "bg-green-500/20 border-2 border-green-400"
+          : "bg-white/5 border border-green-500/20"
+      }`}
+    >
+      <div className="text-3xl mb-2">🥜</div>
+      <h3 className="font-bold text-lg">Nutty & Crunchy</h3>
+    </div>
+
+    {/* Card 4 */}
+    <div
+      onClick={() => toggleGoal("Everyday Choice")}
+      className={`group rounded-2xl p-4 cursor-pointer transition-all
+      ${
+        selectedGoals.includes("Everyday Choice")
+          ? "bg-green-500/20 border-2 border-green-400"
+          : "bg-white/5 border border-green-500/20"
+      }`}
+    >
+      <div className="text-3xl mb-2">⚡</div>
+      <h3 className="font-bold text-lg">Everyday Choice</h3>
+    </div>
+
+    {/* Card 5 */}
+    <div
+      onClick={() => toggleGoal("Best Seller")}
+      className={`group rounded-2xl p-4 cursor-pointer transition-all
+      ${
+        selectedGoals.includes("Best Seller")
+          ? "bg-green-500/20 border-2 border-green-400"
+          : "bg-white/5 border border-green-500/20"
+      }`}
+    >
+      <div className="text-3xl mb-2">🌿</div>
+      <h3 className="font-bold text-lg">Best Seller</h3>
+    </div>
+
+    {/* Card 6 */}
+    <div
+      onClick={() => toggleGoal("Explore New Flavors")}
+      className={`group rounded-2xl p-4 cursor-pointer transition-all
+      ${
+        selectedGoals.includes("Explore New Flavors")
+          ? "bg-green-500/20 border-2 border-green-400"
+          : "bg-white/5 border border-green-500/20"
+      }`}
+    >
+      <div className="text-3xl mb-2">🥗</div>
+      <h3 className="font-bold text-lg">Explore New Flavors</h3>
+    </div>
 
   </div>
-</div>
 
-   <div
- onClick={() => toggleGoal("Bold & Peppery")}
-  className={`group backdrop-blur-md rounded-3xl p-6 cursor-pointer transition duration-300 hover:scale-105
-  ${
-    selectedGoals.includes ("Bold & Peppery")
-      ? "bg-green-500/20 border-2 border-green-400 shadow-[0_0_30px_rgba(34,197,94,0.3)]"
-      : "bg-white/5 border border-green-500/20 hover:border-green-400"
-  }`}
->
-  <div className="flex justify-between items-start">
+  {/* RIGHT SIDE PANEL */}
+  <div className="sticky top-24">
+    
+<div className="bg-green-500/10 border border-green-500/30 rounded-3xl p-5">
 
-    <div>
-      <div className="text-4xl mb-3">⚖️</div>
-
-      <h3 className="font-bold text-lg text-white">
-     Bold & Peppery
-      </h3>
-    </div>
-
-    {selectedGoals.includes( "Bold & Peppery") && (
-      <div className="text-green-400 text-2xl">
-        ✓
-      </div>
-    )}
-
-  </div>
-</div>
-      
-      <div
-  onClick={() => toggleGoal("Nutty & Crunchy")}
-  className={`group backdrop-blur-md rounded-3xl p-6 cursor-pointer transition duration-300 hover:scale-105
-  ${
-    selectedGoals.includes("Nutty & Crunchy")
-      ? "bg-green-500/20 border-2 border-green-400 shadow-[0_0_30px_rgba(34,197,94,0.3)]"
-      : "bg-white/5 border border-green-500/20 hover:border-green-400"
-  }`}
->
-  <div className="flex justify-between items-start">
-
-    <div>
-      <div className="text-4xl mb-3">🛡️</div>
-
-      <h3 className="font-bold text-lg text-white">
-      Nutty & Crunchy
-      </h3>
-    </div>
-
-    {selectedGoals.includes ("Nutty & Crunchy" )&& (
-      <div className="text-green-400 text-2xl">
-        ✓
-      </div>
-    )}
-
-  </div>
-</div>
-
-
-       
-               <div
-  onClick={() => toggleGoal("Everyday Choice")}
-  className={`group backdrop-blur-md rounded-3xl p-6 cursor-pointer transition duration-300 hover:scale-105
-  ${
-   selectedGoals.includes("Everyday Choice")
-      ? "bg-green-500/20 border-2 border-green-400 shadow-[0_0_30px_rgba(34,197,94,0.3)]"
-      : "bg-white/5 border border-green-500/20 hover:border-green-400"
-  }`}
->
-  <div className="flex justify-between items-start">
-
-    <div>
-      <div className="text-4xl mb-3">⚡</div>
-
-      <h3 className="font-bold text-lg text-white">
-      Everyday Choice
-      </h3>
-    </div>
-
-    {selectedGoals.includes( "Everyday Choice") && (
-      <div className="text-green-400 text-2xl">
-        ✓
-      </div>
-    )}
-
-  </div>
-</div>
-
-
-
-       
-      <div
-  onClick={() => toggleGoal("Best Seller")}
-  className={`group backdrop-blur-md rounded-3xl p-6 cursor-pointer transition duration-300 hover:scale-105
-  ${
-   selectedGoals.includes("Best Seller")
-      ? "bg-green-500/20 border-2 border-green-400 shadow-[0_0_30px_rgba(34,197,94,0.3)]"
-      : "bg-white/5 border border-green-500/20 hover:border-green-400"
-  }`}
->
-  <div className="flex justify-between items-start">
-
-    <div>
-      <div className="text-4xl mb-3">🌿</div>
-
-      <h3 className="font-bold text-lg text-white">
-       Best Seller
-      </h3>
-    </div>
-
-    {selectedGoals.includes( "Best Seller") && (
-      <div className="text-green-400 text-2xl">
-        ✓
-      </div>
-    )}
-
-  </div>
-</div>
-
-            <div
-  onClick={() => toggleGoal("Explore New Flavors")}
-  className={`group backdrop-blur-md rounded-3xl p-6 cursor-pointer transition duration-300 hover:scale-105
-  ${
-selectedGoals.includes("Explore New Flavors")
-      ? "bg-green-500/20 border-2 border-green-400 shadow-[0_0_30px_rgba(34,197,94,0.3)]"
-      : "bg-white/5 border border-green-500/20 hover:border-green-400"
-  }`}
->
-  <div className="flex justify-between items-start">
-
-    <div>
-      <div className="text-4xl mb-3">🥗</div>
-
-      <h3 className="font-bold text-lg text-white">
-        Explore New Flavors
-      </h3>
-    </div>
-
-    {selectedGoals.includes("Explore New Flavors") && (
-      <div className="text-green-400 text-2xl">
-        ✓
-      </div>
-    )}
-
-  </div>
-</div>
-
-    </div>
-
-{selectedGoals.length > 0 && (
- <div className="mt-6 max-w-xl mx-auto bg-green-500/10 border border-green-500/30 rounded-3xl p-5 text-center">
-
-    <p className="text-green-400 font-bold text-xl mb-5">
-      🌱 Your Wellness Focus
-    </p>
-
-    <div className="flex flex-wrap justify-center gap-3 mb-6">
-      {selectedGoals.map((goal) => (
-        <span
-          key={goal}
-         className="bg-green-500 text-black px-3 py-1 rounded-full text-sm font-bold"
-        >
-          {goal}
-        </span>
-      ))}
-    </div>
-
-   <div className="border-t border-green-500/20 pt-4">
-
-  <p className="text-sm mb-4">
-    <span className="text-green-300 font-semibold">
-      {selectedGoals.length}/3 Goals Selected
-    </span>
-
-    <span className="text-gray-400 ml-3">
-      • Personalized microgreen recommendations
-    </span>
+  <p className="text-green-400 font-bold text-xl mb-5 text-center">
+    🌱 Your Preferences
   </p>
 
-  <button
-    
-  >
-    Start Analysis →
-  </button>
+  {selectedGoals.length === 0 ? (
+
+    <div className="text-center py-8">
+      <p className="text-gray-400">
+        Select up to 3 preferences
+      </p>
+    </div>
+
+  ) : (
+
+    <>
+      <div className="flex flex-wrap justify-center gap-3 mb-6">
+        {selectedGoals.map((goal) => (
+          <span
+            key={goal}
+            className="bg-green-500 text-black px-3 py-1 rounded-full text-sm font-bold"
+          >
+            {goal}
+          </span>
+        ))}
+      </div>
+
+      <div className="border-t border-green-500/20 pt-4 text-center">
+
+        <p className="text-sm mb-4">
+          <span className="text-green-300 font-semibold">
+            {selectedGoals.length}/3 Selected
+          </span>
+
+          <span className="text-gray-400 ml-3">
+            • Taste-based recommendations
+          </span>
+        </p>
+
+        <button
+          className="
+            w-full
+            bg-green-500
+            hover:bg-green-400
+            text-black
+            font-bold
+            py-4
+            rounded-2xl
+            transition
+          "
+        >
+          Find My Microgreens →
+        </button>
+
+      </div>
+    </>
+  )}
 
 </div>
-  </div>
-)}
-  
-
+   </div> {/* End Right Panel */} 
+</div> {/* End 2 Column Grid */}
  </div> {/* Glass Container */}
   </div>
 
