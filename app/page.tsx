@@ -12,7 +12,8 @@ export default function Home() {
   const [cart, setCart] = useState<any[]>([]);
   const [selectedGoals, setSelectedGoals] = useState<string[]>([]);
   const [showToast, setShowToast] = useState(false);
-  
+  const [showResults, setShowResults] = useState(false);
+  const [recommendations, setRecommendations] = useState<any[]>([]);
   
  
  
@@ -318,7 +319,54 @@ const microgreenSection =
 
 };
   
+const findProducts = async () => {
+  // Get selected option IDs
+  const { data: options } = await supabase
+    .from("microgreen_finder_options")
+    .select("id,title");
 
+  if (!options) return;
+
+  const optionIds = options
+    .filter((option) =>
+      selectedGoals.includes(option.title)
+    )
+    .map((option) => option.id);
+
+  if (optionIds.length === 0) return;
+
+  // Get matching scores
+  const { data: scores, error } = await supabase
+    .from("microgreen_finder_scores")
+    .select(`
+      product_id,
+      products (
+        id,
+        name,
+        image,
+        description,
+        price50
+      )
+    `)
+    .in("option_id", optionIds);
+
+  if (error) {
+    console.log(error);
+    return;
+  }
+
+  const uniqueProducts = Array.from(
+    new Map(
+      scores.map((row: any) => [
+        row.products.id,
+        row.products,
+      ])
+    ).values()
+  );
+
+  setRecommendations(uniqueProducts);
+  setShowResults(true);
+};
 
 
   
@@ -941,41 +989,36 @@ const microgreenSection =
     🌱 Your Preferences
   </p>
 
-  {selectedGoals.length === 0 ? (
+ {!showResults ? (
 
-    <div className="text-center py-8">
-      <p className="text-gray-400">
+  <div className="bg-green-500/10 border border-green-500/30 rounded-3xl p-5">
+
+    <p className="text-green-400 font-bold text-xl mb-5 text-center">
+      🌱 Your Preferences
+    </p>
+
+    {selectedGoals.length === 0 ? (
+
+      <p className="text-center text-gray-400 py-8">
         Select up to 3 preferences
       </p>
-    </div>
 
-  ) : (
+    ) : (
 
-    <>
-      <div className="flex flex-wrap justify-center gap-3 mb-6">
-        {selectedGoals.map((goal) => (
-          <span
-            key={goal}
-            className="bg-green-500 text-black px-3 py-1 rounded-full text-sm font-bold"
-          >
-            {goal}
-          </span>
-        ))}
-      </div>
-
-      <div className="border-t border-green-500/20 pt-4 text-center">
-
-        <p className="text-sm mb-4">
-          <span className="text-green-300 font-semibold">
-            {selectedGoals.length}/3 Selected
-          </span>
-
-          <span className="text-gray-400 ml-3">
-            • Taste-based recommendations
-          </span>
-        </p>
+      <>
+        <div className="flex flex-wrap justify-center gap-3 mb-6">
+          {selectedGoals.map((goal) => (
+            <span
+              key={goal}
+              className="bg-green-500 text-black px-3 py-1 rounded-full text-sm font-bold"
+            >
+              {goal}
+            </span>
+          ))}
+        </div>
 
         <button
+          onClick={findProducts}
           className="
             w-full
             bg-green-500
@@ -984,16 +1027,70 @@ const microgreenSection =
             font-bold
             py-4
             rounded-2xl
-            transition
           "
         >
           Find My Microgreens →
         </button>
+      </>
+    )}
 
-      </div>
-    </>
-  )}
+  </div>
 
+) : (
+
+  <div className="bg-green-500/10 border border-green-500/30 rounded-3xl p-5">
+
+    <h3 className="text-green-400 font-bold text-xl mb-5">
+      🌱 Recommended For You
+    </h3>
+
+    <div className="space-y-4">
+
+      {recommendations.map((product: any) => (
+        <div
+          key={product.id}
+          className="bg-white/5 rounded-2xl p-4"
+        >
+          <img
+            src={product.image}
+            alt={product.name}
+            className="w-full h-32 object-cover rounded-xl mb-3"
+          />
+
+          <h4 className="font-bold text-white">
+            {product.name}
+          </h4>
+
+          <p className="text-gray-400 text-sm mt-2">
+            {product.description}
+          </p>
+
+          <p className="text-green-400 font-bold mt-3">
+            From ₹{product.price50}
+          </p>
+        </div>
+      ))}
+
+    </div>
+
+    <button
+      onClick={() => setShowResults(false)}
+      className="
+        mt-5
+        w-full
+        border
+        border-green-500
+        rounded-2xl
+        py-3
+        text-green-400
+      "
+    >
+      ← Back
+    </button>
+
+  </div>
+
+)}
 </div>
    </div> {/* End Right Panel */} 
 </div> {/* End 2 Column Grid */}
