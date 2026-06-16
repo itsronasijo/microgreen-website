@@ -1073,7 +1073,7 @@ setShowResults(true);
 
   )}
 
-</div>  
+
    </div> {/* End Right Panel */} 
 </div> {/* End 2 Column Grid */}
  </div> {/* Glass Container */}
